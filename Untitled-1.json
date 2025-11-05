@@ -1,0 +1,68 @@
+{
+    "full_name": "",
+    "birth_date": null,
+    "driver_license": "",
+    "vy_date": null,
+    "snils": "",
+    "dopog": false,
+    "phone_1": "",
+    "phone_2": "",
+    "status": null,
+    "refusal_reason": "",
+    "user": null,
+    "contractor": null,
+    "cars": []
+}
+
+{
+    "full_name": "",
+    "birth_date": null,
+    "driver_license": "",
+    "vy_date": null,
+    "snils": "",
+    "cars": []
+}
+{
+    "org_name": "",
+    "full_org_name": "",
+    "full_name": "",
+    "phone1": "",
+    "drivers": [],
+    "cars": []
+}
+
+{
+    "season": null,
+    "driver": null,
+    "driver2": null,
+    "number": null,
+    "pod": null,
+    "gruz": null,
+    "loading_point": null,
+    "unloading_point": null,
+    "distance": null,
+
+    "organization": null,
+    "customer": null,
+    "cargo_batch": null,
+    
+    "dataPOPL": null,
+    "dataSDPL": null,
+    "numberTN": "",
+    "loading_time": null,
+    "unloading_time": null,
+    "tonn": null,
+    "tarif": null,
+    "fuel_consumption": null,
+    "fuel_consumption_cost": null,
+    "fuel_card_consumption": null,
+    "fuel_card_cost": null,
+    "fine": null,
+    "fine_comment": "",
+    "dispatch_info": "",
+    "comment": "",
+    "comment_pay": "",
+    "status": null,
+    "payment_amount": null,
+    "fuel_card": null
+}

@@ -1,0 +1,1091 @@
+[
+  {
+    "contractor": 1,
+    "passport_series": "9810",
+    "passport_number": "260343",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2010-05-11",
+    "registration_org": "Тп УФМС России по РС(Я) в Чурапчинском районе",
+    "registration_address": "Чурапча с.Мындагай ул. Заложная 20/1"
+  },
+  {
+    "contractor": 2,
+    "passport_series": "9814",
+    "passport_number": "536602",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2014-07-05",
+    "registration_org": "ТП в Намском районе МРО УФМС России по Республике Саха ( Якутия) в городе Якутске",
+    "registration_address": "Республика Саха ( Якутия) Верхневилюйский район село Оргет улица Комсомольская 11 корпус 1"
+  },
+  {
+    "contractor": 4,
+    "passport_series": "9808",
+    "passport_number": "180711",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2008-12-29",
+    "registration_org": "ТП УФМС России по РС(Я) в Таттинском районе",
+    "registration_address": "РС(Я), Таттинский улус, с. Ытык-Кюель, пер. А. Егоровой, 23"
+  },
+  {
+    "contractor": 11,
+    "passport_series": "9815",
+    "passport_number": "642452",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2016-01-11",
+    "registration_org": "Мро УФМС России по Республике Саха (Якутия) в г. Якутске",
+    "registration_address": "г. Якутск, ул Островского, д. 6, кв. 45"
+  },
+  {
+    "contractor": 19,
+    "passport_series": "9811",
+    "passport_number": "374800",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2011-12-20",
+    "registration_org": "тп уфмс россии по рся в мегино кангаласском рне",
+    "registration_address": "с майя ул мегинская 8"
+  },
+  {
+    "contractor": 21,
+    "passport_series": "9817",
+    "passport_number": "757252",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2017-11-23",
+    "registration_org": "МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В Г. ЯКУТСКЕ",
+    "registration_address": "Г.Якутск, ул Лермонтова 94/2 кв 60"
+  },
+  {
+    "contractor": 23,
+    "passport_series": "9810",
+    "passport_number": "264344",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2010-08-02",
+    "registration_org": "Тп УФМС России по РС(Я) в Амгинском районе",
+    "registration_address": "с Амга АМГИНСКОГО района ул Партизанская 143"
+  },
+  {
+    "contractor": 24,
+    "passport_series": "9812",
+    "passport_number": "459841",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2013-03-10",
+    "registration_org": "ТП УФМС России по РС(Я) в Мегино-Кангаласском р-не",
+    "registration_address": "г. Якутск, ул. КИЗ Батагайский, д. 5/1"
+  },
+  {
+    "contractor": 26,
+    "passport_series": "9807",
+    "passport_number": "064829",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2007-08-01",
+    "registration_org": "ТА УФМС РОССИИ ПО РЕСПУЛИКЕ САХА ЯКУТИЯ В КОБЯЙСКОМ РАЙОНЕ",
+    "registration_address": "Республика Саха Якутия Усть-Алданский улус село Дюпся улица В.В.Никифорова дом 13"
+  },
+  {
+    "contractor": 28,
+    "passport_series": "9823",
+    "passport_number": "085444",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2024-02-02",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "Республика Саха (Якутия), у. Мегино-Кангаласский, с. Хоробут, ул. Дмитрия Таас, дом 8"
+  },
+  {
+    "contractor": 29,
+    "passport_series": "9816",
+    "passport_number": "703135",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2017-05-04",
+    "registration_org": "ТП В НЮРБИНСКОМ РАЙОНЕ МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В МИРНИНСКОМ РАЙОНЕ",
+    "registration_address": "РЕСП САХА /ЯКУТИЯ/ ГОРОД НЮРБА СЕЛО АНТОНОВКА УЛ С.ЗВЕРЕВА ДОМ 18"
+  },
+  {
+    "contractor": 30,
+    "passport_series": "9823",
+    "passport_number": "079508",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2023-11-03",
+    "registration_org": "МВД по республике Саха Якутия",
+    "registration_address": "Республика Саха Якутия район Намский с Графский берег улица центральная 12."
+  },
+  {
+    "contractor": 32,
+    "passport_series": "9818",
+    "passport_number": "812346",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2018-12-19",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "677000 г. Якутск, ул. Пояркова, дом 23,кв 4"
+  },
+  {
+    "contractor": 33,
+    "passport_series": "9817",
+    "passport_number": "763967",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2018-01-31",
+    "registration_org": "МВД по Республике Саха(Якутия)",
+    "registration_address": "Горный р-н, с Бердигестях,ул Парковая,26"
+  },
+  {
+    "contractor": 36,
+    "passport_series": "9823",
+    "passport_number": "074762",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2023-11-30",
+    "registration_org": "мвд по рс(я)",
+    "registration_address": "Амга ул.кэрэхтээх14"
+  },
+  {
+    "contractor": 38,
+    "passport_series": "9825",
+    "passport_number": "165117",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2025-04-10",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "Республика Саха (Якутия), г. Якутск, ул. Каландаришвили, д. 38/5, кв. 108"
+  },
+  {
+    "contractor": 39,
+    "passport_series": "9818",
+    "passport_number": "821049",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2019-02-11",
+    "registration_org": "МВД по республике Саха(Якутия)",
+    "registration_address": "Строда 16/2 квартира 43"
+  },
+  {
+    "contractor": 41,
+    "passport_series": "9816",
+    "passport_number": "666463",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2016-05-12",
+    "registration_org": "МРО УФМС РОССИИ по РЕСПУБЛИКЕ САХА (ЯКУТИЯ) в г. ЯКУТСКЕ",
+    "registration_address": "Республика Саха (Якутия), г. Якутск,  ул. Кырдал, д.17"
+  },
+  {
+    "contractor": 43,
+    "passport_series": "9815",
+    "passport_number": "600204",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2015-07-03",
+    "registration_org": "МП УФМС России по Республике Саха (Якутия) в Мегино-Кангаласском р-не",
+    "registration_address": "Республика Саха (Якутия) Мегино-Кангаласском районе село. Майя ул С.Д. Егорова 7"
+  },
+  {
+    "contractor": 44,
+    "passport_series": "9818",
+    "passport_number": "820181",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2019-01-29",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "РС(Я), г. Якутск, мкр Марха, ул. О.Кошевого, д. 46"
+  },
+  {
+    "contractor": 9,
+    "passport_series": "9822",
+    "passport_number": "042377",
+    "passport_birth_date": "1998-12-28",
+    "passport_issue_date": "2023-01-19",
+    "registration_org": "МВД по Республике Саха",
+    "registration_address": "Республика Саха Мегино-Кангаласский район с Нуорагана А Баишева д5"
+  },
+  {
+    "contractor": 12,
+    "passport_series": "9823",
+    "passport_number": "054234",
+    "passport_birth_date": "2003-01-12",
+    "passport_issue_date": "2023-07-18",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "г. Нюрба, ул. Летная, д. 9"
+  },
+  {
+    "contractor": 17,
+    "passport_series": "9808",
+    "passport_number": "148895",
+    "passport_birth_date": "1988-07-26",
+    "passport_issue_date": "2008-08-27",
+    "registration_org": "ТП Уфмс России по РС(Я) в Мегино-Кангаласском районе",
+    "registration_address": "г. Якутск, ул. Сергеляхское поле В-9"
+  },
+  {
+    "contractor": 10,
+    "passport_series": "9808",
+    "passport_number": "199839",
+    "passport_birth_date": "1987-06-28",
+    "passport_issue_date": "2009-07-03",
+    "registration_org": "ТП УФМС России по Республике Саха (Якутия) в Горном районе",
+    "registration_address": "Республика Саха Якутия Горный район ,село Асыма , ул. Пришкольная 20"
+  },
+  {
+    "contractor": 18,
+    "passport_series": "9813",
+    "passport_number": "474043",
+    "passport_birth_date": "1992-12-27",
+    "passport_issue_date": "2013-05-14",
+    "registration_org": "Мро УФМС России по республике Саха Якутия в г. Якутске",
+    "registration_address": "Г. Якутск ул. Петра Алексеева 83/2"
+  },
+  {
+    "contractor": 40,
+    "passport_series": "9802",
+    "passport_number": "470055",
+    "passport_birth_date": "1980-12-16",
+    "passport_issue_date": "2003-10-01",
+    "registration_org": "овд жиганского улуса",
+    "registration_address": "рс Якутия Жиганский р-н, с Жиганск ул Филиппа Андросова 13"
+  },
+  {
+    "contractor": 25,
+    "passport_series": "9824",
+    "passport_number": "104372",
+    "passport_birth_date": "1988-10-19",
+    "passport_issue_date": "2024-03-11",
+    "registration_org": "МВД  ПО Республике Саха (Якутия)",
+    "registration_address": "РСЯ Чурапчинский район. Село Чурапча. Улица Красильникова 37"
+  },
+  {
+    "contractor": 34,
+    "passport_series": "9820",
+    "passport_number": "894546",
+    "passport_birth_date": "1985-11-04",
+    "passport_issue_date": "2020-06-11",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "Республика Саха (Якутия) г. Якутск ул. Тимофея Бутакова 81/3"
+  },
+  {
+    "contractor": 31,
+    "passport_series": "9813",
+    "passport_number": "495518",
+    "passport_birth_date": "1989-08-07",
+    "passport_issue_date": "2013-09-12",
+    "registration_org": "МРО УФМС России по республике Саха Якутия в г.Якутске",
+    "registration_address": "Село Хатассы г.Якутска ул.Западная,17"
+  },
+  {
+    "contractor": 22,
+    "passport_series": "9814",
+    "passport_number": "537111",
+    "passport_birth_date": "1986-12-18",
+    "passport_issue_date": "2014-11-06",
+    "registration_org": "ТП в Намском районе МРО УФМС России по РС(Я) в г.Якутске",
+    "registration_address": "Респ Саха /Якутия/, село Намцы, ул И.Винокурова, д 43"
+  },
+  {
+    "contractor": 6,
+    "passport_series": "9818",
+    "passport_number": "805423",
+    "passport_birth_date": "1975-01-26",
+    "passport_issue_date": "2020-02-05",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА ЯКУТИЯ",
+    "registration_address": "С.Жиганск, ул. Ойунского 23 кв 1"
+  },
+  {
+    "contractor": 27,
+    "passport_series": "9815",
+    "passport_number": "602603",
+    "passport_birth_date": "1985-09-25",
+    "passport_issue_date": "2015-05-21",
+    "registration_org": "МРО УФМС России по РСЯ в г. Якутске",
+    "registration_address": "Г. Якутск ул. И. Крафта 154/2"
+  },
+  {
+    "contractor": 35,
+    "passport_series": "9808",
+    "passport_number": "168001",
+    "passport_birth_date": "1987-04-22",
+    "passport_issue_date": "2008-10-14",
+    "registration_org": "Уфм России по республике Саха Якутия г Якутск",
+    "registration_address": "Якутск ул кальвица 1кв 72"
+  },
+  {
+    "contractor": 16,
+    "passport_series": "9818",
+    "passport_number": "833928",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2019-05-13",
+    "registration_org": "МВД РЕСПУБЛИКИ САХА ЯКУТИЯ",
+    "registration_address": "РЕСПУБЛИКА САХА ЯКУТИЯ ТАТТИНСКИЙ УЛУС С. ЫТЫК-КЮЕЛЬ УЛ. КУЗЬМИНА 5"
+  },
+  {
+    "contractor": 5,
+    "passport_series": "9824",
+    "passport_number": "110775",
+    "passport_birth_date": "1970-08-25",
+    "passport_issue_date": "2024-08-27",
+    "registration_org": "МВД по республике САХА /ЯКУТИЯ",
+    "registration_address": "РСЯ Чурапчинский улус с Мындагай ул Васильева 29/1"
+  },
+  {
+    "contractor": 45,
+    "passport_series": "9815",
+    "passport_number": "636518",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2015-12-01",
+    "registration_org": "МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В Г. ЯКУТСКЕ",
+    "registration_address": "РС(Я) Верхневилюйский район, с. Хоро, ул. Советская, д. 17"
+  },
+  {
+    "contractor": 46,
+    "passport_series": "9810",
+    "passport_number": "289821",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2010-11-24",
+    "registration_org": "ТП УФМС России по РС(Я) в Таттинском районе",
+    "registration_address": "г. Якутск Чкалова 2 кв.133"
+  },
+  {
+    "contractor": 48,
+    "passport_series": "9814",
+    "passport_number": "585069",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2015-03-02",
+    "registration_org": "ТП УФМС России по РС(Я) в Чурапчинском р-не",
+    "registration_address": "РС(Я), у. Чурапчинский, с. Чурапча, ул. Речная, д. 7"
+  },
+  {
+    "contractor": 50,
+    "passport_series": "9803",
+    "passport_number": "850365",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2004-08-18",
+    "registration_org": "ОВД Амгинского улуса Республики Саха Якутии",
+    "registration_address": "Амгинский улус с. Чапчылган ул.50лет МТС 25 кв1"
+  },
+  {
+    "contractor": 51,
+    "passport_series": "9823",
+    "passport_number": "076745",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2023-09-21",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "Республика Саха (Якутия) , Жиганский улус, с. Жиганск, ул. Шемякова, дом 14а, кв. 9"
+  },
+  {
+    "contractor": 52,
+    "passport_series": "9814",
+    "passport_number": "569733",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2014-11-10",
+    "registration_org": "МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА(ЯКУТИЯ) В Г.ЯКУТСКЕ",
+    "registration_address": "Республика Саха(Якутия) Верхоянский улус, с. Сайды, ул.Спортивная, д.2"
+  },
+  {
+    "contractor": 53,
+    "passport_series": "9815",
+    "passport_number": "641054",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2015-12-16",
+    "registration_org": "МРО УФМС России г. Якутск",
+    "registration_address": "Лермонтова 152 А кв.48"
+  },
+  {
+    "contractor": 54,
+    "passport_series": "9808",
+    "passport_number": "214398",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2009-07-06",
+    "registration_org": "Отделом УФМС России по Республике Саха (Якутия) в городе Якутске",
+    "registration_address": "Республика Саха (Якутия) город Якутск 203мкр дом 25, кв.155"
+  },
+  {
+    "contractor": 55,
+    "passport_series": "9803",
+    "passport_number": "719179",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2003-07-01",
+    "registration_org": "2м ОВД гор. Якутска Республики Саха (Якутия)",
+    "registration_address": "ул. Сергеляхское Шоссе 12 км дом 7 кв 2"
+  },
+  {
+    "contractor": 57,
+    "passport_series": "9815",
+    "passport_number": "643093",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2016-07-28",
+    "registration_org": "МП УФМС России по РС(Я) в Жиганском р-не",
+    "registration_address": "РС(Я), у. Жиганский, с. Кыстатыам, ул. Шемякова, д. 7, кв. 7"
+  },
+  {
+    "contractor": 58,
+    "passport_series": "9823",
+    "passport_number": "050558",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2023-02-14",
+    "registration_org": "МВД по Республике Саха(Якутия)",
+    "registration_address": "г. Якутск ул.Лермонтова 98/1 кв.69"
+  },
+  {
+    "contractor": 60,
+    "passport_series": "9816",
+    "passport_number": "660705",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2016-04-22",
+    "registration_org": "МРО УФМС РФ ПО РС(Я) в г. ЯКУТСКЕ",
+    "registration_address": "677008, РС(Я), г. Якутск, пер. Беличий,  16/1"
+  },
+  {
+    "contractor": 61,
+    "passport_series": "9805",
+    "passport_number": "977939",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2006-05-29",
+    "registration_org": "Таттинским ОВД Республика Саха (Якутия)",
+    "registration_address": "Таттинский улус село Баяга ул.П.П.Винокурова 6/1"
+  },
+  {
+    "contractor": 63,
+    "passport_series": "9813",
+    "passport_number": "497693",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2014-05-23",
+    "registration_org": "ТП УФМС РОССИИ РС(ЯКУТИЯ)сЖиганском р-не",
+    "registration_address": "Жиганский район сКыстатыам ул.Шемякова 14"
+  },
+  {
+    "contractor": 64,
+    "passport_series": "9819",
+    "passport_number": "835058",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2019-03-21",
+    "registration_org": "МВД по Республики Саха якутия",
+    "registration_address": "г.Якутск  ул.Беринга 44"
+  },
+  {
+    "contractor": 65,
+    "passport_series": "9817",
+    "passport_number": "760451",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2018-02-20",
+    "registration_org": "МВД по РС/Я/",
+    "registration_address": "г.Нюрба, ул.Коммунальников 13"
+  },
+  {
+    "contractor": 66,
+    "passport_series": "9804",
+    "passport_number": "935083",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2006-04-28",
+    "registration_org": "Чурапчинским ОВД РС (Я)",
+    "registration_address": "Чурапчинский улус, с. Чепара, ул.Нагорная, д.13"
+  },
+  {
+    "contractor": 67,
+    "passport_series": "9824",
+    "passport_number": "125489",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2024-10-16",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "Республика. Саха. /Якутия/, у. Амгинский, ул, Западная, д.3"
+  },
+  {
+    "contractor": 68,
+    "passport_series": "9817",
+    "passport_number": "771398",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2018-05-14",
+    "registration_org": "Мвд по рся",
+    "registration_address": "Мегино канг район село павловск ул егорова 27"
+  },
+  {
+    "contractor": 70,
+    "passport_series": "9815",
+    "passport_number": "610788",
+    "passport_birth_date": "2025-10-21",
+    "passport_issue_date": "2015-08-04",
+    "registration_org": "МП УФМС РОССИИ ПО РС(Я) В ТАТТИНСКОМ Р-НЕ",
+    "registration_address": "РС(Я), Таттинский район, с Ытык-Кюель, ул Ойунского д. 35/1"
+  },
+  {
+    "contractor": 73,
+    "passport_series": "9808",
+    "passport_number": "133352",
+    "passport_birth_date": null,
+    "passport_issue_date": "2008-05-13",
+    "registration_org": "Отделом УФМС РОССИИ по РС(Я) в городе Якутске",
+    "registration_address": "Город Якутск ул. Мкр 202 9 корпус кв 116"
+  },
+  {
+    "contractor": 74,
+    "passport_series": "9809",
+    "passport_number": "229916",
+    "passport_birth_date": null,
+    "passport_issue_date": "2009-11-12",
+    "registration_org": "ТП УФМС России по РСЯ в Чурапчинском районе 140-030",
+    "registration_address": "Г. Якутск пер. Светлый дом 34"
+  },
+  {
+    "contractor": 75,
+    "passport_series": "9818",
+    "passport_number": "783749",
+    "passport_birth_date": null,
+    "passport_issue_date": "2018-05-10",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "г.Якутск. ул.Суворово 9"
+  },
+  {
+    "contractor": 7,
+    "passport_series": "9817",
+    "passport_number": "748497",
+    "passport_birth_date": "1972-09-04",
+    "passport_issue_date": "2017-10-06",
+    "registration_org": "ТП в Хангаласском р-не МРО УФМС Росии по Республике Саха (Якутия) в г. Якутске",
+    "registration_address": "678012 РС(Я), Хангаласский улус, с. Ой, ул. Эркээни, д.11"
+  },
+  {
+    "contractor": 78,
+    "passport_series": "9817",
+    "passport_number": "735952",
+    "passport_birth_date": null,
+    "passport_issue_date": "2017-08-07",
+    "registration_org": "МП УФМС РОССИИ ПО РС (ЯКУТИЯ) В МЕГИНО -КАНГАЛАССКОМ Р-НЕ",
+    "registration_address": "РС(Я) МЕГИНО-КАНГАЛАССКОМ УЛУС С.ПАВЛОВСК УЛ.ТЕРЮТСКАЯ 22"
+  },
+  {
+    "contractor": 79,
+    "passport_series": "9820",
+    "passport_number": "929248",
+    "passport_birth_date": null,
+    "passport_issue_date": "2021-03-01",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "у.Таттинский, с.Ытык-кюель, ул.Игнатия Слепцова, д.4"
+  },
+  {
+    "contractor": 80,
+    "passport_series": "9809",
+    "passport_number": "221951",
+    "passport_birth_date": null,
+    "passport_issue_date": "2009-09-10",
+    "registration_org": "ТП УФМС России по РС(Я) в Эвено-Бытантайском районе",
+    "registration_address": "РС(Я), у. Эвено-Бытантайский национальный, с. Батагай-Алыта, уд. О.Н. Слепцовой, д. 3"
+  },
+  {
+    "contractor": 81,
+    "passport_series": "9810",
+    "passport_number": "264615",
+    "passport_birth_date": null,
+    "passport_issue_date": "2010-04-09",
+    "registration_org": "ТП УФМС России по РС(Я) в Намском р-не",
+    "registration_address": "РС(Я), у. Намский, с. Крест-Кытыл, ул. Еремеева, д. 1, корп. 1"
+  },
+  {
+    "contractor": 84,
+    "passport_series": "9803",
+    "passport_number": "894653",
+    "passport_birth_date": null,
+    "passport_issue_date": "2005-10-10",
+    "registration_org": "Таттинским ОВД Республики Саха (Якутия)",
+    "registration_address": "РС(Я), у. Таттинский, с. Томтор"
+  },
+  {
+    "contractor": 83,
+    "passport_series": "9809",
+    "passport_number": "221227",
+    "passport_birth_date": "1987-09-15",
+    "passport_issue_date": "2009-10-28",
+    "registration_org": "ТП УФМС России по РС(Я) в Хангаласском районе",
+    "registration_address": "РС(Я), у. Мегино-Кангаласский, с. Тарат, ул. Нагорная, д. 8"
+  },
+  {
+    "contractor": 85,
+    "passport_series": "9824",
+    "passport_number": "104746",
+    "passport_birth_date": null,
+    "passport_issue_date": "1986-12-18",
+    "registration_org": "МВД по РС(Я)",
+    "registration_address": "РС(Я), у. Мегино-Кангаласский, с. Чюйя, ул. Дружбы, д. 2, к. 2"
+  },
+  {
+    "contractor": 86,
+    "passport_series": "9813",
+    "passport_number": "463180",
+    "passport_birth_date": null,
+    "passport_issue_date": "2013-09-18",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) в ЧУРАПЧИНСКОМ Р-НЕ",
+    "registration_address": "г.Якутск, ул.Крупской 9а, кв 87"
+  },
+  {
+    "contractor": 87,
+    "passport_series": "9810",
+    "passport_number": "282918",
+    "passport_birth_date": null,
+    "passport_issue_date": "2010-09-22",
+    "registration_org": "ТП УФМС России по РС(Я) в Усть-Алданском районе",
+    "registration_address": "РС(Я), г. Якутск, мкр. 202, корп. 19, кв. 109"
+  },
+  {
+    "contractor": 77,
+    "passport_series": "9811",
+    "passport_number": "406633",
+    "passport_birth_date": "1992-07-18",
+    "passport_issue_date": "2012-10-05",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ЧУРАПЧИНСКОМ РАЙОНЕ",
+    "registration_address": "Якутск, пр-т Михаила Николаева 13/1, кв. 521"
+  },
+  {
+    "contractor": 59,
+    "passport_series": "9815",
+    "passport_number": "606667",
+    "passport_birth_date": "1992-07-08",
+    "passport_issue_date": "2015-08-18",
+    "registration_org": "ТП в намском районе МРО УФМС России по РС(Я) в городе Якутске",
+    "registration_address": "Графский берег. Центральная 25к1"
+  },
+  {
+    "contractor": 49,
+    "passport_series": "9803",
+    "passport_number": "696886",
+    "passport_birth_date": "1984-02-10",
+    "passport_issue_date": "2004-07-12",
+    "registration_org": "ОВД Чурапчинского улуса РС(Я)",
+    "registration_address": "677000, г. Якутск мкрн 203, д.1 , кв.391"
+  },
+  {
+    "contractor": 56,
+    "passport_series": "9818",
+    "passport_number": "799582",
+    "passport_birth_date": "1993-08-25",
+    "passport_issue_date": "2018-09-03",
+    "registration_org": "мвд по республике саха (якутия)",
+    "registration_address": "якутск сергеляхское шоссе 8 км 12Д"
+  },
+  {
+    "contractor": 88,
+    "passport_series": "4416",
+    "passport_number": "327450",
+    "passport_birth_date": null,
+    "passport_issue_date": "2017-02-07",
+    "registration_org": "ТП ОФМС РОССИИ ПО МАГАДАНСКОЙ ОБЛ. В ОМСУКЧАНСКОМ Р-НЕ",
+    "registration_address": "Магаданская обл, Омсукчанский рн, ул.Транспортная 6, кв 41"
+  },
+  {
+    "contractor": 89,
+    "passport_series": "9808",
+    "passport_number": "142956",
+    "passport_birth_date": null,
+    "passport_issue_date": "2008-09-15",
+    "registration_org": "ТП УФМС РОССИИ ПО Республике Саха (Якутия) в Таттинском районе",
+    "registration_address": "с.Ытык-Кюель, пер. А.Егоровой 21"
+  },
+  {
+    "contractor": 90,
+    "passport_series": "9815",
+    "passport_number": "642079",
+    "passport_birth_date": null,
+    "passport_issue_date": "2015-12-23",
+    "registration_org": "МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) в г.Якутске",
+    "registration_address": "г.Якутск, ул. Автодорожная д.42, к.1, кв.4"
+  },
+  {
+    "contractor": 91,
+    "passport_series": "9815",
+    "passport_number": "622720",
+    "passport_birth_date": null,
+    "passport_issue_date": "2015-12-02",
+    "registration_org": "МП УФМС России по Республике Саха (Якутия) в Чурапчинском р-не",
+    "registration_address": "Республика Саха (Якутия), у. Чурапчинский, с. Чыаппара, ул. Протодьяконова, д. 66"
+  },
+  {
+    "contractor": 92,
+    "passport_series": "9817",
+    "passport_number": "748893",
+    "passport_birth_date": null,
+    "passport_issue_date": "2018-02-13",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "Вилюйский улус, г.Вилюйск, ул.Ойунского д.14"
+  },
+  {
+    "contractor": 93,
+    "passport_series": "9805",
+    "passport_number": "995332",
+    "passport_birth_date": null,
+    "passport_issue_date": "2006-08-01",
+    "registration_org": "3 ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ГОРОДА ЯКУТСКА",
+    "registration_address": "Олекминский улус, с.Нерюктяйинск 2, ул.Филатова д.39, корп а"
+  },
+  {
+    "contractor": 94,
+    "passport_series": "9811",
+    "passport_number": "386575",
+    "passport_birth_date": null,
+    "passport_issue_date": "2012-01-30",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) в ВИЛЮЙСКОМ РАЙОНЕ",
+    "registration_address": "Мегино-Кангаласский улус, п.Нижний-Бестях, ул.Брусничная, д.3"
+  },
+  {
+    "contractor": 95,
+    "passport_series": "9810",
+    "passport_number": "277788",
+    "passport_birth_date": null,
+    "passport_issue_date": "2010-05-31",
+    "registration_org": "Отделом УФМС России по РС(Я) в г. Якутске",
+    "registration_address": "Республика Саха Якутия г. Якутск ул. Короленко дом 28 кв 74"
+  },
+  {
+    "contractor": 96,
+    "passport_series": "9805",
+    "passport_number": "982791",
+    "passport_birth_date": null,
+    "passport_issue_date": "2007-02-01",
+    "registration_org": "ЧУРАПЧИНСКИЙ ОВД РЕСПУБЛИКИ САХА (ЯКУТИЯ)",
+    "registration_address": "РСЯ, Чурапчинский у, с.Чурапча. ул. ермолаева д.55"
+  },
+  {
+    "contractor": 97,
+    "passport_series": "9815",
+    "passport_number": "602601",
+    "passport_birth_date": null,
+    "passport_issue_date": "2015-05-21",
+    "registration_org": "МРО УФМС России по РС(Я) в г. Якутске",
+    "registration_address": "РС(Я), г. Якутск, пр-кт Ленина, д. 25, кв. 37"
+  },
+  {
+    "contractor": 47,
+    "passport_series": "9818",
+    "passport_number": "802289",
+    "passport_birth_date": "1973-08-24",
+    "passport_issue_date": "2018-09-11",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "Якутск, Дзержинского, 57, кв 9"
+  },
+  {
+    "contractor": 98,
+    "passport_series": "9805",
+    "passport_number": "976693",
+    "passport_birth_date": null,
+    "passport_issue_date": "2006-04-05",
+    "registration_org": "Усть-алданским ОВД Республики Саха (Якутия)",
+    "registration_address": "Усть-алданский улус, с.Беттэ, ул.Ленина 3"
+  },
+  {
+    "contractor": 99,
+    "passport_series": "9813",
+    "passport_number": "524071",
+    "passport_birth_date": null,
+    "passport_issue_date": "2014-02-13",
+    "registration_org": "МРО УФМС России по РС(Я) в г. Якутске",
+    "registration_address": "РС(Я), г. Якутск, ул. Лермонтова, д. 121А, кв. 126"
+  },
+  {
+    "contractor": 100,
+    "passport_series": "9808",
+    "passport_number": "142347",
+    "passport_birth_date": null,
+    "passport_issue_date": "2008-09-09",
+    "registration_org": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском районе",
+    "registration_address": "Респ Саха /Якутия/, г Якутск, ул Лермонтова, д 152А, кв 49"
+  },
+  {
+    "contractor": 82,
+    "passport_series": "9811",
+    "passport_number": "349122",
+    "passport_birth_date": "1964-05-20",
+    "passport_issue_date": "2011-08-11",
+    "registration_org": "ТП УФМС России по РС(Я) в Мегино-Кангаласском районе",
+    "registration_address": "РС(Я), Мегино-Кангаласский р-н, с. Тектюр, ул. И. Тимофеева, д. 6"
+  },
+  {
+    "contractor": 101,
+    "passport_series": "9808",
+    "passport_number": "129367",
+    "passport_birth_date": null,
+    "passport_issue_date": "2008-07-09",
+    "registration_org": "ТП УФМС России по Республике Саха (Якутия) в Мегино-Кангаласском районе",
+    "registration_address": "Республика Саха (Якутия), г. Якутск, ул. Дзержинского, 27/2, кв. 50"
+  },
+  {
+    "contractor": 102,
+    "passport_series": "9816",
+    "passport_number": "683247",
+    "passport_birth_date": null,
+    "passport_issue_date": "2016-08-09",
+    "registration_org": "МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) в г.Якутске",
+    "registration_address": "г.Якутск, ул.Автодорожная 8, корп 9, кв.2"
+  },
+  {
+    "contractor": 103,
+    "passport_series": "9807",
+    "passport_number": "092452",
+    "passport_birth_date": null,
+    "passport_issue_date": "2007-11-26",
+    "registration_org": "Отдел УФМС России по Республике Саха (Якутия)",
+    "registration_address": "с.Сырдах, ул.Уваровской, д.15"
+  },
+  {
+    "contractor": 104,
+    "passport_series": "9820",
+    "passport_number": "899456",
+    "passport_birth_date": null,
+    "passport_issue_date": "2020-06-30",
+    "registration_org": "МВД по РС(Я)",
+    "registration_address": "РС(Я), п. Жатай, ул. Матросова, д. 17, к. 2, кв. 61"
+  },
+  {
+    "contractor": 106,
+    "passport_series": "9817",
+    "passport_number": "774541",
+    "passport_birth_date": null,
+    "passport_issue_date": "2018-03-22",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "г.Якутск, мкр.Марха, пер.Колымский, дом 36"
+  },
+  {
+    "contractor": 107,
+    "passport_series": "9803",
+    "passport_number": "755474",
+    "passport_birth_date": null,
+    "passport_issue_date": "2004-03-18",
+    "registration_org": "ОТДЕЛОМ ВНУТРЕННИХ ДЕЛ ВЕРХНЕВИЛЮЙСКОГО УЛУСА РЕСПУБЛИКИ САХА (ЯКУТИЯ)",
+    "registration_address": "м-н 202, корп.6, кв 6"
+  },
+  {
+    "contractor": 110,
+    "passport_series": "9824",
+    "passport_number": "123940",
+    "passport_birth_date": null,
+    "passport_issue_date": "2024-07-30",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "г.Якутск, ул.Каландаришвилли 21, кв 69"
+  },
+  {
+    "contractor": 111,
+    "passport_series": "9808",
+    "passport_number": "188344",
+    "passport_birth_date": null,
+    "passport_issue_date": "2009-07-17",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ЧУРАПЧИНСКОМ РАЙОНЕ",
+    "registration_address": "р-н Чурапчинский, с.Туора-Кюель, ул.Октябрьская 25"
+  },
+  {
+    "contractor": 113,
+    "passport_series": "9807",
+    "passport_number": "086198",
+    "passport_birth_date": null,
+    "passport_issue_date": "2008-03-20",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ЧУРАПЧИНСКОМ РАЙОНЕ",
+    "registration_address": "г.Якутск, ул.Пояркова 12. кв 26"
+  },
+  {
+    "contractor": 114,
+    "passport_series": "9808",
+    "passport_number": "179150",
+    "passport_birth_date": null,
+    "passport_issue_date": "2009-02-04",
+    "registration_org": "ТП УФМС России по РС(Я) в Горном районе",
+    "registration_address": "РС(Я), у. Горный, с. Бердигестях, ул. Совхозная, д. 17"
+  },
+  {
+    "contractor": 117,
+    "passport_series": "9820",
+    "passport_number": "907506",
+    "passport_birth_date": null,
+    "passport_issue_date": "2020-08-31",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "у.Таттинский, с.Черкех"
+  },
+  {
+    "contractor": 118,
+    "passport_series": "9819",
+    "passport_number": "877039",
+    "passport_birth_date": null,
+    "passport_issue_date": "2020-03-02",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "у.Таттинский, с.Ытык-кюель, ул.Ойунского 52"
+  },
+  {
+    "contractor": 116,
+    "passport_series": "9814",
+    "passport_number": "555890",
+    "passport_birth_date": "1990-10-23",
+    "passport_issue_date": "2014-10-13",
+    "registration_org": "у.Вилюйский",
+    "registration_address": "с.Тымпы, ул.Октябрьская 5"
+  },
+  {
+    "contractor": 121,
+    "passport_series": "9814",
+    "passport_number": "576817",
+    "passport_birth_date": null,
+    "passport_issue_date": "2014-12-23",
+    "registration_org": "МРО УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В Г.ЯКУТСКЕ",
+    "registration_address": "г.Якутск,  ул.Аммосова 4/2, кв 83"
+  },
+  {
+    "contractor": 122,
+    "passport_series": "9818",
+    "passport_number": "782523",
+    "passport_birth_date": null,
+    "passport_issue_date": "2018-07-21",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "у.Мегино-Кангаласский, с.Тарат, ул.Арагатская д.4"
+  },
+  {
+    "contractor": 123,
+    "passport_series": "9803",
+    "passport_number": "800542",
+    "passport_birth_date": null,
+    "passport_issue_date": "2004-12-15",
+    "registration_org": "ТАТТИНСКИМ УОВД РЕСПУБЛИКИ САХА (ЯКУТИЯ)",
+    "registration_address": "у.Усть-алданский, с.Борогонцы, ул.Мигалкина д.55, кв1."
+  },
+  {
+    "contractor": 124,
+    "passport_series": "9816",
+    "passport_number": "688728",
+    "passport_birth_date": null,
+    "passport_issue_date": "2016-12-13",
+    "registration_org": "МП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ТАТТИНСКОМ Р-НЕ",
+    "registration_address": "у.Таттинский, с.Ытык-кюель, ул.Колхозная д.8"
+  },
+  {
+    "contractor": 125,
+    "passport_series": "9807",
+    "passport_number": "102743",
+    "passport_birth_date": null,
+    "passport_issue_date": "2008-02-05",
+    "registration_org": "Отделом УФМС России по РС(Я) в городе Якутске",
+    "registration_address": "РС(Я), г. Якутск, ул. Жорницкого, д. 7, корп. 25, кв. 26"
+  },
+  {
+    "contractor": 126,
+    "passport_series": "9804",
+    "passport_number": "930409",
+    "passport_birth_date": null,
+    "passport_issue_date": "2005-08-01",
+    "registration_org": "1 отделом внутренних дел города Якутска",
+    "registration_address": "РС(Я), г. Якутск, ул. Пояркова, д. 23, кв. 62"
+  },
+  {
+    "contractor": 128,
+    "passport_series": "9811",
+    "passport_number": "390295",
+    "passport_birth_date": null,
+    "passport_issue_date": "2012-02-21",
+    "registration_org": "Отделом УФМС России по РС(Я) в городе Якутске",
+    "registration_address": "РС(Я), у. Таттинский, с. Ытык-Кюель, ул. Р.Кулаковского, д. 7"
+  },
+  {
+    "contractor": 129,
+    "passport_series": "9814",
+    "passport_number": "533025",
+    "passport_birth_date": null,
+    "passport_issue_date": "2014-04-29",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ТАТТИНСКОМ Р-НЕ",
+    "registration_address": "у.Таттинский, с.Чычымах, ул.Молодежная, д.3"
+  },
+  {
+    "contractor": 130,
+    "passport_series": "9823",
+    "passport_number": "073906",
+    "passport_birth_date": null,
+    "passport_issue_date": "2023-11-14",
+    "registration_org": "МВД по РС(Я)",
+    "registration_address": "РС(Я), р-н Таттинский, с. Черкех, ул. П.А. Ойунского, д. 57, к. 2"
+  },
+  {
+    "contractor": 131,
+    "passport_series": "9812",
+    "passport_number": "462949",
+    "passport_birth_date": null,
+    "passport_issue_date": "2013-08-10",
+    "registration_org": "ТП УФМС России по РС(Я) в Чурапчинском р-не",
+    "registration_address": "РС(Я), у. Чурапчинский, с. Усун-Кюель, ул. Макарова, д. 14"
+  },
+  {
+    "contractor": 132,
+    "passport_series": "9811",
+    "passport_number": "354279",
+    "passport_birth_date": null,
+    "passport_issue_date": "2011-07-25",
+    "registration_org": "ОТДЕЛОМ УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ГОРОДЕ (ЯКУТСКЕ)",
+    "registration_address": "г.Якутск, ул.Хабарова 19/6 кв 16"
+  },
+  {
+    "contractor": 133,
+    "passport_series": "4413",
+    "passport_number": "300703",
+    "passport_birth_date": null,
+    "passport_issue_date": "2014-04-17",
+    "registration_org": "ТП ОФМС России по Магаданской обл. в Омсукчанском р-не",
+    "registration_address": "Магаданская обл., р-н Омсукчанский, пос. Омсукчан, ул. Ленина, д. 21, кв. 38"
+  },
+  {
+    "contractor": 134,
+    "passport_series": "9806",
+    "passport_number": "009982",
+    "passport_birth_date": null,
+    "passport_issue_date": "2007-03-20",
+    "registration_org": "МЕГИНО-КАНГАЛАССКИМ УОВД РЕСПУБЛИКИ САХА (ЯКУТИЯ)",
+    "registration_address": "с.Нуорагана, ул. Г.Стручкова д.10"
+  },
+  {
+    "contractor": 135,
+    "passport_series": "9817",
+    "passport_number": "729239",
+    "passport_birth_date": null,
+    "passport_issue_date": "2017-06-20",
+    "registration_org": "МРО УФМС России по РС(Я) в г. Якутске",
+    "registration_address": "РС(Я), г. Якутск, ул. Кутузова, д. 2, кв. 10"
+  },
+  {
+    "contractor": 136,
+    "passport_series": "9825",
+    "passport_number": "184667",
+    "passport_birth_date": "1985-09-02",
+    "passport_issue_date": "2025-10-22",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "у.Нюрбинский, с.мар, ул.Советская д2"
+  },
+  {
+    "contractor": 137,
+    "passport_series": "9817",
+    "passport_number": "737621",
+    "passport_birth_date": null,
+    "passport_issue_date": "2017-11-13",
+    "registration_org": "МП УФМС России по Республике Саха (Якутия) в Таттинском р-не",
+    "registration_address": "Республика Саха (Якутия), Таттинский улус, с. Черкех, ул. Богатырева, 22"
+  },
+  {
+    "contractor": 139,
+    "passport_series": "9821",
+    "passport_number": "954969",
+    "passport_birth_date": null,
+    "passport_issue_date": "2021-06-29",
+    "registration_org": "МВД по РС(Я)",
+    "registration_address": "РС(Я), г. Якутск, ул. Чкалова, д. 11, кв. 131"
+  },
+  {
+    "contractor": 140,
+    "passport_series": "9819",
+    "passport_number": "863504",
+    "passport_birth_date": null,
+    "passport_issue_date": "2019-10-11",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "г.Якутск, ул. Каландаришвили, д.43, кв 17"
+  },
+  {
+    "contractor": 141,
+    "passport_series": "9811",
+    "passport_number": "377959",
+    "passport_birth_date": null,
+    "passport_issue_date": "2011-11-29",
+    "registration_org": "ТП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В ТАТТИНСКОМ РАЙОНЕ",
+    "registration_address": "РС(Я), рн Таттинский, с. Ытык-кюель, Ул.Андросовой-Ионовой, д.17, корп.1"
+  },
+  {
+    "contractor": 142,
+    "passport_series": "9815",
+    "passport_number": "657769",
+    "passport_birth_date": null,
+    "passport_issue_date": "2016-06-01",
+    "registration_org": "МП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В МЕГИНО-КАНГАЛАССКОМ Р-НЕ",
+    "registration_address": "у.Мегино-Кангаласский, п.Нижний-Бестях, ул.Лесная д.20"
+  },
+  {
+    "contractor": 143,
+    "passport_series": "9818",
+    "passport_number": "796168",
+    "passport_birth_date": null,
+    "passport_issue_date": "2018-08-07",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "г.Якутск, ул.Чернышевского 8, кв 58"
+  }
+]
