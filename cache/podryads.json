@@ -62,8 +62,12 @@
     "refusal_reason": "Лизинг 1 ТС, 06.09.2024-31.07.2029. 14.11.2024 был согласован как водитель СБ ПС.",
     "user": 43,
     "approved_by": 1,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      298
+    ],
+    "cars": [
+      288
+    ]
   },
   {
     "id": 60,
@@ -94,8 +98,8 @@
     "user": 73,
     "approved_by": 1,
     "drivers": [
-      23,
-      21
+      21,
+      23
     ],
     "cars": [
       29,
@@ -212,17 +216,39 @@
       172,
       241,
       243,
-      269
+      269,
+      303,
+      304,
+      305,
+      306,
+      307,
+      301,
+      308,
+      309,
+      310,
+      311,
+      312
     ],
     "cars": [
+      302,
       230,
+      299,
       140,
       126,
+      293,
+      295,
+      298,
       261,
+      296,
+      301,
       141,
       130,
+      303,
       146,
       231,
+      300,
+      297,
+      294,
       144,
       127,
       124,
@@ -334,8 +360,8 @@
       168,
       165,
       225,
-      226,
-      227
+      227,
+      226
     ],
     "cars": [
       219,
@@ -474,22 +500,26 @@
     "bik": "049805770",
     "correspondent_account": "30101810300000000770",
     "created_at": "2025-10-28T15:50:39.343500+09:00",
-    "updated_at": "2025-10-28T15:50:39.343519+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-05T15:02:02.667270+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-05T14:55:46+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ЮВГК. ИнПр с 31.10.2017. 1 залог ТС (ТЛК 200), 02.05.2023-02.05.2030.",
     "user": 302,
     "approved_by": null,
     "drivers": [
       270,
       271,
-      272
+      272,
+      296,
+      297
     ],
     "cars": [
+      291,
       259,
       258,
-      257
+      257,
+      290
     ]
   },
   {
@@ -520,7 +550,9 @@
     "refusal_reason": "ИнПр с 08.11.2019. 1 лизинг ТС (самосвал), 13.12.2022 - 31.12.2027.",
     "user": 78,
     "approved_by": 1,
-    "drivers": [],
+    "drivers": [
+      300
+    ],
     "cars": [
       273
     ]
@@ -678,11 +710,11 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-28T09:59:27.280077+09:00",
-    "updated_at": "2025-10-28T09:59:27.280103+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-04T11:56:22.676438+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-04T11:56:15+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ЮВГК. ИнПр с 03.06.2024. 1 лизинг ТС, 17.10.2024-30.09.2029.",
     "user": 260,
     "approved_by": null,
     "drivers": [
@@ -820,15 +852,19 @@
     "bik": "044525974",
     "correspondent_account": "30101810145250000974",
     "created_at": "2025-10-31T15:50:19.956563+09:00",
-    "updated_at": "2025-10-31T15:50:19.956597+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-04T11:32:07.778090+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-04T11:31:53+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ЮВГК. Глава КФХ с 03.12.2015, 1 лизинг ТС, 10.04.2025 - 31.03.2030.",
     "user": 407,
     "approved_by": null,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      291
+    ],
+    "cars": [
+      275
+    ]
   },
   {
     "id": 18,
@@ -900,6 +936,37 @@
     "cars": [
       43
     ]
+  },
+  {
+    "id": 144,
+    "contractor_type": "IE",
+    "org_name": "ИП Горохов О.Е.",
+    "full_org_name": "Индивидуальный предприниматель Горохов Осип Егорович",
+    "legal_address": "",
+    "full_name": "Горохов Осип Егорович",
+    "short_full_name": "Горохов О.Е.",
+    "email": "Osipgo@mail.ru",
+    "phone1": "+7 914 272-17-61",
+    "phone2": null,
+    "phone3": null,
+    "inn": "143517860800",
+    "ogrn": "312143509300178",
+    "okpo": null,
+    "kpp": null,
+    "bank_name": "Филиал \"ЦЕНТРАЛЬНЫЙ\" Банка ВТБ ПАО Г. МОСКВА",
+    "payment_account": "40802810310560001368",
+    "bik": "044525411",
+    "correspondent_account": "30101810145250000411",
+    "created_at": "2025-11-05T12:41:47.904345+09:00",
+    "updated_at": "2025-11-05T12:41:47.904369+09:00",
+    "article_status": "new",
+    "status": "APPROVED",
+    "approved_at": null,
+    "refusal_reason": null,
+    "user": 467,
+    "approved_by": null,
+    "drivers": [],
+    "cars": []
   },
   {
     "id": 87,
@@ -1037,11 +1104,12 @@
     "user": 62,
     "approved_by": 1,
     "drivers": [
-      232,
-      231
+      231,
+      232
     ],
     "cars": [
-      223
+      223,
+      287
     ]
   },
   {
@@ -1221,6 +1289,37 @@
     ]
   },
   {
+    "id": 145,
+    "contractor_type": "IE",
+    "org_name": "ИП Жирков Е.И.",
+    "full_org_name": "Индивидуальный предприниматель ИП Жирков Евгений Иннокентьевич",
+    "legal_address": "",
+    "full_name": "ИП Жирков Евгений Иннокентьевич",
+    "short_full_name": "ИП Ж.Е.",
+    "email": "Zhirkovapya@yandex.ru",
+    "phone1": "+7 964 426-09-54",
+    "phone2": null,
+    "phone3": null,
+    "inn": "141502702405",
+    "ogrn": "324140000069904",
+    "okpo": null,
+    "kpp": null,
+    "bank_name": "ФИЛИАЛ \"ХАБАРОВСКИЙ\" АО \"АЛЬФА-БАНК\"",
+    "payment_account": "40802810520100005358",
+    "bik": "040813770",
+    "correspondent_account": "30101810800000000770",
+    "created_at": "2025-11-05T16:35:46.347775+09:00",
+    "updated_at": "2025-11-05T16:35:46.347804+09:00",
+    "article_status": "new",
+    "status": "APPROVED",
+    "approved_at": null,
+    "refusal_reason": null,
+    "user": 476,
+    "approved_by": null,
+    "drivers": [],
+    "cars": []
+  },
+  {
     "id": 97,
     "contractor_type": "IE",
     "org_name": "ИП Заболоцкая Н.С.",
@@ -1340,11 +1439,11 @@
     "bik": "143530628",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-11-01T12:31:08.339412+09:00",
-    "updated_at": "2025-11-01T12:31:08.339447+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-05T11:48:24.182830+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-05T11:39:44+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ПС. ИнПр 14.06.2024. 1 залог ТС (легковые, 3 УАЗ) 29.05.2024-11.02.2030. 3 лизинга ТС (1 ППР), 14.10.2022 - 29.02.2028, 29.01.2025 - 31.01.2030, 26.05.2025 - 28.04.2030.",
     "user": 433,
     "approved_by": null,
     "drivers": [
@@ -1562,7 +1661,9 @@
     "drivers": [
       102
     ],
-    "cars": []
+    "cars": [
+      279
+    ]
   },
   {
     "id": 51,
@@ -1624,8 +1725,8 @@
     "user": 112,
     "approved_by": null,
     "drivers": [
-      66,
-      64
+      64,
+      66
     ],
     "cars": [
       57,
@@ -1661,8 +1762,8 @@
     "user": 13,
     "approved_by": 1,
     "drivers": [
-      186,
-      185
+      185,
+      186
     ],
     "cars": [
       147,
@@ -1895,11 +1996,11 @@
     "bik": "044525974",
     "correspondent_account": "30101810145250000974",
     "created_at": "2025-10-28T11:32:42.532264+09:00",
-    "updated_at": "2025-10-28T11:32:42.532291+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-04T11:49:32.557298+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-04T11:49:24+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ЮВГК. ИнПр с 21.03.2019.",
     "user": 265,
     "approved_by": null,
     "drivers": [
@@ -1969,8 +2070,8 @@
     "user": 83,
     "approved_by": 1,
     "drivers": [
-      208,
-      198
+      198,
+      208
     ],
     "cars": [
       155,
@@ -2074,15 +2175,19 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-27T17:36:55.668257+09:00",
-    "updated_at": "2025-10-27T17:36:55.668279+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-05T17:59:51.842680+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-05T17:58:59+09:00",
+    "refusal_reason": "ГКФХ с 19.01.2017. 5 лизингов (спецтехника и самосвалы). 1 залог ТС (легковой), 24.12.2024-24.12.2029.",
     "user": 247,
     "approved_by": null,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      293
+    ],
+    "cars": [
+      285
+    ]
   },
   {
     "id": 139,
@@ -2105,11 +2210,11 @@
     "bik": "040813770",
     "correspondent_account": "30101810800000000770",
     "created_at": "2025-10-30T15:19:53.247693+09:00",
-    "updated_at": "2025-10-30T15:19:53.247714+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-04T11:39:36.369652+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-04T11:39:34+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ПС. ИнПр с 29.01.2024.",
     "user": 354,
     "approved_by": null,
     "drivers": [
@@ -2241,11 +2346,11 @@
     "bik": "041012765",
     "correspondent_account": "30101810300000000765",
     "created_at": "2025-10-29T16:11:20.556444+09:00",
-    "updated_at": "2025-10-29T16:11:20.556481+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-05T11:06:17.076607+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-05T11:03:49+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ПС. ИнПр с 25.01.2002.",
     "user": 336,
     "approved_by": null,
     "drivers": [
@@ -2280,11 +2385,11 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-29T10:53:52.536791+09:00",
-    "updated_at": "2025-10-29T10:53:52.536816+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-05T10:23:49.205911+09:00",
+    "article_status": "published",
     "status": "APPROVED",
     "approved_at": null,
-    "refusal_reason": null,
+    "refusal_reason": "ИнПр с 31.05.2022.",
     "user": 322,
     "approved_by": null,
     "drivers": [
@@ -2353,11 +2458,11 @@
     "bik": "04980560",
     "correspondent_account": "К/с 3010181040000000",
     "created_at": "2025-10-22T09:53:58.298882+09:00",
-    "updated_at": "2025-10-24T12:00:54.723080+09:00",
+    "updated_at": "2025-11-05T15:09:00.589698+09:00",
     "article_status": "new",
     "status": "APPROVED",
     "approved_at": "2025-10-22T10:11:26+09:00",
-    "refusal_reason": "Концентрат",
+    "refusal_reason": "",
     "user": 89,
     "approved_by": 1,
     "drivers": [
@@ -2557,11 +2662,11 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-24T18:01:29.037950+09:00",
-    "updated_at": "2025-10-24T18:01:29.037977+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-03T13:08:59.022871+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-03T13:08:43+09:00",
+    "refusal_reason": "ИнПр с 27.05.2015. 1 залог ТС, 27.12.2023 - 30.11.2028. 2 залога ТС, 30.08.2023-09.09.2030, договор от 22.12.2023.",
     "user": 195,
     "approved_by": null,
     "drivers": [
@@ -2592,11 +2697,11 @@
     "bik": "040813770",
     "correspondent_account": "30101810800000000770",
     "created_at": "2025-10-27T12:47:14.262742+09:00",
-    "updated_at": "2025-10-27T12:47:14.262766+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-04T12:06:08.661244+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-04T12:05:50+09:00",
+    "refusal_reason": "ИнПр с 08.02.2017. 1 лизинг ТС (самосвал), 08.02.2023 - 11.02.2028.",
     "user": 230,
     "approved_by": null,
     "drivers": [
@@ -2637,10 +2742,10 @@
     "user": 30,
     "approved_by": 1,
     "drivers": [
-      244,
       245,
+      248,
       246,
-      248
+      244
     ],
     "cars": [
       233,
@@ -2782,8 +2887,12 @@
     "refusal_reason": null,
     "user": 343,
     "approved_by": null,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      295
+    ],
+    "cars": [
+      289
+    ]
   },
   {
     "id": 46,
@@ -2987,8 +3096,8 @@
     "user": 34,
     "approved_by": 1,
     "drivers": [
-      18,
-      17
+      17,
+      18
     ],
     "cars": [
       27
@@ -3081,11 +3190,11 @@
     "bik": "044525104",
     "correspondent_account": "30101810745374525104",
     "created_at": "2025-10-29T17:07:54.986292+09:00",
-    "updated_at": "2025-10-29T17:07:54.986322+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-05T11:12:14.637276+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-05T11:11:56+09:00",
+    "refusal_reason": "ИнПр с 22.05.2023.",
     "user": 342,
     "approved_by": null,
     "drivers": [
@@ -3288,8 +3397,8 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-20T18:37:56.469113+09:00",
-    "updated_at": "2025-10-22T13:14:45.216614+09:00",
-    "article_status": "danger",
+    "updated_at": "2025-11-05T15:07:08.064107+09:00",
+    "article_status": "new",
     "status": "APPROVED",
     "approved_at": "2025-10-22T13:14:40+09:00",
     "refusal_reason": "",
@@ -3327,7 +3436,13 @@
     "user": 140,
     "approved_by": null,
     "drivers": [],
-    "cars": []
+    "cars": [
+      283,
+      281,
+      284,
+      282,
+      280
+    ]
   },
   {
     "id": 50,
@@ -3787,8 +3902,12 @@
     "refusal_reason": null,
     "user": 304,
     "approved_by": null,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      299
+    ],
+    "cars": [
+      292
+    ]
   },
   {
     "id": 78,
@@ -3887,8 +4006,8 @@
     "user": 104,
     "approved_by": null,
     "drivers": [
-      76,
-      75
+      75,
+      76
     ],
     "cars": [
       67,
@@ -4121,8 +4240,12 @@
     "refusal_reason": "ИнПр с 05.10.2018. 1 лизинг ТС (самосвал), 15.08.2022 - 31.08.2027.",
     "user": 54,
     "approved_by": 1,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      294
+    ],
+    "cars": [
+      286
+    ]
   },
   {
     "id": 52,
@@ -4326,7 +4449,10 @@
       229,
       230,
       250,
-      273
+      273,
+      287,
+      292,
+      302
     ],
     "cars": [
       169,
@@ -4466,10 +4592,10 @@
     "user": 249,
     "approved_by": null,
     "drivers": [
-      125,
       134,
-      130,
       132,
+      125,
+      130,
       133
     ],
     "cars": [
@@ -4689,7 +4815,7 @@
     "org_name": "ООО \"Моя компания\"",
     "full_org_name": "Общество с ограниченной ответственностью «Моя компания»",
     "legal_address": "Республика Саха Якутия г Якутск ул Орджоникидзе 36/1 309 офис",
-    "full_name": "Иванов Иван Ивановиы",
+    "full_name": "Иванов Иван Иванович",
     "short_full_name": "Иванов И.И.",
     "email": "dmitry1993aa@gmail.com",
     "phone1": "89991736772",
@@ -4704,7 +4830,7 @@
     "bik": "141461651",
     "correspondent_account": "40025165165100000065",
     "created_at": "2025-10-22T00:08:01.761782+09:00",
-    "updated_at": "2025-10-28T15:11:32.762032+09:00",
+    "updated_at": "2025-11-05T12:25:28.280622+09:00",
     "article_status": "published",
     "status": "APPROVED",
     "approved_at": "2025-10-22T10:11:26+09:00",
@@ -4749,7 +4875,11 @@
       112,
       114
     ],
-    "cars": []
+    "cars": [
+      276,
+      277,
+      278
+    ]
   },
   {
     "id": 8,
@@ -4815,17 +4945,16 @@
     "user": 82,
     "approved_by": 1,
     "drivers": [
-      202,
       204,
       201,
       194,
       196,
       199,
+      202,
       242,
       253,
       261,
       260,
-      259,
       258,
       257,
       256,
@@ -4834,6 +4963,7 @@
       263,
       254,
       252,
+      259,
       276,
       277,
       275,
@@ -4844,7 +4974,11 @@
       282,
       283,
       284,
-      285
+      285,
+      286,
+      288,
+      289,
+      290
     ],
     "cars": [
       166,
@@ -4874,6 +5008,7 @@
       262,
       264,
       241,
+      274,
       270,
       242,
       247
@@ -5086,16 +5221,16 @@
     "bik": "049805770",
     "correspondent_account": "30101810300000000770",
     "created_at": "2025-10-30T15:10:01.090262+09:00",
-    "updated_at": "2025-10-30T15:10:01.090291+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-03T13:52:49.838112+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-03T13:50:57+09:00",
+    "refusal_reason": "Директор ранее был согласован водителем СБ ПС. Работают с 24.04.2007. 3 лизинга ТС, 08.07.2024 - 30.06.2029, 08.07.2024 - 30.06.2029, 19.07.2024 - 30.06.2029. Имеются задолженности по платежам в бюджет на 158 т.р. (не могут взыскать по причине - местонахождение должника и его имущества неизвестно). Директор Кузьмин П.Г. - 1 активное ИП, долг 1 500 р. (2025, ГИБДД).",
     "user": 353,
     "approved_by": null,
     "drivers": [
-      235,
-      233
+      233,
+      235
     ],
     "cars": [
       224

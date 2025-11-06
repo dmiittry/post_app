@@ -2,26 +2,47 @@
 
 import customtkinter as ctk
 from tkinter import ttk, messagebox
+from create_pl_form import CreatePLForm
 from form_window import DataFormWindow
+from settings_form import SettingsForm
+import threading
 
 class DataTable(ctk.CTkFrame):
-    def __init__(self, master, api_client, endpoint, columns, sync_callback, can_edit=True):
+    def __init__(self, master, api_client, endpoint, columns, sync_callback=None, upload_callback=None, can_edit=True):
         super().__init__(master, fg_color="transparent")
+        
         self.api_client = api_client
         self.endpoint = endpoint
-        self.columns = columns
+        self.columns_config = columns
+        self.sync_callback = sync_callback
+        self.upload_callback = upload_callback
         self.can_edit = can_edit
         self.all_data = []
-        self.sync_callback = sync_callback # <== ИЗМЕНЕНО: Сохраняем колбэк
-
-        # --- Панель управления ---
+        self.related_data = {}
+        
+        self._load_related_data()
+        
         self.control_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.control_frame.pack(fill="x", pady=5)
         
-        # ИЗМЕНЕНО: Кнопка теперь вызывает переданный колбэк
-        self.sync_button = ctk.CTkButton(self.control_frame, text="Синхронизировать", command=self.sync_data)
-        self.sync_button.pack(side="left")
-
+        if self.endpoint == 'registries':
+            if self.sync_callback:
+                self.sync_button = ctk.CTkButton(
+                    self.control_frame, 
+                    text="Синхронизировать", 
+                    command=self.sync_callback
+                )
+                self.sync_button.pack(side="left")
+            
+            if self.upload_callback:
+                self.upload_button = ctk.CTkButton(
+                    self.control_frame, 
+                    text="Обновить данные", 
+                    command=self.upload_callback,
+                    fg_color="green"
+                )
+                self.upload_button.pack(side="left", padx=5)
+        
         if self.can_edit:
             self.add_button = ctk.CTkButton(self.control_frame, text="Добавить", command=self.add_item)
             self.add_button.pack(side="left", padx=10)
@@ -29,174 +50,362 @@ class DataTable(ctk.CTkFrame):
         self.search_entry = ctk.CTkEntry(self.control_frame, placeholder_text="Поиск...")
         self.search_entry.pack(side="right", padx=5)
         self.search_entry.bind("<KeyRelease>", self.filter_data)
-
-        # --- Стили и таблица ---
+        
+        # Стили для Treeview
         style = ttk.Style()
-        style.configure("Treeview", background="#FFFFFF", foreground="#333333", fieldbackground="#FFFFFF", borderwidth=0)
+        style.configure("Treeview", background="#FFFFFF", foreground="#333333", 
+                       fieldbackground="#FFFFFF", borderwidth=0)
         style.map('Treeview', background=[('selected', '#347083')])
-        style.configure("Dark.Treeview", background="#2B2B2B", foreground="#DCE4EE", fieldbackground="#2B2B2B", borderwidth=0)
+        style.configure("Dark.Treeview", background="#2B2B2B", foreground="#DCE4EE", 
+                       fieldbackground="#2B2B2B", borderwidth=0)
         style.map('Dark.Treeview', background=[('selected', '#347083')])
-        current_style = "Dark.Treeview" if ctk.get_appearance_mode() == "Dark" else "Treeview"
-
-        tree_columns = ["#"] + list(self.columns.keys())
-        self.tree = ttk.Treeview(self, columns=tree_columns, show='headings', style=current_style)
-
+        
+        tree_columns = ["#"] + list(self.columns_config.keys())
+        
+        self.tree = ttk.Treeview(
+            self, 
+            columns=tree_columns, 
+            show='headings', 
+            style="Dark.Treeview" if ctk.get_appearance_mode() == "Dark" else "Treeview"
+        )
+        
+        self.tree.tag_configure('unsynced', foreground='red')
+        self.tree.tag_configure('conflict', foreground='orange')
+        
         self.sort_directions = {}
+        
         self.tree.heading("#", text="#", command=lambda: self.sort_by_column("#", True))
         self.tree.column("#", width=50, anchor='center', stretch=False)
-        for api_field, header_text in self.columns.items():
-            self.tree.heading(api_field, text=header_text, command=lambda c=api_field: self.sort_by_column(c))
-            self.tree.column(api_field, width=150, anchor='w')
-
+        
+        for api_field, header_text in self.columns_config.items():
+            self.tree.heading(api_field, text=header_text, 
+                            command=lambda c=api_field: self.sort_by_column(c))
+            self.tree.column(api_field, width=120, anchor='w')
+        
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.tree.yview)
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.pack(side="right", fill="y")
         self.tree.pack(side="left", fill="both", expand=True)
-
+        
         self.tree.bind("<Double-1>", self.on_double_click)
         
-        # Сразу отображаем данные из локального кэша
-        self.all_data = self.api_client.get_local_data(self.endpoint)
         self.display_local_data()
 
-    def sync_data(self):
-        """Вызывает глобальную функцию синхронизации."""
-        self.sync_callback()
+    def _load_related_data(self):
+        endpoints = ['seasons', 'organizations', 'customers', 'gruzes', 'cargo-batches', 
+                    'drivers', 'cars', 'podryads', 'loading-points', 'unloading-points']
+        for endpoint in endpoints:
+            data = self.api_client.get_local_data(endpoint)
+            # ИСПРАВЛЕНИЕ: проверяем, что данные - это список
+            if isinstance(data, list):
+                self.related_data[endpoint] = {
+                    item.get('id'): item 
+                    for item in data 
+                    if isinstance(item, dict) and item.get('id') is not None
+                }
+            else:
+                self.related_data[endpoint] = {}
 
-    # ... (остальные методы DataTable остаются без изменений) ...
+    def reload_table_data(self):
+        self._load_related_data()
+        self.display_local_data()
+
     def display_local_data(self, data_source=None):
-        for item in self.tree.get_children(): self.tree.delete(item)
-        data_to_display = data_source if data_source is not None else self.all_data
-        for idx, item in enumerate(data_to_display, start=1):
-            row_values = [idx]
-            for api_field in self.columns.keys():
-                value = item.get(api_field)
-                if api_field == 'status' and value:
-                    status_map = {"approved": "Активен", "pending": "На рассмотрении", "rejected": "Отклонен"}
-                    display_value = status_map.get(value, value)
-                elif self.endpoint == 'podryads' and api_field in ['drivers', 'cars']:
-                    display_value = len(value) if value else 0
-                else:
-                    display_value = value if value is not None else ""
-                row_values.append(display_value)
-            self.tree.insert("", "end", values=row_values, iid=item.get('id'))
-            
-    def sort_by_column(self, col, is_numeric=False):
-        direction = self.sort_directions.get(col, False)
-        data = []
-        for iid in self.tree.get_children(''):
-            col_index = self.tree["columns"].index(col)
-            val = self.tree.item(iid)['values'][col_index]
-            if is_numeric:
-                try: val = int(val)
-                except ValueError: val = 0
-            data.append((val, iid))
-        data.sort(reverse=direction)
-        for index, (val, iid) in enumerate(data):
-            self.tree.move(iid, '', index)
-        self.sort_directions[col] = not direction
+        for item in self.tree.get_children():
+            self.tree.delete(item)
         
+        if self.endpoint == 'registries':
+            # Загружаем данные с сервера
+            server_data = self.api_client.get_local_data('registries')
+            server_items = server_data if isinstance(server_data, list) else []
+            
+            # Загружаем pending (неотправленные)
+            pending_data = self.api_client.get_local_data('pending_registries')
+            pending_items = pending_data if isinstance(pending_data, list) else []
+            
+            # Загружаем конфликты
+            conflict_data = self.api_client.get_local_data('conflict_registries')
+            conflict_items = conflict_data if isinstance(conflict_data, list) else []
+            
+            # Объединяем все данные
+            self.all_data = []
+            
+            # Добавляем серверные записи
+            for item in server_items:
+                if isinstance(item, dict):
+                    self.all_data.append(item)
+            
+            # Добавляем pending записи (красные)
+            for pending in pending_items:
+                if isinstance(pending, dict):
+                    # Проверяем, что эта запись еще не на сервере
+                    if not any(isinstance(s, dict) and s.get('id') == pending.get('id') for s in server_items):
+                        self.all_data.append(pending)
+            
+            # Добавляем конфликтные записи (желтые)
+            for conflict in conflict_items:
+                if isinstance(conflict, dict):
+                    if not any(
+                        isinstance(s, dict) and (
+                            s.get('id') == conflict.get('id') or 
+                            s.get('temp_id') == conflict.get('temp_id')
+                        ) for s in self.all_data
+                    ):
+                        self.all_data.append(conflict)
+            
+            # Обновляем кнопки
+            if hasattr(self, 'upload_button'):
+                pending_count = len(pending_items)
+                conflict_count = len(conflict_items)
+                
+                upload_text = "Обновить данные"
+                if pending_count > 0 or conflict_count > 0:
+                    upload_text += f" ({pending_count + conflict_count})"
+                self.upload_button.configure(text=upload_text)
+        else:
+            raw_data = self.api_client.get_local_data(self.endpoint)
+            self.all_data = [item for item in raw_data if isinstance(item, dict)] if isinstance(raw_data, list) else []
+        
+        data_to_display = data_source if data_source is not None else self.all_data
+        
+        # Получаем списки ID для определения статуса
+        pending_data = self.api_client.get_local_data('pending_registries')
+        pending_items = pending_data if isinstance(pending_data, list) else []
+        pending_temp_ids = [p.get('temp_id') for p in pending_items if isinstance(p, dict)]
+        
+        conflict_data = self.api_client.get_local_data('conflict_registries')
+        conflict_items = conflict_data if isinstance(conflict_data, list) else []
+        conflict_temp_ids = [c.get('temp_id') for c in conflict_items if isinstance(c, dict)]
+        
+        for idx, item in enumerate(data_to_display, start=1):
+            # ИСПРАВЛЕНИЕ: проверяем, что item - это словарь
+            if not isinstance(item, dict):
+                continue
+            
+            tags = ()
+            
+            if self.endpoint == 'registries':
+                temp_id = item.get('temp_id')
+                
+                if temp_id in conflict_temp_ids:
+                    tags = ('conflict',)
+                elif temp_id in pending_temp_ids:
+                    tags = ('unsynced',)
+            
+            row_values = [idx]
+            
+            for api_field in self.columns_config.keys():
+                value = item.get(api_field)
+                display_value = ""
+                
+                if value is not None:
+                    lookup_key = ""
+                    name_key = "name"
+                    
+                    if api_field == 'season':
+                        lookup_key = 'seasons'
+                    elif api_field == 'organization':
+                        lookup_key = 'organizations'
+                    elif api_field == 'customer':
+                        lookup_key = 'customers'
+                    elif api_field == 'gruz':
+                        lookup_key = 'gruzes'
+                    elif api_field == 'cargo_batch':
+                        lookup_key = 'cargo-batches'
+                        name_key = 'batch_number'
+                    elif api_field in ['driver', 'driver2']:
+                        lookup_key = 'drivers'
+                        name_key = 'full_name'
+                    elif api_field == 'number':
+                        lookup_key = 'cars'
+                        name_key = 'number'
+                    elif api_field == 'pod':
+                        lookup_key = 'podryads'
+                        name_key = 'org_name'
+                    elif api_field == 'loading_point':
+                        lookup_key = 'loading-points'
+                    elif api_field == 'unloading_point':
+                        lookup_key = 'unloading-points'
+                    
+                    if lookup_key:
+                        display_value = self.related_data.get(lookup_key, {}).get(value, {}).get(name_key, value)
+                    else:
+                        display_value = value
+                
+                row_values.append(display_value)
+            
+            item_id = item.get('id') or item.get('temp_id')
+            
+            if item_id and not self.tree.exists(item_id):
+                self.tree.insert("", "end", values=row_values, iid=item_id, tags=tags)
+
+    def sort_by_column(self, col, is_numeric=False):
+        pass
+
     def filter_data(self, event):
         query = self.search_entry.get().lower()
         if not query:
-            self.display_local_data(); return
-        filtered_data = []
+            self.display_local_data()
+            return
+        
+        filtered = []
         for item in self.all_data:
-            for value in item.values():
-                if query in str(value).lower():
-                    filtered_data.append(item); break
-        self.display_local_data(filtered_data)
-        
-    def add_item(self):
-        if not self.can_edit: return
-        DataFormWindow(master=self, api_client=self.api_client, endpoint=self.endpoint, columns=self.columns, on_save_callback=self.sync_data)
-        
-    def on_double_click(self, event):
-        selected_iid = self.tree.focus()
-        if not selected_iid: return
-        if self.endpoint == 'podryads':
-            self.show_podryad_details(selected_iid); return
-        if not self.can_edit:
-            messagebox.showinfo("Информация", "Редактирование для этого раздела отключено."); return
-        item_data = next((item for item in self.all_data if str(item.get('id')) == str(selected_iid)), None)
-        if item_data:
-            DataFormWindow(master=self, api_client=self.api_client, endpoint=self.endpoint, columns=self.columns, on_save_callback=self.sync_data, item_data=item_data)
-        else:
-            messagebox.showerror("Ошибка", "Не удалось найти данные в локальном кэше.")
+            # ИСПРАВЛЕНИЕ: проверяем, что item - это словарь
+            if not isinstance(item, dict):
+                continue
             
-    def show_podryad_details(self, podryad_id):
-        podryad_data = next((p for p in self.all_data if str(p.get('id')) == str(podryad_id)), None)
-        if not podryad_data: return
-        all_drivers = self.api_client.get_local_data('drivers'); all_cars = self.api_client.get_local_data('cars')
-        all_markas = {m['id']: m['name'] for m in self.api_client.get_local_data('car-markas')}
-        all_models = {m['id']: m['name'] for m in self.api_client.get_local_data('car-models')}
-        top = ctk.CTkToplevel(self); top.title(f"Детали: {podryad_data.get('org_name')}"); top.geometry("700x500"); top.transient(self.master); top.grab_set()
-        textbox = ctk.CTkTextbox(top, wrap="word", font=("Consolas", 12)); textbox.pack(fill="both", expand=True, padx=10, pady=10)
-        details_text = f"Подрядчик: {podryad_data.get('org_name')}\n" + "="*40 + "\n\n"
-        driver_ids = podryad_data.get('drivers', [])
-        if not driver_ids: details_text += "Водители не прикреплены."
-        else:
-            details_text += "ВОДИТЕЛИ:\n"
-            for driver_id in driver_ids:
-                driver = next((d for d in all_drivers if d['id'] == driver_id), None)
-                if not driver: continue
-                details_text += f"\n- {driver.get('full_name')}:\n"
-                car_ids = driver.get('cars', [])
-                if not car_ids: details_text += "  (ТС не прикреплены)\n"
-                else:
-                    for car_id in car_ids:
-                        car = next((c for c in all_cars if c['id'] == car_id), None)
-                        if not car: continue
-                        marka = all_markas.get(car.get('marka'), ''); model = all_models.get(car.get('model'), '')
-                        number_pr = f" (пр: {car.get('number_pr')})" if car.get('number_pr') else ""
-                        details_text += f"  - {marka} {model} {car.get('number')} {number_pr}\n"
-        textbox.insert("1.0", details_text); textbox.configure(state="disabled")
+            for field in self.columns_config.keys():
+                value = str(item.get(field, "")).lower()
+                if query in value:
+                    filtered.append(item)
+                    break
+        
+        self.display_local_data(filtered)
+
+    def add_item(self):
+        if not self.can_edit:
+            return
+        DataFormWindow(
+            master=self, 
+            api_client=self.api_client, 
+            endpoint=self.endpoint, 
+            columns=self.columns_config, 
+            on_save_callback=self.reload_table_data
+        )
+
+    def on_double_click(self, event):
+        pass
+
 
 class MainApplicationFrame(ctk.CTkFrame):
     def __init__(self, master, api_client, on_logout_callback, sync_callback):
         super().__init__(master, fg_color="transparent")
+        
         self.api_client = api_client
         self.on_logout = on_logout_callback
         self.sync_callback = sync_callback
+        
         self.tab_view = ctk.CTkTabview(self, anchor="w")
         self.tab_view.pack(fill="both", expand=True)
-
+        
         self.tab_view.add("Реестр")
+        self.tab_view.add("Создать ПЛ")
         self.tab_view.add("Водители")
         self.tab_view.add("Подрядчики")
         self.tab_view.add("Настройки")
-
+        
         self.create_registry_tab(self.tab_view.tab("Реестр"))
+        self.create_pl_creation_tab(self.tab_view.tab("Создать ПЛ"))
         self.create_drivers_tab(self.tab_view.tab("Водители"))
         self.create_contractors_tab(self.tab_view.tab("Подрядчики"))
         self.create_settings_tab(self.tab_view.tab("Настройки"))
-
-    # ИЗМЕНЕНО: Добавлен недостающий метод
-    def reload_all_tables(self):
-        """Проходит по всем вкладкам и обновляет данные в таблицах."""
-        for tab_name in self.tab_view._name_list:
-            tab_frame = self.tab_view.tab(tab_name)
-            if tab_frame.winfo_children() and isinstance(tab_frame.winfo_children()[0], DataTable):
-                table = tab_frame.winfo_children()[0]
-                table.all_data = table.api_client.get_local_data(table.endpoint)
-                table.display_local_data()
+        
+        self.logout_button = ctk.CTkButton(
+            self.tab_view.tab("Настройки"), 
+            text="Выйти", 
+            command=self.handle_logout, 
+            width=200
+        )
+        self.logout_button.pack(side='bottom', pady=50)
 
     def create_registry_tab(self, tab):
-        columns = {'id': 'ID', 'numberPL': '№ ПЛ', 'dataPOPL': 'Дата выдачи', 'tonn': 'Тонн', 'status': 'Статус платежа'}
-        DataTable(tab, self.api_client, 'registries', columns, self.sync_callback, can_edit=True).pack(fill="both", expand=True)
+        columns = {
+            "season": "Сезон", "organization": "Организация", "customer": "Заказчик", "gruz": "Груз",
+            "cargo_batch": "Партия", "driver": "Водитель", "driver2": "2-й Водитель", "number": "ТС",
+            "pod": "Подрядчик", "loading_point": "Погрузка", "unloading_point": "Разгрузка", "marsh": "Маршрут",
+            "distance": "Дист.", "numberPL": "№ ПЛ", "dataPOPL": "Дата выдачи", "dataSDPL": "Дата сдачи",
+            "numberTN": "№ ТТН", "loading_time": "Время погр.", "unloading_time": "Время разгр.", "tonn": "Тоннаж",
+            "fuel_consumption": "ГСМ", "dispatch_info": "Инфо", "comment": "Комментарий",
+        }
+        
+        self.registry_table = DataTable(
+            tab, 
+            self.api_client, 
+            'registries', 
+            columns, 
+            sync_callback=self.sync_callback,
+            upload_callback=self.upload_pending
+        )
+        self.registry_table.pack(fill="both", expand=True)
+
+    def upload_pending(self):
+        """Отправляет только pending записи на сервер"""
+        if not self.api_client.is_network_ready():
+            messagebox.showerror("Ошибка", "Нет подключения к серверу")
+            return
+        
+        pending_count = self.api_client.get_pending_count('registries')
+        conflict_items = self.api_client.get_conflict_items()
+        conflict_count = len(conflict_items) if isinstance(conflict_items, list) else 0
+        
+        if pending_count == 0 and conflict_count == 0:
+            messagebox.showinfo("Информация", "Нет данных для отправки")
+            return
+        
+        def upload_worker():
+            try:
+                success, conflicts = self.api_client.upload_pending_registries()
+                
+                # Обновляем таблицу в главном потоке
+                self.after(0, self.reload_registry_table)
+                
+                msg = f"Отправлено успешно: {success}\n"
+                if conflicts > 0:
+                    msg += f"Обнаружено конфликтов: {conflicts}\n(показаны желтым цветом)"
+                
+                self.after(0, lambda: messagebox.showinfo("Результат отправки", msg))
+            except Exception as e:
+                self.after(0, lambda: messagebox.showerror("Ошибка", f"Ошибка отправки: {e}"))
+        
+        threading.Thread(target=upload_worker, daemon=True).start()
+
+    def create_pl_creation_tab(self, tab):
+        self.pl_form = CreatePLForm(tab, self.api_client, on_save_callback=self.reload_registry_table)
+        self.pl_form.pack(fill="both", expand=True)
+
+    def reload_pl_creation_tab(self):
+        """Перезагружает форму создания ПЛ после изменения настроек"""
+        if hasattr(self, 'pl_form') and self.pl_form.winfo_exists():
+            # Если форма уже существует, просто обновляем настройки
+            self.pl_form.reload_settings()
+        else:
+            # Иначе создаем заново
+            self.pl_form = CreatePLForm(
+                self.tab_view.tab("Создать ПЛ"), 
+                self.api_client, 
+                on_save_callback=self.reload_registry_table
+            )
+            self.pl_form.pack(fill="both", expand=True)
+
+    def reload_registry_table(self):
+        if hasattr(self, 'registry_table'):
+            self.registry_table.reload_table_data()
+            self.tab_view.set("Реестр")
 
     def create_drivers_tab(self, tab):
         columns = {'full_name': 'ФИО', 'birth_date': 'Дата рождения', 'phone_1': 'Телефон', 'status': 'Статус'}
-        DataTable(tab, self.api_client, 'drivers', columns, self.sync_callback, can_edit=False).pack(fill="both", expand=True)
+        DataTable(tab, self.api_client, 'drivers', columns, can_edit=False).pack(fill="both", expand=True)
 
     def create_contractors_tab(self, tab):
-        columns = {'org_name': 'Название', 'full_name': 'Руководитель', 'inn': 'ИНН', 'drivers': 'Водители', 'cars': 'ТС'}
-        DataTable(tab, self.api_client, 'podryads', columns, self.sync_callback, can_edit=False).pack(fill="both", expand=True)
-        
+        columns = {'org_name': 'Название', 'full_name': 'Руководитель', 'inn': 'ИНН'}
+        DataTable(tab, self.api_client, 'podryads', columns, can_edit=False).pack(fill="both", expand=True)
+
     def create_settings_tab(self, tab):
-        logout_button = ctk.CTkButton(tab, text="Выйти", command=self.handle_logout, width=200)
-        logout_button.pack(pady=50)
-    
+        self.settings_frame = SettingsForm(tab, self.api_client, on_save_callback=self.reload_pl_creation_tab)
+        self.settings_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
     def handle_logout(self):
         self.api_client.logout()
         self.on_logout()
+
+    def reload_all_tables(self):
+        self.reload_pl_creation_tab()
+        
+        if hasattr(self, 'settings_frame') and self.settings_frame.winfo_exists():
+            self.settings_frame.destroy()
+        self.create_settings_tab(self.tab_view.tab("Настройки"))
+        
+        for tab_name in self.tab_view._name_list:
+            tab_frame = self.tab_view.tab(tab_name)
+            if tab_frame.winfo_children() and isinstance(tab_frame.winfo_children()[0], DataTable):
+                tab_frame.winfo_children()[0].reload_table_data()

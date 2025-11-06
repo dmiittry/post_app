@@ -3,25 +3,25 @@
 import customtkinter as ctk
 import threading
 from tkinter import messagebox
-
 from login import LoginFrame
-from tabs import MainApplicationFrame, DataTable
+from tabs import MainApplicationFrame
 from api_client import APIClient
 from sync_window import SyncWindow
-import requests 
+import requests
 
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
 
 ENDPOINTS_TO_SYNC = [
-    "podryads", "ie-profiles", "cars", "car-markas", "car-models", 
-    "drivers", "registries", "seasons", "gruzes", "loading-points", 
-    "unloading-points", "organizations", "customers", "cargo-batches"
+    "podryads", "ie-profiles", "cars", "car-markas", "car-models",
+    "drivers", "seasons", "gruzes", "loading-points",
+    "unloading-points", "organizations", "customers", "cargo-batches",
 ]
 
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
+        
         self.title("А-Групп: Клиент управления")
         screen_width, screen_height = self.winfo_screenwidth(), self.winfo_screenheight()
         win_width, win_height = int(screen_width * 0.8), int(screen_height * 0.8)
@@ -30,94 +30,98 @@ class App(ctk.CTk):
         self.minsize(900, 700)
         
         self.api_client = APIClient()
-        self.main_frame = None
+        self.main_app_frame = None
         
-        self.after(100, self.attempt_auto_login)
-
-    def attempt_auto_login(self):
+        # НОВОЕ: Регистрируем колбэк для обновления UI
+        self.api_client.set_data_updated_callback(self.on_data_updated)
+        
+        # Попытка автологина
         success, message = self.api_client.try_auto_login()
+        
         if success:
-            self.show_main_application(run_sync_on_start=True)
+            self.show_sync_and_load()
         else:
-            self.show_login_window()
+            self.show_login()
 
-    def show_login_window(self, re_auth_for_sync=False):
-        for widget in self.winfo_children(): widget.destroy()
-        self.login_frame = LoginFrame(self, self.handle_login_attempt)
-        if re_auth_for_sync:
-            self.login_frame.status_label.configure(text="Для синхронизации требуется онлайн-аутентификация.", text_color="orange")
-        self.login_frame.pack(fill="both", expand=True, padx=20, pady=20)
+    def on_data_updated(self):
+        """Вызывается когда данные обновлены (из фонового потока)"""
+        # Используем after для обновления UI в главном потоке
+        self.after(0, self.reload_registry_if_exists)
 
-    def handle_login_attempt(self, username, password, remember):
-        success, message = self.api_client.login(username, password, remember)
+    def reload_registry_if_exists(self):
+        """Перезагружает таблицу реестра, если она существует"""
+        if self.main_app_frame and hasattr(self.main_app_frame, 'registry_table'):
+            self.main_app_frame.registry_table.reload_table_data()
+
+    def show_login(self):
+        for widget in self.winfo_children():
+            widget.destroy()
+        login_frame = LoginFrame(self, login_callback=self.on_login)
+        login_frame.pack(fill="both", expand=True)
+
+    def on_login(self, username, password, remember_me):
+        success, message = self.api_client.login(username, password, remember_me)
+        
         if success:
-            # После первого успешного входа всегда запускаем синхронизацию
-            self.show_main_application(run_sync_on_start=True)
+            self.show_sync_and_load()
         else:
-            self.login_frame.show_error(message)
+            messagebox.showerror("Ошибка авторизации", message)
 
-    def show_main_application(self, run_sync_on_start=False):
-        for widget in self.winfo_children(): widget.destroy()
-        self.main_frame = MainApplicationFrame(
+    def show_sync_and_load(self):
+        for widget in self.winfo_children():
+            widget.destroy()
+        
+        sync_window = SyncWindow(self, total_steps=len(ENDPOINTS_TO_SYNC) + 1)
+        
+        def sync_data():
+            sync_window.update_progress("Синхронизация справочников...")
+            
+            for endpoint in ENDPOINTS_TO_SYNC:
+                self.api_client.sync_endpoint(endpoint, progress_callback=sync_window.update_progress)
+            
+            # Синхронизируем реестр
+            self.api_client.sync_endpoint("registries", progress_callback=sync_window.update_progress)
+            
+            sync_window.update_progress("Синхронизация завершена.")
+            sync_window.finish()
+            
+            self.after(500, self.show_main_app)
+        
+        threading.Thread(target=sync_data, daemon=True).start()
+
+    def show_main_app(self):
+        for widget in self.winfo_children():
+            widget.destroy()
+        
+        self.main_app_frame = MainApplicationFrame(
             self, 
             self.api_client, 
-            on_logout_callback=self.handle_logout, 
-            sync_callback=self.sync_all_data
+            on_logout_callback=self.show_login, 
+            sync_callback=self.resync_data
         )
-        self.main_frame.pack(fill="both", expand=True, padx=10, pady=10)
-        if run_sync_on_start:
-            self.after(200, self.sync_all_data) # Небольшая задержка, чтобы окно успело отрисоваться
+        self.main_app_frame.pack(fill="both", expand=True)
 
-    def handle_logout(self):
-        self.api_client.logout()
-        self.show_login_window()
-
-    def sync_all_data(self):
-        if not self.api_client.is_network_ready():
-            self.show_login_window(re_auth_for_sync=True)
-            return
+    def resync_data(self):
+        sync_window = SyncWindow(self, total_steps=len(ENDPOINTS_TO_SYNC) + 1)
         
-        sync_win = SyncWindow(self, total_steps=len(ENDPOINTS_TO_SYNC))
-        threading.Thread(target=self._sync_thread_worker, args=(sync_win,), daemon=True).start()
-
-    def _sync_thread_worker(self, sync_win):
-        print("Начало полной синхронизации данных...")
-        
-        # Оборачиваем весь цикл в try...except
-        try:
-            for endpoint in ENDPOINTS_TO_SYNC:
-                # Проверка аутентификации на первом шаге
-                if endpoint == ENDPOINTS_TO_SYNC[0]:
-                    url = f"{self.api_client.base_url}{endpoint}/"
-                    response = self.api_client.session.get(url, timeout=10)
-                    if response.status_code in [401, 403]:
-                        print("Ошибка аутентификации при синхронизации.")
-                        self.after(0, sync_win.destroy)
-                        self.after(0, lambda: self.show_login_window(re_auth_for_sync=True))
-                        return
-                    # Если все ок, обрабатываем уже полученные данные
-                    self.api_client.cache.compare_and_update(endpoint, response.json())
-                    # Обновляем UI из основного потока
-                    self.after(0, lambda: sync_win.update_progress(f"Загрузка: {endpoint}..."))
-                    continue
+        def sync_worker():
+            try:
+                for endpoint in ENDPOINTS_TO_SYNC:
+                    self.api_client.sync_endpoint(endpoint, progress_callback=sync_window.update_progress)
                 
-                # Для остальных эндпоинтов
-                self.api_client.sync_endpoint(endpoint, progress_callback=lambda msg: self.after(0, sync_win.update_progress, msg))
-            
-            print("Синхронизация завершена.")
-            self.after(0, self.on_sync_finished, sync_win)
-
-        except requests.exceptions.RequestException as e:
-            print(f"Ошибка сети: {e}")
-            self.after(0, sync_win.destroy)
-            # ИЗМЕНЕНО: Правильно передаем переменную 'e' в lambda
-            self.after(0, lambda err=e: messagebox.showerror("Ошибка сети", f"Не удалось подключиться к серверу:\n{err}"))
-            return
-
-    def on_sync_finished(self, sync_win):
-        sync_win.finish()
-        if self.main_frame:
-            self.main_frame.reload_all_tables()
+                # Полная синхронизация реестра
+                self.api_client.sync_pending_registries(progress_callback=sync_window.update_progress)
+                
+                sync_window.update_progress("Синхронизация завершена.")
+                sync_window.finish()
+                
+                if self.main_app_frame:
+                    self.after(0, self.main_app_frame.reload_all_tables)
+            except Exception as e:
+                sync_window.finish()
+                self.after(0, lambda: messagebox.showerror("Ошибка", f"Ошибка синхронизации: {e}"))
+        
+        threading.Thread(target=sync_worker, daemon=True).start()
 
 if __name__ == "__main__":
     app = App()

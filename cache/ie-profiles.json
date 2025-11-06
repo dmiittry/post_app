@@ -1087,5 +1087,23 @@
     "passport_issue_date": "2018-08-07",
     "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
     "registration_address": "г.Якутск, ул.Чернышевского 8, кв 58"
+  },
+  {
+    "contractor": 144,
+    "passport_series": "9802",
+    "passport_number": "534443",
+    "passport_birth_date": null,
+    "passport_issue_date": "2002-11-27",
+    "registration_org": "УВД гор.Якутска Республики Саха (Якутия)",
+    "registration_address": "г.Якутск, ул.Ярославского 16, кыв 67"
+  },
+  {
+    "contractor": 145,
+    "passport_series": "9818",
+    "passport_number": "814393",
+    "passport_birth_date": null,
+    "passport_issue_date": "2018-10-16",
+    "registration_org": "МВД по Республике Саха (Якутия)",
+    "registration_address": "у.Мегино-Кангаласский, с.сымах, ул. г.Попова, д.17, К. А"
   }
 ]
