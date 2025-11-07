@@ -227,33 +227,75 @@
       309,
       310,
       311,
-      312
+      312,
+      314,
+      315,
+      316,
+      317,
+      318,
+      321,
+      322,
+      323,
+      320,
+      326,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      335,
+      334,
+      336,
+      337,
+      338
     ],
     "cars": [
       302,
       230,
+      326,
       299,
+      327,
       140,
+      319,
       126,
+      311,
       293,
+      320,
+      322,
+      323,
       295,
       298,
       261,
       296,
       301,
       141,
+      325,
+      321,
+      306,
+      312,
       130,
+      313,
+      318,
+      307,
+      324,
+      308,
+      310,
       303,
       146,
       231,
       300,
       297,
+      309,
       294,
       144,
+      329,
+      315,
       127,
       124,
       129,
-      142
+      142,
+      328
     ]
   },
   {
@@ -511,8 +553,8 @@
       270,
       271,
       272,
-      296,
-      297
+      297,
+      296
     ],
     "cars": [
       291,
@@ -1309,15 +1351,23 @@
     "bik": "040813770",
     "correspondent_account": "30101810800000000770",
     "created_at": "2025-11-05T16:35:46.347775+09:00",
-    "updated_at": "2025-11-05T16:35:46.347804+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T15:14:27.976786+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-06T15:12:57+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ПС и ЮВГК. ИнПр с 02.12.2024.",
     "user": 476,
     "approved_by": null,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      324,
+      325,
+      327
+    ],
+    "cars": [
+      317,
+      314,
+      316
+    ]
   },
   {
     "id": 97,
@@ -1520,6 +1570,37 @@
     ]
   },
   {
+    "id": 146,
+    "contractor_type": "IE",
+    "org_name": "ИП Иванов А.А.",
+    "full_org_name": "Индивидуальный предприниматель Иванов Алексей Алексеевич",
+    "legal_address": "",
+    "full_name": "Иванов Алексей Алексеевич",
+    "short_full_name": "Иванов А.А.",
+    "email": "aleshby@gmail.com",
+    "phone1": "+7 914 108-88-87",
+    "phone2": null,
+    "phone3": null,
+    "inn": "141502306176",
+    "ogrn": "318144700061696",
+    "okpo": null,
+    "kpp": null,
+    "bank_name": "ФИЛИАЛ \"ХАБАРОВСКИЙ\" АО \"АЛЬФА-БАНК\"",
+    "payment_account": "40802810220100003346",
+    "bik": "040813770",
+    "correspondent_account": "30101810800000000770",
+    "created_at": "2025-11-06T10:18:49.899346+09:00",
+    "updated_at": "2025-11-06T10:18:49.899365+09:00",
+    "article_status": "new",
+    "status": "APPROVED",
+    "approved_at": null,
+    "refusal_reason": null,
+    "user": 485,
+    "approved_by": null,
+    "drivers": [],
+    "cars": []
+  },
+  {
     "id": 141,
     "contractor_type": "IE",
     "org_name": "ИП Иванов А.Ю.",
@@ -1547,8 +1628,12 @@
     "refusal_reason": null,
     "user": 405,
     "approved_by": null,
-    "drivers": [],
-    "cars": []
+    "drivers": [
+      339
+    ],
+    "cars": [
+      330
+    ]
   },
   {
     "id": 110,
@@ -2004,7 +2089,8 @@
     "user": 265,
     "approved_by": null,
     "drivers": [
-      237
+      237,
+      313
     ],
     "cars": [
       226
@@ -2062,7 +2148,7 @@
     "bik": "044525411",
     "correspondent_account": "30101810145250000411",
     "created_at": "2025-10-21T22:17:25.127164+09:00",
-    "updated_at": "2025-10-30T14:48:51.349606+09:00",
+    "updated_at": "2025-11-06T12:03:21.192690+09:00",
     "article_status": "published",
     "status": "APPROVED",
     "approved_at": "2025-10-28T14:32:41+09:00",
@@ -2070,8 +2156,9 @@
     "user": 83,
     "approved_by": 1,
     "drivers": [
+      208,
       198,
-      208
+      319
     ],
     "cars": [
       155,
@@ -2458,11 +2545,11 @@
     "bik": "04980560",
     "correspondent_account": "К/с 3010181040000000",
     "created_at": "2025-10-22T09:53:58.298882+09:00",
-    "updated_at": "2025-11-05T15:09:00.589698+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T14:30:07.661215+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": "2025-10-22T10:11:26+09:00",
-    "refusal_reason": "",
+    "approved_at": "2025-11-06T14:28:51+09:00",
+    "refusal_reason": "Ранее был согласован СБ ПС и ЮВГК. ИнПр с 02.08.2013.",
     "user": 89,
     "approved_by": 1,
     "drivers": [
@@ -2631,11 +2718,11 @@
     "bik": "044525411",
     "correspondent_account": "30101810145250000411",
     "created_at": "2025-10-21T20:24:25.025566+09:00",
-    "updated_at": "2025-10-23T15:19:51.723138+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T14:17:35.339001+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": "2025-10-22T10:11:26+09:00",
-    "refusal_reason": "Концентрат",
+    "approved_at": "2025-11-06T14:14:56+09:00",
+    "refusal_reason": "Концентрат. Ранее был согласован водителем СБ ЮВГК. ИнПр с 10.12.2021. 1 лизинг ТС, 25.12.2023 - 30.11.2028.",
     "user": 79,
     "approved_by": 1,
     "drivers": [],
@@ -2880,11 +2967,11 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-29T17:44:48.332893+09:00",
-    "updated_at": "2025-10-29T21:39:42.873441+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T09:46:08.137009+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-06T09:46:00+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ПС. ИнПр с 21.01.2020. 1 лизинг ТС (самосвал), 15.01.2023 - 31.01.2028. 1 залог ТС (легковой), 10.10.2025-10.10.2030. 1 активное ИП, долг 5 т.р. (2024).",
     "user": 343,
     "approved_by": null,
     "drivers": [
@@ -3057,7 +3144,7 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-21T15:09:12.654360+09:00",
-    "updated_at": "2025-10-27T10:49:39.923318+09:00",
+    "updated_at": "2025-11-06T00:27:52.514980+09:00",
     "article_status": "published",
     "status": "APPROVED",
     "approved_at": "2025-10-22T10:11:26+09:00",
@@ -3065,7 +3152,9 @@
     "user": 70,
     "approved_by": 1,
     "drivers": [],
-    "cars": []
+    "cars": [
+      305
+    ]
   },
   {
     "id": 21,
@@ -3802,7 +3891,9 @@
     "user": 404,
     "approved_by": null,
     "drivers": [],
-    "cars": []
+    "cars": [
+      304
+    ]
   },
   {
     "id": 107,
@@ -3895,11 +3986,11 @@
     "bik": "049805609",
     "correspondent_account": "30101810400000000609",
     "created_at": "2025-10-28T16:00:45.130981+09:00",
-    "updated_at": "2025-10-28T16:00:45.131006+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T10:59:44.346760+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": null,
+    "approved_at": "2025-11-06T10:56:54+09:00",
+    "refusal_reason": "Ранее был согласован водителем СБ ПС. ИнПр с 17.11.2023. 2 лизинга ТС, 16.06.2025 - 31.05.2030, 24.06.2025 - 31.05.2030.",
     "user": 304,
     "approved_by": null,
     "drivers": [
@@ -4392,6 +4483,37 @@
     "cars": [
       30
     ]
+  },
+  {
+    "id": 147,
+    "contractor_type": "LLC",
+    "org_name": "ООО АвтоБЛОК",
+    "full_org_name": "Общество с ограниченной ответственностью «АвтоБЛОК»",
+    "legal_address": "677901, Республика Саха (Якутия) г.Якутск, мкр. Марха, ул.Заводская, д. 6 кв. 4",
+    "full_name": "Борцов Алексей Борисович",
+    "short_full_name": "Борцов А.Б.",
+    "email": "oooavtoblok@list.ru",
+    "phone1": "+7 (914) 220-11-40",
+    "phone2": null,
+    "phone3": null,
+    "inn": "1435314597",
+    "ogrn": "1161447065592",
+    "okpo": null,
+    "kpp": "143501001",
+    "bank_name": "Филиал \"Хабаровский\" АО \"АЛЬФА-БАНК\"",
+    "payment_account": "40702810520100000055",
+    "bik": "040813770",
+    "correspondent_account": "30101810800000000770",
+    "created_at": "2025-11-06T10:26:39.317481+09:00",
+    "updated_at": "2025-11-06T10:26:39.317512+09:00",
+    "article_status": "new",
+    "status": "APPROVED",
+    "approved_at": null,
+    "refusal_reason": null,
+    "user": 486,
+    "approved_by": null,
+    "drivers": [],
+    "cars": []
   },
   {
     "id": 120,
@@ -5035,11 +5157,11 @@
     "bik": "044525411",
     "correspondent_account": "30101810145250000411",
     "created_at": "2025-10-21T23:52:28.626971+09:00",
-    "updated_at": "2025-10-27T15:44:08.698710+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T14:26:55.752707+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": "2025-10-22T10:11:26+09:00",
-    "refusal_reason": "Концентрат.",
+    "approved_at": "2025-11-06T14:20:19+09:00",
+    "refusal_reason": "Концентрат. Зарегистрировано 17.06.2019. Множество лизингов ТС. 3 залога ТС (8 грузовых авто), 01.08.2024-10.02.2034, 07.07.2025-15.04.2026, 01.08.2024-10.02.2034.",
     "user": 84,
     "approved_by": 1,
     "drivers": [
@@ -5155,11 +5277,11 @@
     "bik": "044525104",
     "correspondent_account": "30101810745374525104",
     "created_at": "2025-10-28T11:50:15.009024+09:00",
-    "updated_at": "2025-10-28T14:55:57.670845+09:00",
-    "article_status": "new",
+    "updated_at": "2025-11-06T14:13:02.848117+09:00",
+    "article_status": "published",
     "status": "APPROVED",
-    "approved_at": null,
-    "refusal_reason": "",
+    "approved_at": "2025-11-06T14:05:31+09:00",
+    "refusal_reason": "Зарегистрировано 18.09.2019. Задолженность по платежам в бюджет 77 525,37 р. Директор и владелец Петров В.В.: 3 залога ТС (2 легковых, 1 самосвал).",
     "user": 269,
     "approved_by": null,
     "drivers": [

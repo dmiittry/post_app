@@ -396,15 +396,6 @@
     "registration_address": "ул. Сергеляхское Шоссе 12 км дом 7 кв 2"
   },
   {
-    "contractor": 57,
-    "passport_series": "9815",
-    "passport_number": "643093",
-    "passport_birth_date": "2025-10-21",
-    "passport_issue_date": "2016-07-28",
-    "registration_org": "МП УФМС России по РС(Я) в Жиганском р-не",
-    "registration_address": "РС(Я), у. Жиганский, с. Кыстатыам, ул. Шемякова, д. 7, кв. 7"
-  },
-  {
     "contractor": 58,
     "passport_series": "9823",
     "passport_number": "050558",
@@ -486,15 +477,6 @@
     "registration_address": "Мегино канг район село павловск ул егорова 27"
   },
   {
-    "contractor": 70,
-    "passport_series": "9815",
-    "passport_number": "610788",
-    "passport_birth_date": "2025-10-21",
-    "passport_issue_date": "2015-08-04",
-    "registration_org": "МП УФМС РОССИИ ПО РС(Я) В ТАТТИНСКОМ Р-НЕ",
-    "registration_address": "РС(Я), Таттинский район, с Ытык-Кюель, ул Ойунского д. 35/1"
-  },
-  {
     "contractor": 73,
     "passport_series": "9808",
     "passport_number": "133352",
@@ -529,6 +511,15 @@
     "passport_issue_date": "2017-10-06",
     "registration_org": "ТП в Хангаласском р-не МРО УФМС Росии по Республике Саха (Якутия) в г. Якутске",
     "registration_address": "678012 РС(Я), Хангаласский улус, с. Ой, ул. Эркээни, д.11"
+  },
+  {
+    "contractor": 57,
+    "passport_series": "9815",
+    "passport_number": "643093",
+    "passport_birth_date": "1986-03-02",
+    "passport_issue_date": "2016-07-28",
+    "registration_org": "МП УФМС России по РС(Я) в Жиганском р-не",
+    "registration_address": "РС(Я), у. Жиганский, с. Кыстатыам, ул. Шемякова, д. 7, кв. 7"
   },
   {
     "contractor": 78,
@@ -646,6 +637,15 @@
     "passport_issue_date": "2018-09-03",
     "registration_org": "мвд по республике саха (якутия)",
     "registration_address": "якутск сергеляхское шоссе 8 км 12Д"
+  },
+  {
+    "contractor": 70,
+    "passport_series": "9815",
+    "passport_number": "610788",
+    "passport_birth_date": "1995-05-24",
+    "passport_issue_date": "2015-08-04",
+    "registration_org": "МП УФМС РОССИИ ПО РС(Я) В ТАТТИНСКОМ Р-НЕ",
+    "registration_address": "РС(Я), Таттинский район, с Ытык-Кюель, ул Ойунского д. 35/1"
   },
   {
     "contractor": 88,
@@ -1105,5 +1105,14 @@
     "passport_issue_date": "2018-10-16",
     "registration_org": "МВД по Республике Саха (Якутия)",
     "registration_address": "у.Мегино-Кангаласский, с.сымах, ул. г.Попова, д.17, К. А"
+  },
+  {
+    "contractor": 146,
+    "passport_series": "9824",
+    "passport_number": "128737",
+    "passport_birth_date": null,
+    "passport_issue_date": "2024-09-17",
+    "registration_org": "МВД  по Республике Саха (Якутия)",
+    "registration_address": "У.Мегино-Кангаласский, с.Бютейдях, ул. Степанова, д.16"
   }
 ]
