@@ -6,7 +6,9 @@ from tkcalendar import DateEntry
 from datetime import datetime
 import uuid
 import threading
-
+from pl_excel import build_context, fill_template_and_save
+import os
+import subprocess
 
 class CreatePLForm(ctk.CTkFrame):
     def __init__(self, master, api_client, on_save_callback, **kwargs):
@@ -18,7 +20,7 @@ class CreatePLForm(ctk.CTkFrame):
         self.default_settings = {}
         self.related_data = {}
 
-        # Внутренние индексы
+        # индексы
         self.drivers_by_id = {}
         self.cars_by_id = {}
         self.markas_by_id = {}
@@ -27,27 +29,24 @@ class CreatePLForm(ctk.CTkFrame):
         self.gruzes_by_id = {}
         self.driver_to_podryad = {}
 
-        # Выбранные id для payload
+        # выбранные id
         self.selected_ids = {}
 
-        # Основной двухколоночный макет
+        # Двухколоночный макет
         self.grid_columnconfigure(0, weight=1, uniform="cols")
         self.grid_columnconfigure(1, weight=2, uniform="cols")
         self.grid_rowconfigure(0, weight=1)
 
-        # Левая колонка: настройки по умолчанию (скроллируемая)
         self.left_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.left_frame.grid(row=0, column=0, sticky="nsew", padx=(10, 5), pady=10)
         self.left_frame.grid_columnconfigure(0, weight=1)
         self.left_frame.grid_columnconfigure(1, weight=1)
 
-        # Правая колонка: форма ПЛ (скроллируемая)
         self.right_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.right_frame.grid(row=0, column=1, sticky="nsew", padx=(5, 10), pady=10)
         self.right_frame.grid_columnconfigure(0, weight=1)
         self.right_frame.grid_columnconfigure(1, weight=1)
 
-        # Нижняя полоса с кнопкой отправки (фиксированная)
         self.bottom_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.bottom_frame.grid(row=1, column=0, columnspan=2, sticky="ew", padx=10, pady=(0, 10))
         self.bottom_frame.grid_columnconfigure(0, weight=1)
@@ -60,17 +59,13 @@ class CreatePLForm(ctk.CTkFrame):
         )
         self.submit_button.grid(row=0, column=0, sticky="e")
 
-        # Загрузка данных и построение UI
         self._load_data()
         self._build_left_settings_panel()
         self._build_right_pl_panel()
         self._apply_defaults()
 
-    # ------------------------------
-    # Загрузка справочников и индексов
-    # ------------------------------
+    # --------- загрузка и индексы ----------
     def _load_data(self):
-        """Загрузка справочников и настроек по умолчанию"""
         self.default_settings = self.api_client.cache.load_data('default_pl_settings') or {}
 
         endpoints = [
@@ -78,7 +73,6 @@ class CreatePLForm(ctk.CTkFrame):
             'drivers', 'cars', 'podryads', 'loading-points', 'unloading-points',
             'car-markas', 'car-models'
         ]
-
         for endpoint in endpoints:
             self.related_data[endpoint] = self.api_client.get_local_data(endpoint) or []
 
@@ -89,14 +83,10 @@ class CreatePLForm(ctk.CTkFrame):
         self.podryads_by_id = {p['id']: p for p in self.related_data['podryads'] if isinstance(p, dict) and p.get('id') is not None}
         self.gruzes_by_id = {g['id']: g for g in self.related_data['gruzes'] if isinstance(g, dict) and g.get('id') is not None}
 
-        # Индекс водитель -> подрядчик по массиву drivers в подряде
+        # индекс водитель -> подрядчик
         self.driver_to_podryad = self._build_driver_contractor_index()
 
     def _build_driver_contractor_index(self):
-        """
-        Строит индекс: {driver_id: contractor_id}
-        Ищет водителей в списке drivers каждого подрядчика (поддержка как списка ID, так и списка объектов).
-        """
         index = {}
         for podryad in self.related_data['podryads']:
             if not isinstance(podryad, dict):
@@ -114,17 +104,26 @@ class CreatePLForm(ctk.CTkFrame):
                     if driver_id:
                         index[driver_id] = podryad_id
         return index
-
-    # ------------------------------
-    # Построение UI: левая колонка (настройки)
-    # ------------------------------
+    
+    # вспомогательное — плоские словари по id для шаблона
+    def _dict_maps_for_template(self):
+        maps = {}
+        for key in [
+            'drivers', 'cars', 'podryads', 'gruzes',
+            'loading-points', 'unloading-points',
+            'organizations', 'customers', 'seasons',
+            'car-markas', 'car-models'
+        ]:
+            items = self.related_data.get(key, [])
+            maps[key] = {itm.get('id'): itm for itm in items if isinstance(itm, dict) and itm.get('id') is not None}
+        # передадим также настройки по умолчанию (для distance/dispatcher и т.п.)
+        maps['default_pl_settings'] = self.default_settings or {}
+        return maps
+    
+    # --------- левая колонка ----------
     def _build_left_settings_panel(self):
         row = 0
-        ctk.CTkLabel(
-            self.left_frame,
-            text="Настройки по умолчанию",
-            font=ctk.CTkFont(size=16, weight="bold")
-        ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(5, 10))
+        ctk.CTkLabel(self.left_frame, text="Настройки по умолчанию", font=ctk.CTkFont(size=16, weight="bold")).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(5, 10))
         row += 1
 
         def add_setting(label_text, key, bold=False):
@@ -142,29 +141,21 @@ class CreatePLForm(ctk.CTkFrame):
         add_setting("Вид груза:", "gruz", bold=True)
         add_setting("Место погрузки:", "loading_point")
         add_setting("Место разгрузки:", "unloading_point")
-        add_setting("Расстояние, км:", "distance")
+        add_setting("Расстояние, км:", "distance", bold=True)
+        add_setting("Диспетчер:", "dispatcher", bold=True)
 
         ctk.CTkLabel(self.left_frame, text="Подсказки", font=ctk.CTkFont(weight="bold")).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(12, 6))
         row += 1
-        ctk.CTkLabel(
-            self.left_frame,
-            text="Измените значения на вкладке «Настройки», затем вернитесь сюда — маршрут и № ПЛ пересчитаются автоматически.",
-            wraplength=360,
-            anchor="w",
-            justify="left"
-        ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(0, 10))
+        ctk.CTkLabel(self.left_frame, text="Измените значения на вкладке «Настройки», затем вернитесь сюда — маршрут и № ПЛ пересчитаются автоматически.", wraplength=360, anchor="w", justify="left").grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(0, 10))
         row += 1
 
-    # ------------------------------
-    # Построение UI: правая колонка (ПЛ)
-    # ------------------------------
+    # --------- правая колонка ----------
     def _build_right_pl_panel(self):
         row = 0
-        ctk.CTkLabel(
-            self.right_frame,
-            text="Путевой лист",
-            font=ctk.CTkFont(size=16, weight="bold")
-        ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(5, 10))
+        ctk.CTkLabel(self.right_frame, text="Путевой лист", font=ctk.CTkFont(size=16, weight="bold")).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(5, 10))
+        
+        refresh_btn = ctk.CTkButton(self.right_frame, text="Обновить поля", command=self._reset_driver_fields)
+        refresh_btn.grid(row=row, column=1, sticky="e", padx=(0, 10), pady=(0, 8))
         row += 1
 
         def add_field(label_text, api_key, widget_type, values=None, **kwargs):
@@ -173,7 +164,6 @@ class CreatePLForm(ctk.CTkFrame):
             cont = ctk.CTkFrame(self.right_frame, fg_color="transparent")
             cont.grid(row=row, column=1, sticky="ew", padx=(0, 10), pady=4)
             widget = None
-
             if widget_type == "entry":
                 widget = ctk.CTkEntry(cont, **kwargs)
                 widget.pack(fill="x")
@@ -191,48 +181,42 @@ class CreatePLForm(ctk.CTkFrame):
                 hour_combo.pack(side="left", padx=5)
                 minute_combo.pack(side="left")
                 widget = (date_entry, hour_combo, minute_combo)
-
             self.form_widgets[api_key] = widget
             row += 1
             return widget
 
-        # Верхние вычисляемые поля ПЛ
         add_field("Маршрут:", "marsh", "label", font=ctk.CTkFont(weight="bold"))
         add_field("Номер ПЛ:", "numberPL", "label", font=ctk.CTkFont(weight="bold", size=14), text_color="green")
 
-        # Данные водителей
-        drv1 = add_field("Водитель 1", "driver", "entry", placeholder_text="Введите ФИО и нажмите Enter")
-        drv1.bind("<Return>", lambda e: self._search_driver("driver"))
+        # Водитель 1: поиск по ФИО или по № ТС
+        drv1 = add_field("Водитель 1", "driver", "entry", placeholder_text="Введите ФИО или № ТС и нажмите Enter")
+        drv1.bind("<Return>", lambda e: self._search_driver_or_car("driver"))
+
         add_field("  СНИЛС:", "snils", "label")
         add_field("  ВУ:", "driver_license", "label")
 
         drv2 = add_field("Водитель 2", "driver2", "entry", placeholder_text="Введите ФИО и нажмите Enter")
-        drv2.bind("<Return>", lambda e: self._search_driver("driver2"))
+        drv2.bind("<Return>", lambda e: self._search_driver_or_car("driver2"))
+
         add_field("  СНИЛС 2:", "snils2", "label")
         add_field("  ВУ 2:", "driver_license2", "label")
 
-        # ТС и подрядчик
         add_field("ТС:", "number", "label")
         add_field("  Марка:", "marka", "label")
         add_field("  Модель:", "model", "label")
         add_field("Подрядчик:", "contractor", "label", font=ctk.CTkFont(weight="bold"))
 
-        # Партия груза
         batch_values = [b.get('batch_number', '') for b in self.related_data.get('cargo-batches', [])]
         add_field("Партия груза:", "cargo_batch", "combobox", values=batch_values)
 
-        # Дата выдачи ПЛ
         date_widget, hour_widget, minute_widget = add_field("Дата выдачи ПЛ:", "dataPOPL", "datetime")
 
-        # Значения по умолчанию для даты-времени
         now = datetime.now()
         date_widget.set_date(now)
         hour_widget.set(f"{now.hour:02d}")
         minute_widget.set(f"{int(now.minute / 5) * 5:02d}")
 
-    # ------------------------------
-    # Применение настроек и генерация marsh/numberPL
-    # ------------------------------
+    # --------- применение настроек ----------
     def _apply_defaults(self):
         defaults = self.default_settings
 
@@ -240,7 +224,6 @@ class CreatePLForm(ctk.CTkFrame):
             item = next((i for i in data_list if str(i.get('id')) == str(item_id)), None)
             return item.get(key) if item else ""
 
-        # Левая колонка (read-only отображение настроек)
         if 'season' in self.form_widgets:
             self.form_widgets['season'].configure(text=get_name_by_id(self.related_data['seasons'], defaults.get('season')))
         if 'organization' in self.form_widgets:
@@ -260,12 +243,12 @@ class CreatePLForm(ctk.CTkFrame):
             self.form_widgets['unloading_point'].configure(text=get_name_by_id(self.related_data['unloading-points'], defaults.get('unloading_point')))
         if 'distance' in self.form_widgets:
             self.form_widgets['distance'].configure(text=str(defaults.get('distance', '')))
+        if 'dispatcher' in self.form_widgets:
+            self.form_widgets['dispatcher'].configure(text=str(defaults.get('dispatcher', '')))
 
-        # Генерация маршрута и номера ПЛ в правой колонке
         self._generate_marsh()
 
     def _generate_marsh(self):
-        """Генерирует код маршрута на основе настроек по умолчанию"""
         def get_short_name(data_list, item_id):
             item = next((i for i in data_list if str(i.get('id')) == str(item_id)), None)
             if not item:
@@ -292,7 +275,6 @@ class CreatePLForm(ctk.CTkFrame):
                 self.form_widgets['numberPL'].configure(text="")
 
     def _generate_numberPL(self, marsh_code):
-        """Генерирует номер путевого листа в формате {marsh}-{seq} c учётом сезона и pending"""
         if not marsh_code:
             return
         season_id = self.default_settings.get('season')
@@ -314,18 +296,37 @@ class CreatePLForm(ctk.CTkFrame):
         if 'numberPL' in self.form_widgets:
             self.form_widgets['numberPL'].configure(text=new_number)
 
-    # ------------------------------
-    # Поиск и выбор водителей
-    # ------------------------------
-    def _search_driver(self, key):
-        query = self.form_widgets[key].get().lower()
+    # --------- поиск по ФИО или № ТС ----------
+    def _search_driver_or_car(self, key):
+        query = self.form_widgets[key].get().lower().strip()
         if not query:
             return
 
-        results = [d for d in self.related_data['drivers'] if isinstance(d, dict) and query in str(d.get('full_name', '')).lower()]
+        # 1) по ФИО
+        fio_results = [d for d in self.related_data['drivers'] if isinstance(d, dict) and query in str(d.get('full_name', '')).lower()]
+
+        # 2) по номеру ТС (точное вхождение)
+        car_match_ids = []
+        for cid, car in self.cars_by_id.items():
+            num = str(car.get('number', '')).lower()
+            if query and query in num:
+                car_match_ids.append(cid)
+
+        car_results = []
+        if car_match_ids:
+            for d in self.related_data['drivers']:
+                if not isinstance(d, dict):
+                    continue
+                cars = d.get('cars') or []
+                if any(c in car_match_ids for c in cars):
+                    car_results.append(d)
+
+        # объединяем, убирая дубликаты
+        merged = {d['id']: d for d in (fio_results + car_results)}
+        results = list(merged.values())
 
         if not results:
-            messagebox.showinfo("Поиск", f"Водитель с '{query}' не найден.")
+            messagebox.showinfo("Поиск", f"Ничего не найдено по '{query}'.")
             return
 
         if len(results) == 1:
@@ -333,7 +334,7 @@ class CreatePLForm(ctk.CTkFrame):
         else:
             top = ctk.CTkToplevel(self)
             top.title("Выберите водителя")
-            top.geometry("820x340")
+            top.geometry("460x360")
             top.transient(self)
             top.grab_set()
 
@@ -342,35 +343,21 @@ class CreatePLForm(ctk.CTkFrame):
                 top.destroy()
 
             for driver in results:
-                option_text = self._format_driver_option(driver)
-                ctk.CTkButton(
-                    top,
-                    text=option_text,
-                    command=lambda d=driver: on_select(d)
-                ).pack(pady=5, padx=10, fill='x')
-
-    def _format_driver_option(self, driver: dict) -> str:
-        """Возвращает строку для кнопки выбора водителя: ФИО | ТС: НОМЕР | Подрядчик: Название"""
-        # Номер ТС
-        car_number = "—"
-        car_ids = driver.get("cars") or []
-        if isinstance(car_ids, list) and car_ids:
-            first_car_id = car_ids[0]
-            car = self.cars_by_id.get(first_car_id)
-            if isinstance(car, dict):
-                car_number = car.get("number") or "—"
-
-        # Подрядчик (через индекс водитель -> подрядчик)
-        contractor_name = "—"
-        drv_id = driver.get("id")
-        pod_id = self.driver_to_podryad.get(drv_id)
-        if pod_id:
-            pod = self.podryads_by_id.get(pod_id)
-            if isinstance(pod, dict):
-                contractor_name = pod.get("org_name") or "—"
-
-        return f"{driver.get('full_name', 'Без имени')} | ТС: {car_number} | Подрядчик: {contractor_name}"
-
+                # отображаем ФИО | № ТС | Подрядчик
+                car_number = "—"
+                cars = driver.get('cars') or []
+                if cars:
+                    car = self.cars_by_id.get(cars[0])
+                    if car:
+                        car_number = car.get('number') or "—"
+                contractor_name = "—"
+                pod_id = self.driver_to_podryad.get(driver.get('id'))
+                if pod_id:
+                    pod = self.podryads_by_id.get(pod_id)
+                    if pod:
+                        contractor_name = pod.get('org_name') or "—"
+                text = f"{driver.get('full_name','Без имени')} | ТС: {car_number} | Подрядчик: {contractor_name}"
+                ctk.CTkButton(top, text=text, command=lambda d=driver: on_select(d)).pack(pady=5, padx=10, fill='x')
 
     def _select_driver(self, driver_data, key):
         self.form_widgets[key].delete(0, 'end')
@@ -381,16 +368,13 @@ class CreatePLForm(ctk.CTkFrame):
         vu = driver_data.get('driver_license') or 'механик'
 
         if key == 'driver':
-            # Основной водитель
             if 'snils' in self.form_widgets:
                 self.form_widgets['snils'].configure(text=snils)
             if 'driver_license' in self.form_widgets:
                 self.form_widgets['driver_license'].configure(text=vu)
 
-            # Пробуем проставить ТС
             car_id = (driver_data.get('cars') or [None])[0]
 
-            # Очистка
             for k in ['number', 'marka', 'model', 'pod']:
                 self.selected_ids.pop(k, None)
             for w_key in ['number', 'marka', 'model', 'contractor']:
@@ -410,7 +394,6 @@ class CreatePLForm(ctk.CTkFrame):
                 if 'model' in self.form_widgets:
                     self.form_widgets['model'].configure(text=model)
 
-            # Подрядчик по индексу водитель->подрядчик
             driver_id = driver_data.get('id')
             podryad_id = self.driver_to_podryad.get(driver_id)
             if podryad_id and podryad_id in self.podryads_by_id:
@@ -425,9 +408,31 @@ class CreatePLForm(ctk.CTkFrame):
             if 'driver_license2' in self.form_widgets:
                 self.form_widgets['driver_license2'].configure(text=vu)
 
-    # ------------------------------
-    # Отправка формы
-    # ------------------------------
+        # ИЗМЕНЕНО: полная очистка полей водителей/ТС/подрядчика
+    
+    def _reset_driver_fields(self):
+        # Очистить вводные поля
+        if 'driver' in self.form_widgets and hasattr(self.form_widgets['driver'], 'delete'):
+            self.form_widgets['driver'].delete(0, 'end')
+        if 'driver2' in self.form_widgets and hasattr(self.form_widgets['driver2'], 'delete'):
+            self.form_widgets['driver2'].delete(0, 'end')
+
+        # Очистить подписи/итоги
+        for key in ['snils', 'driver_license', 'snils2', 'driver_license2',
+                    'number', 'marka', 'model', 'contractor']:
+            if key in self.form_widgets:
+                self.form_widgets[key].configure(text="")
+
+        # Сброс выбранных id
+        for key in ['driver', 'driver2', 'number', 'pod']:
+            if key in self.selected_ids:
+                self.selected_ids.pop(key, None)
+
+        # Поставить фокус в «Водитель 1»
+        if 'driver' in self.form_widgets:
+            self.form_widgets['driver'].focus_set()
+
+    # --------- отправка ----------
     def submit_form(self):
         payload = {}
 
@@ -457,7 +462,7 @@ class CreatePLForm(ctk.CTkFrame):
                 if batch_item:
                     payload['cargo_batch'] = batch_item['id']
 
-        # Дата выдачи
+        # Дата выдачи ПЛ (без тайм-зоны)
         try:
             date_widget, hour_widget, minute_widget = self.form_widgets['dataPOPL']
             date_val = date_widget.get_date()
@@ -468,9 +473,12 @@ class CreatePLForm(ctk.CTkFrame):
         except Exception as e:
             print(f"Error getting date: {e}")
 
+        # ИЗМЕНЕНО: created_by — id пользователя (PK), если известен
+        if getattr(self.api_client, 'current_user_id', None) is not None:
+            payload['created_by'] = self.api_client.current_user_id
+
         payload['temp_id'] = f"temp_{uuid.uuid4()}"
 
-        # Валидация минимальная
         if 'driver' not in payload:
             messagebox.showerror("Ошибка", "Необходимо выбрать основного водителя!")
             return
@@ -484,7 +492,7 @@ class CreatePLForm(ctk.CTkFrame):
         # Локально в очередь
         self.api_client.add_to_pending_queue('registries', payload)
 
-        # Обновить таблицу
+        # Обновление таблицы
         if self.on_save_callback:
             self.on_save_callback()
 
@@ -497,13 +505,39 @@ class CreatePLForm(ctk.CTkFrame):
             daemon=True
         ).start()
 
-        # Обновить номер для следующего ПЛ
+        # ИЗМЕНЕНО: генерация Excel по шаблону и открытие файла
+                # Генерация Excel по шаблону и открытие файла (контекст уже включает distance/dispatcher)
+        try:
+            dict_maps = self._dict_maps_for_template()
+            ctx = build_context(payload, dict_maps)
+
+            safe_fio = (ctx.get("{driver_full_name}") or "").replace("/", "_").replace("\\", "_")
+            safe_numberPL = (ctx.get("{numberPL}") or "").replace("/", "_").replace("\\", "_")
+            out_name = f"{safe_numberPL} {safe_fio}.xlsx" if safe_fio else f"{safe_numberPL}.xlsx"
+
+            out_path = fill_template_and_save(ctx, out_name)
+
+            try:
+                if os.name == "nt":
+                    os.startfile(out_path)
+                else:
+                    subprocess.Popen(["xdg-open", str(out_path)])
+            except Exception as open_err:
+                print(f"Не удалось открыть файл: {open_err}")
+        except Exception as gen_err:
+            print(f"[Excel] Ошибка генерации ПЛ: {gen_err}")
+
+
+        # Обновить номер ПЛ для следующей записи
         self._generate_numberPL(payload['marsh'])
 
-    # ------------------------------
-    # Публичное API для перезагрузки после изменения настроек
-    # ------------------------------
+
+        # Обновить номер ПЛ для следующей записи
+        self._generate_numberPL(payload['marsh'])
+
+        self._reset_driver_fields()
+    # --------- публичное API ----------
     def reload_settings(self):
-        """Перезагружает настройки, справочники и пересчитывает маршрут/номер ПЛ"""
         self._load_data()
         self._apply_defaults()
+        self._reset_driver_fields()

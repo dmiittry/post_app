@@ -1,6 +1,7 @@
 [
   {
     "id": 18,
+    "contractor_id": 21,
     "full_name": "Слепцов Зосим Дмитриевич",
     "email": "petrovanur@gmail.com",
     "birth_date": "1999-10-07",
@@ -29,6 +30,7 @@
   },
   {
     "id": 17,
+    "contractor_id": 21,
     "full_name": "Алексеев Виктор Александрович",
     "email": "petrovslava@mail.ru",
     "birth_date": "1983-12-02",
@@ -57,6 +59,7 @@
   },
   {
     "id": 7,
+    "contractor_id": 56,
     "full_name": "Кириллин Прокопий Петрович",
     "email": "Pronia2985@mail.ru",
     "birth_date": "1992-11-19",
@@ -85,6 +88,7 @@
   },
   {
     "id": 9,
+    "contractor_id": 71,
     "full_name": "Гамботов Алисхан Асхабович",
     "email": "aleko-67@yandex.ru",
     "birth_date": "1986-02-17",
@@ -113,6 +117,7 @@
   },
   {
     "id": 10,
+    "contractor_id": 24,
     "full_name": "Борисов Михаил Афанасьевич",
     "email": "borisovma00@mail.ru",
     "birth_date": "1989-11-01",
@@ -141,6 +146,7 @@
   },
   {
     "id": 23,
+    "contractor_id": 60,
     "full_name": "Николаев Юрий Игоревич",
     "email": "alexeevdp-voditel2@gmail.com",
     "birth_date": "1997-10-27",
@@ -169,6 +175,7 @@
   },
   {
     "id": 21,
+    "contractor_id": 60,
     "full_name": "Притыкин Евгений Николаевич",
     "email": "alexeevdp-voditel@gmail.com",
     "birth_date": "1978-05-01",
@@ -197,6 +204,7 @@
   },
   {
     "id": 24,
+    "contractor_id": 6,
     "full_name": "Сергеев Илья Николаевич",
     "email": "ilya75s75-voditel@mail.ru",
     "birth_date": "1975-01-26",
@@ -225,6 +233,7 @@
   },
   {
     "id": 20,
+    "contractor_id": 40,
     "full_name": "Корякин Пётр Васильевич",
     "email": "koryakin_1980-voditel@internet.ru",
     "birth_date": "1980-12-16",
@@ -253,6 +262,7 @@
   },
   {
     "id": 12,
+    "contractor_id": 12,
     "full_name": "Ефимов Александр Афанасьевич",
     "email": "aleksandr.efimov869@gmail.com",
     "birth_date": "1972-02-01",
@@ -281,6 +291,7 @@
   },
   {
     "id": 8,
+    "contractor_id": 25,
     "full_name": "Трофимов Айсен Витальевич",
     "email": "aysen-sp@mail.ru",
     "birth_date": "1995-12-17",
@@ -309,6 +320,7 @@
   },
   {
     "id": 14,
+    "contractor_id": 75,
     "full_name": "Мандаров Семен Семенович",
     "email": "mandarovssV1@mail.ru",
     "birth_date": "1973-03-23",
@@ -337,6 +349,7 @@
   },
   {
     "id": 19,
+    "contractor_id": 9,
     "full_name": "Попов Василий Васильевич",
     "email": "popovv1998@icloud.com",
     "birth_date": "1998-12-28",
@@ -365,6 +378,7 @@
   },
   {
     "id": 26,
+    "contractor_id": 61,
     "full_name": "Постников Николай Алексеевич",
     "email": "petraprosimov1-voditel@gmail.com",
     "birth_date": "1984-10-10",
@@ -393,6 +407,7 @@
   },
   {
     "id": 25,
+    "contractor_id": 7,
     "full_name": "Киров Семён Евгениевич",
     "email": "danat0211@mail.ru",
     "birth_date": "1999-05-26",
@@ -421,6 +436,7 @@
   },
   {
     "id": 6,
+    "contractor_id": 18,
     "full_name": "Говоров Михаил Яковлевич",
     "email": "micgov1986@mail.ru",
     "birth_date": "1986-08-20",
@@ -447,6 +463,7 @@
   },
   {
     "id": 4,
+    "contractor_id": 10,
     "full_name": "Саввин Аркадий Валерьевич",
     "email": "algystansavvin@gmail.com",
     "birth_date": "1986-01-12",
@@ -475,6 +492,7 @@
   },
   {
     "id": 49,
+    "contractor_id": 64,
     "full_name": "Петюрканов Василий Егорович",
     "email": "",
     "birth_date": "1981-01-23",
@@ -503,6 +521,7 @@
   },
   {
     "id": 27,
+    "contractor_id": 84,
     "full_name": "Тимофеев Николай Дмитриевич",
     "email": "timofeevkola355-voditel@gmail.com",
     "birth_date": "1984-11-14",
@@ -531,6 +550,7 @@
   },
   {
     "id": 41,
+    "contractor_id": 92,
     "full_name": "Гоголев Алексей Алексеевич",
     "email": "",
     "birth_date": "1973-01-15",
@@ -559,6 +579,7 @@
   },
   {
     "id": 48,
+    "contractor_id": 58,
     "full_name": "Павлов Евгений Егорович",
     "email": "",
     "birth_date": "1978-02-01",
@@ -587,6 +608,7 @@
   },
   {
     "id": 43,
+    "contractor_id": 94,
     "full_name": "Николаев Андрей Александрович",
     "email": "",
     "birth_date": "1987-08-13",
@@ -615,6 +637,7 @@
   },
   {
     "id": 45,
+    "contractor_id": 94,
     "full_name": "Налесник Иван Николаевич",
     "email": "",
     "birth_date": "1983-09-10",
@@ -643,6 +666,7 @@
   },
   {
     "id": 59,
+    "contractor_id": null,
     "full_name": "Попов Анатолий Анатольевич",
     "email": "",
     "birth_date": "1999-06-17",
@@ -669,6 +693,7 @@
   },
   {
     "id": 42,
+    "contractor_id": 39,
     "full_name": "Попов Федор Геннадьевич",
     "email": "",
     "birth_date": "1973-05-05",
@@ -697,6 +722,7 @@
   },
   {
     "id": 46,
+    "contractor_id": 94,
     "full_name": "Каратаев Алексей Алексеевич",
     "email": "",
     "birth_date": "1990-11-01",
@@ -725,6 +751,7 @@
   },
   {
     "id": 60,
+    "contractor_id": 95,
     "full_name": "Жирков Степан Петрович",
     "email": "",
     "birth_date": "1987-09-23",
@@ -753,6 +780,7 @@
   },
   {
     "id": 51,
+    "contractor_id": 93,
     "full_name": "Винокуров Айсен Игнатьевич",
     "email": "",
     "birth_date": "1982-03-14",
@@ -781,6 +809,7 @@
   },
   {
     "id": 54,
+    "contractor_id": 93,
     "full_name": "Захаров Дьулустан Михайлович",
     "email": "",
     "birth_date": "1984-03-27",
@@ -809,6 +838,7 @@
   },
   {
     "id": 58,
+    "contractor_id": 96,
     "full_name": "Куличкин Александр Михайлович",
     "email": "",
     "birth_date": "1986-09-17",
@@ -837,6 +867,7 @@
   },
   {
     "id": 28,
+    "contractor_id": 31,
     "full_name": "Семенов Владислав Прокопьевич",
     "email": "",
     "birth_date": "2000-06-14",
@@ -865,6 +896,7 @@
   },
   {
     "id": 52,
+    "contractor_id": 20,
     "full_name": "Катакинов Александр Прокопьевич",
     "email": "",
     "birth_date": "1984-07-24",
@@ -893,6 +925,7 @@
   },
   {
     "id": 56,
+    "contractor_id": 20,
     "full_name": "Янышев Степан Степанович",
     "email": "",
     "birth_date": "1987-04-02",
@@ -921,6 +954,7 @@
   },
   {
     "id": 47,
+    "contractor_id": 7,
     "full_name": "Киров Евгений Семёнович",
     "email": "semenkirov99@gmail.com",
     "birth_date": "1972-09-04",
@@ -949,6 +983,7 @@
   },
   {
     "id": 53,
+    "contractor_id": 22,
     "full_name": "Макаров Станислав Алексеевич",
     "email": "",
     "birth_date": "1986-12-18",
@@ -977,6 +1012,7 @@
   },
   {
     "id": 76,
+    "contractor_id": 81,
     "full_name": "Кардашевский Семён Семенович",
     "email": "savvianya92@mail.ru",
     "birth_date": "1998-01-08",
@@ -1005,6 +1041,7 @@
   },
   {
     "id": 62,
+    "contractor_id": 22,
     "full_name": "Баишев Альберт Альбертович",
     "email": "",
     "birth_date": "1988-08-22",
@@ -1033,6 +1070,7 @@
   },
   {
     "id": 65,
+    "contractor_id": 22,
     "full_name": "Петров Николай Николаевич",
     "email": "",
     "birth_date": "2003-03-08",
@@ -1061,6 +1099,7 @@
   },
   {
     "id": 70,
+    "contractor_id": 80,
     "full_name": "Чупров Фрументий Николаевич",
     "email": "",
     "birth_date": "1991-01-24",
@@ -1089,6 +1128,7 @@
   },
   {
     "id": 63,
+    "contractor_id": 2,
     "full_name": "Михайлов Ким Кимович",
     "email": "",
     "birth_date": "1983-05-07",
@@ -1117,6 +1157,7 @@
   },
   {
     "id": 66,
+    "contractor_id": 82,
     "full_name": "Кобяков Андрей Григорьевич",
     "email": "",
     "birth_date": "1993-01-17",
@@ -1145,6 +1186,7 @@
   },
   {
     "id": 64,
+    "contractor_id": 82,
     "full_name": "Стручков Олег Алексеевич",
     "email": "",
     "birth_date": "1990-07-26",
@@ -1173,6 +1215,7 @@
   },
   {
     "id": 69,
+    "contractor_id": 47,
     "full_name": "Дабдасов Егор Трофимович",
     "email": "",
     "birth_date": "1973-08-24",
@@ -1201,6 +1244,7 @@
   },
   {
     "id": 80,
+    "contractor_id": 77,
     "full_name": "Собакин Алексей Леонидович",
     "email": "",
     "birth_date": "1992-07-18",
@@ -1229,6 +1273,7 @@
   },
   {
     "id": 79,
+    "contractor_id": 77,
     "full_name": "Собакин Леонид Алексеевич",
     "email": "",
     "birth_date": "1965-11-01",
@@ -1257,6 +1302,7 @@
   },
   {
     "id": 81,
+    "contractor_id": 77,
     "full_name": "Павлов Эрик Николаевич",
     "email": "",
     "birth_date": "2001-09-26",
@@ -1285,6 +1331,7 @@
   },
   {
     "id": 72,
+    "contractor_id": 80,
     "full_name": "Сивцев Никита Юрьевич",
     "email": "",
     "birth_date": "1988-01-11",
@@ -1313,6 +1360,7 @@
   },
   {
     "id": 77,
+    "contractor_id": 16,
     "full_name": "Собакин Петр Прокопьевич",
     "email": "",
     "birth_date": "1990-02-23",
@@ -1341,6 +1389,7 @@
   },
   {
     "id": 50,
+    "contractor_id": 46,
     "full_name": "Алексеев Сергей Иннокентьевич",
     "email": "",
     "birth_date": "1999-04-23",
@@ -1369,6 +1418,7 @@
   },
   {
     "id": 74,
+    "contractor_id": 43,
     "full_name": "Дьячковский Алексей Прокопьевич",
     "email": "",
     "birth_date": "1994-05-25",
@@ -1397,6 +1447,7 @@
   },
   {
     "id": 78,
+    "contractor_id": 35,
     "full_name": "Менкяров Владимир Петрович",
     "email": "",
     "birth_date": "1987-04-22",
@@ -1425,6 +1476,7 @@
   },
   {
     "id": 61,
+    "contractor_id": 96,
     "full_name": "Куличкин Михаил Михайлович",
     "email": "",
     "birth_date": "1988-12-27",
@@ -1453,6 +1505,7 @@
   },
   {
     "id": 67,
+    "contractor_id": 29,
     "full_name": "Афанасьев Александр Александрович",
     "email": "",
     "birth_date": "1997-03-07",
@@ -1481,6 +1534,7 @@
   },
   {
     "id": 83,
+    "contractor_id": 77,
     "full_name": "Дьячковский Петр Петрович",
     "email": "",
     "birth_date": "1990-06-11",
@@ -1509,6 +1563,7 @@
   },
   {
     "id": 68,
+    "contractor_id": 52,
     "full_name": "Портнягин Владимир Спиридонович",
     "email": "vova.portnyagin.93@bk.ru",
     "birth_date": "1993-05-14",
@@ -1537,6 +1592,7 @@
   },
   {
     "id": 75,
+    "contractor_id": 81,
     "full_name": "Трапезников Егор Егорович",
     "email": "trapeznikovaanna1992@mail.ru",
     "birth_date": "1990-03-30",
@@ -1565,6 +1621,7 @@
   },
   {
     "id": 91,
+    "contractor_id": 100,
     "full_name": "Туприн Иван Петрович",
     "email": "",
     "birth_date": "1980-02-12",
@@ -1593,6 +1650,7 @@
   },
   {
     "id": 94,
+    "contractor_id": 86,
     "full_name": "Канаев Михаил Михайлович",
     "email": "",
     "birth_date": "1993-11-25",
@@ -1621,6 +1679,7 @@
   },
   {
     "id": 89,
+    "contractor_id": 83,
     "full_name": "Парфенов Николай Виталиевич",
     "email": "",
     "birth_date": "1987-09-15",
@@ -1649,6 +1708,7 @@
   },
   {
     "id": 85,
+    "contractor_id": 5,
     "full_name": "Харитонов Тимур  Иванович",
     "email": "",
     "birth_date": "1970-08-25",
@@ -1677,6 +1737,7 @@
   },
   {
     "id": 84,
+    "contractor_id": 100,
     "full_name": "Сивцев Андрей Александрович",
     "email": "saa1888@mail.ru",
     "birth_date": "1988-07-19",
@@ -1705,6 +1766,7 @@
   },
   {
     "id": 86,
+    "contractor_id": 100,
     "full_name": "Бабанов Семен Евсеевич",
     "email": "",
     "birth_date": "1994-08-29",
@@ -1733,6 +1795,7 @@
   },
   {
     "id": 98,
+    "contractor_id": 62,
     "full_name": "Андреев Харитон Егорович",
     "email": "",
     "birth_date": "1972-12-06",
@@ -1761,6 +1824,7 @@
   },
   {
     "id": 88,
+    "contractor_id": 100,
     "full_name": "Пестряков Василий Васильевич",
     "email": "",
     "birth_date": "1962-07-02",
@@ -1789,6 +1853,7 @@
   },
   {
     "id": 87,
+    "contractor_id": 34,
     "full_name": "Кардашевский Валентин Валентинович",
     "email": "",
     "birth_date": "1985-11-04",
@@ -1817,6 +1882,7 @@
   },
   {
     "id": 82,
+    "contractor_id": 98,
     "full_name": "Федоров Уйгун Айаалович",
     "email": "",
     "birth_date": "2004-06-11",
@@ -1845,6 +1911,7 @@
   },
   {
     "id": 92,
+    "contractor_id": 87,
     "full_name": "Готовцев Семен Прокопьевич",
     "email": "",
     "birth_date": "1990-08-25",
@@ -1873,6 +1940,7 @@
   },
   {
     "id": 95,
+    "contractor_id": 32,
     "full_name": "Барахов Ньургун Васильевич",
     "email": "xvarvara@mail.ru",
     "birth_date": "1973-12-06",
@@ -1901,6 +1969,7 @@
   },
   {
     "id": 96,
+    "contractor_id": 32,
     "full_name": "Аммосов Василий Константинович",
     "email": "",
     "birth_date": "1983-05-11",
@@ -1929,6 +1998,7 @@
   },
   {
     "id": 97,
+    "contractor_id": 77,
     "full_name": "Жирохов Александр Юрьевич",
     "email": "",
     "birth_date": "1980-08-13",
@@ -1957,6 +2027,7 @@
   },
   {
     "id": 90,
+    "contractor_id": 100,
     "full_name": "Богимов Николай Федотович",
     "email": "",
     "birth_date": "1980-10-08",
@@ -1985,6 +2056,7 @@
   },
   {
     "id": 100,
+    "contractor_id": 62,
     "full_name": "Михайлов Вадим Вадимович",
     "email": "",
     "birth_date": "1986-01-07",
@@ -2013,6 +2085,7 @@
   },
   {
     "id": 101,
+    "contractor_id": 62,
     "full_name": "Румянцев Александр Захарович",
     "email": "",
     "birth_date": "2018-01-12",
@@ -2041,6 +2114,7 @@
   },
   {
     "id": 108,
+    "contractor_id": 52,
     "full_name": "Чириков Иннокентий Егорович",
     "email": "",
     "birth_date": "1991-08-09",
@@ -2067,6 +2141,7 @@
   },
   {
     "id": 99,
+    "contractor_id": 62,
     "full_name": "Бечеканов Артём Иванович",
     "email": "",
     "birth_date": "1998-02-01",
@@ -2095,6 +2170,7 @@
   },
   {
     "id": 123,
+    "contractor_id": 120,
     "full_name": "Тойтоон Уххаан Альберт уола",
     "email": "",
     "birth_date": "2000-07-14",
@@ -2123,6 +2199,7 @@
   },
   {
     "id": 111,
+    "contractor_id": 109,
     "full_name": "Иванов Иван Иванович",
     "email": "",
     "birth_date": "1992-11-16",
@@ -2151,6 +2228,7 @@
   },
   {
     "id": 107,
+    "contractor_id": 3,
     "full_name": "Крыжановский Эдгар Евгеньевич",
     "email": "",
     "birth_date": "1998-03-05",
@@ -2179,6 +2257,7 @@
   },
   {
     "id": 109,
+    "contractor_id": 109,
     "full_name": "Сивцев Петр Петрович",
     "email": "chymyrov93@mail.ru",
     "birth_date": "1992-04-19",
@@ -2205,6 +2284,7 @@
   },
   {
     "id": 110,
+    "contractor_id": 109,
     "full_name": "Николаев Алексей Прокопьевич",
     "email": "",
     "birth_date": "1985-10-01",
@@ -2231,6 +2311,7 @@
   },
   {
     "id": 112,
+    "contractor_id": 109,
     "full_name": "Алексеев Алексей Семенович",
     "email": "",
     "birth_date": "1999-03-17",
@@ -2257,6 +2338,7 @@
   },
   {
     "id": 114,
+    "contractor_id": 109,
     "full_name": "Федоров Михаил Юрьевич",
     "email": "",
     "birth_date": "1994-07-11",
@@ -2283,6 +2365,7 @@
   },
   {
     "id": 106,
+    "contractor_id": 3,
     "full_name": "Бубякин Ион Саргыланович",
     "email": "",
     "birth_date": "2000-11-08",
@@ -2311,6 +2394,7 @@
   },
   {
     "id": 118,
+    "contractor_id": 120,
     "full_name": "Федоров Станислав Аркивиадович",
     "email": "",
     "birth_date": "1999-05-18",
@@ -2339,6 +2423,7 @@
   },
   {
     "id": 119,
+    "contractor_id": 120,
     "full_name": "Константинов Николай Степанович",
     "email": "",
     "birth_date": "1986-07-16",
@@ -2367,6 +2452,7 @@
   },
   {
     "id": 116,
+    "contractor_id": 8,
     "full_name": "Сорокин Александр Николаевич",
     "email": "",
     "birth_date": "1986-10-28",
@@ -2395,6 +2481,7 @@
   },
   {
     "id": 115,
+    "contractor_id": 38,
     "full_name": "Ершов Василий Васильевич",
     "email": "",
     "birth_date": "1969-11-23",
@@ -2423,6 +2510,7 @@
   },
   {
     "id": 113,
+    "contractor_id": 107,
     "full_name": "Спиридонов Иннокентий Михайлович",
     "email": "",
     "birth_date": "1983-04-25",
@@ -2451,6 +2539,7 @@
   },
   {
     "id": 120,
+    "contractor_id": 89,
     "full_name": "Габышев Дмитрий Дмитриевич",
     "email": "",
     "birth_date": "1980-10-21",
@@ -2479,6 +2568,7 @@
   },
   {
     "id": 122,
+    "contractor_id": 89,
     "full_name": "Алексеев Василий Дмитриевич",
     "email": "",
     "birth_date": "1991-01-24",
@@ -2507,6 +2597,7 @@
   },
   {
     "id": 104,
+    "contractor_id": 105,
     "full_name": "Яковлев Николай Валериянович",
     "email": "",
     "birth_date": "1980-03-08",
@@ -2535,6 +2626,7 @@
   },
   {
     "id": 102,
+    "contractor_id": 101,
     "full_name": "Ноговицын Павел Васильевич",
     "email": "mr.nogovitsyn2018@yandex.ru",
     "birth_date": "2003-05-02",
@@ -2563,6 +2655,7 @@
   },
   {
     "id": 129,
+    "contractor_id": null,
     "full_name": "Алексеев Герасим Петрович",
     "email": "",
     "birth_date": "1995-02-08",
@@ -2591,6 +2684,7 @@
   },
   {
     "id": 147,
+    "contractor_id": 26,
     "full_name": "Борисов Илья Анатольевич",
     "email": "",
     "birth_date": "1988-03-02",
@@ -2619,6 +2713,7 @@
   },
   {
     "id": 105,
+    "contractor_id": 115,
     "full_name": "Макаров Сергей Григорьевич",
     "email": "ses_energo@mail.ru",
     "birth_date": "1983-11-26",
@@ -2647,6 +2742,7 @@
   },
   {
     "id": 148,
+    "contractor_id": 120,
     "full_name": "Новгородов Николай Михайлович",
     "email": "",
     "birth_date": "1989-12-17",
@@ -2675,6 +2771,7 @@
   },
   {
     "id": 146,
+    "contractor_id": 120,
     "full_name": "Сенькин Игорь Николаевич",
     "email": "",
     "birth_date": "1989-05-27",
@@ -2703,6 +2800,7 @@
   },
   {
     "id": 103,
+    "contractor_id": 102,
     "full_name": "Гаврильев Николай Егорович",
     "email": "",
     "birth_date": "1996-06-04",
@@ -2731,6 +2829,7 @@
   },
   {
     "id": 127,
+    "contractor_id": 120,
     "full_name": "Михайлов Вячеслав Гаврильевич",
     "email": "",
     "birth_date": "1986-11-16",
@@ -2759,6 +2858,7 @@
   },
   {
     "id": 128,
+    "contractor_id": 120,
     "full_name": "Старостин Станислав Егорович",
     "email": "",
     "birth_date": "1988-08-18",
@@ -2787,6 +2887,7 @@
   },
   {
     "id": 135,
+    "contractor_id": 120,
     "full_name": "Васильев Евгений Алексеевич",
     "email": "",
     "birth_date": "1994-12-28",
@@ -2815,6 +2916,7 @@
   },
   {
     "id": 137,
+    "contractor_id": 120,
     "full_name": "Константинов Владимир Иванович",
     "email": "",
     "birth_date": "1989-10-13",
@@ -2843,6 +2945,7 @@
   },
   {
     "id": 138,
+    "contractor_id": 120,
     "full_name": "Пахомов Альберт Владимирович",
     "email": "",
     "birth_date": "1977-02-07",
@@ -2871,6 +2974,7 @@
   },
   {
     "id": 139,
+    "contractor_id": 120,
     "full_name": "Кириллин Иван Иванович",
     "email": "",
     "birth_date": "1986-08-19",
@@ -2899,6 +3003,7 @@
   },
   {
     "id": 140,
+    "contractor_id": 120,
     "full_name": "Данилов Николай Георгиевич",
     "email": "",
     "birth_date": "1987-08-25",
@@ -2927,6 +3032,7 @@
   },
   {
     "id": 141,
+    "contractor_id": 120,
     "full_name": "Захаров Петр Григорьевич",
     "email": "",
     "birth_date": "1978-02-27",
@@ -2955,6 +3061,7 @@
   },
   {
     "id": 144,
+    "contractor_id": 122,
     "full_name": "Цыпандин Иван Иванович",
     "email": "",
     "birth_date": "1973-06-23",
@@ -2983,6 +3090,7 @@
   },
   {
     "id": 134,
+    "contractor_id": 119,
     "full_name": "Филиппов Василий Николаевич",
     "email": "",
     "birth_date": "1977-06-08",
@@ -3011,6 +3119,7 @@
   },
   {
     "id": 132,
+    "contractor_id": 119,
     "full_name": "Юсифов Руслан Табиятович",
     "email": "",
     "birth_date": "1998-03-07",
@@ -3039,6 +3148,7 @@
   },
   {
     "id": 125,
+    "contractor_id": 119,
     "full_name": "Скоблилов Николай Сергеевич",
     "email": "",
     "birth_date": "1984-04-06",
@@ -3067,6 +3177,7 @@
   },
   {
     "id": 124,
+    "contractor_id": 110,
     "full_name": "Пермяков Семен Семенович",
     "email": "",
     "birth_date": "2000-02-25",
@@ -3095,6 +3206,7 @@
   },
   {
     "id": 131,
+    "contractor_id": 52,
     "full_name": "Габышев Лев Львович",
     "email": "",
     "birth_date": "1979-04-19",
@@ -3121,6 +3233,7 @@
   },
   {
     "id": 149,
+    "contractor_id": 118,
     "full_name": "Мосоркин Яков Васильевич",
     "email": "",
     "birth_date": "1981-02-28",
@@ -3149,6 +3262,7 @@
   },
   {
     "id": 151,
+    "contractor_id": 111,
     "full_name": "Никулин Николай Борисович",
     "email": "Spbo_01@mail.ru",
     "birth_date": "1987-04-25",
@@ -3177,6 +3291,7 @@
   },
   {
     "id": 158,
+    "contractor_id": 111,
     "full_name": "Климов Дмитрий Николаевич",
     "email": "",
     "birth_date": "1991-07-29",
@@ -3205,6 +3320,7 @@
   },
   {
     "id": 156,
+    "contractor_id": 111,
     "full_name": "Петров Павел Васильевич",
     "email": "Spbo_01@mail.ru",
     "birth_date": "1984-04-03",
@@ -3233,6 +3349,7 @@
   },
   {
     "id": 126,
+    "contractor_id": 120,
     "full_name": "Михайлов Михаил Егорович",
     "email": "",
     "birth_date": "1990-05-27",
@@ -3261,6 +3378,7 @@
   },
   {
     "id": 167,
+    "contractor_id": 90,
     "full_name": "Афанасьев Айсен Яковлевич",
     "email": "",
     "birth_date": "1990-03-19",
@@ -3289,6 +3407,7 @@
   },
   {
     "id": 161,
+    "contractor_id": 120,
     "full_name": "Васильев Иван Данилович",
     "email": "",
     "birth_date": "1987-03-05",
@@ -3317,6 +3436,7 @@
   },
   {
     "id": 162,
+    "contractor_id": 120,
     "full_name": "Гуляев Степан Петрович",
     "email": "",
     "birth_date": "1979-09-14",
@@ -3345,6 +3465,7 @@
   },
   {
     "id": 160,
+    "contractor_id": 110,
     "full_name": "Ноговицын Кирилл Александрович",
     "email": "",
     "birth_date": "1999-01-30",
@@ -3373,6 +3494,7 @@
   },
   {
     "id": 155,
+    "contractor_id": 111,
     "full_name": "Ефремов Алексей Афанасьевич",
     "email": "Spbo_01@mail.ru",
     "birth_date": "1982-12-16",
@@ -3401,6 +3523,7 @@
   },
   {
     "id": 150,
+    "contractor_id": 79,
     "full_name": "Аввакумов Иван Иванович",
     "email": "",
     "birth_date": "1976-01-30",
@@ -3429,6 +3552,7 @@
   },
   {
     "id": 159,
+    "contractor_id": 111,
     "full_name": "Филиппов Андрей Васильевич",
     "email": "",
     "birth_date": "1989-03-15",
@@ -3457,6 +3581,7 @@
   },
   {
     "id": 163,
+    "contractor_id": 59,
     "full_name": "Шелехов Иван Александрович",
     "email": "",
     "birth_date": "1993-01-31",
@@ -3485,6 +3610,7 @@
   },
   {
     "id": 154,
+    "contractor_id": 128,
     "full_name": "Мочкин Александр Александрович",
     "email": "",
     "birth_date": "1989-05-11",
@@ -3513,6 +3639,7 @@
   },
   {
     "id": 157,
+    "contractor_id": 128,
     "full_name": "Охлопков Алексей Михайлович",
     "email": "",
     "birth_date": "1985-07-15",
@@ -3541,6 +3668,7 @@
   },
   {
     "id": 166,
+    "contractor_id": 90,
     "full_name": "Афанасьев Иван Иванович",
     "email": "varios91@mail.ru",
     "birth_date": "1991-11-12",
@@ -3569,6 +3697,7 @@
   },
   {
     "id": 168,
+    "contractor_id": 90,
     "full_name": "Суханов Василий Геннадьевич",
     "email": "",
     "birth_date": "1985-10-08",
@@ -3597,6 +3726,7 @@
   },
   {
     "id": 165,
+    "contractor_id": 90,
     "full_name": "Анисимов Сахамин Александрович",
     "email": "",
     "birth_date": "1993-07-05",
@@ -3625,6 +3755,7 @@
   },
   {
     "id": 169,
+    "contractor_id": 53,
     "full_name": "Барашков Нюргустан Николаевич",
     "email": "",
     "birth_date": "1982-08-14",
@@ -3653,6 +3784,7 @@
   },
   {
     "id": 153,
+    "contractor_id": 110,
     "full_name": "Золотарев Иван Иванович",
     "email": "",
     "birth_date": "1998-10-11",
@@ -3681,6 +3813,7 @@
   },
   {
     "id": 170,
+    "contractor_id": 110,
     "full_name": "Ноговицын Александр Андреевич",
     "email": "",
     "birth_date": "1983-08-31",
@@ -3709,6 +3842,7 @@
   },
   {
     "id": 145,
+    "contractor_id": 103,
     "full_name": "Еремеев Александр Дмитриевич",
     "email": "",
     "birth_date": "1985-05-07",
@@ -3737,6 +3871,7 @@
   },
   {
     "id": 171,
+    "contractor_id": 120,
     "full_name": "Налыйдыров Василий Николаевич",
     "email": "",
     "birth_date": "1985-07-10",
@@ -3765,6 +3900,7 @@
   },
   {
     "id": 176,
+    "contractor_id": 120,
     "full_name": "Васильев Павел Константинович",
     "email": "",
     "birth_date": "2002-12-06",
@@ -3793,6 +3929,7 @@
   },
   {
     "id": 182,
+    "contractor_id": 110,
     "full_name": "Чириков Василий Егорович",
     "email": "",
     "birth_date": "1967-09-24",
@@ -3821,6 +3958,7 @@
   },
   {
     "id": 183,
+    "contractor_id": 110,
     "full_name": "Сотрудников Петр Петрович",
     "email": "",
     "birth_date": "1981-05-13",
@@ -3849,6 +3987,7 @@
   },
   {
     "id": 184,
+    "contractor_id": 110,
     "full_name": "Наумов Айаал Сергеевич",
     "email": "",
     "birth_date": "1997-10-18",
@@ -3877,6 +4016,7 @@
   },
   {
     "id": 173,
+    "contractor_id": 111,
     "full_name": "Федоров Георгий Константинович",
     "email": "",
     "birth_date": "1989-03-09",
@@ -3905,6 +4045,7 @@
   },
   {
     "id": 175,
+    "contractor_id": 111,
     "full_name": "Быганов Семен Семенович",
     "email": "",
     "birth_date": "1964-08-16",
@@ -3933,6 +4074,7 @@
   },
   {
     "id": 178,
+    "contractor_id": 111,
     "full_name": "Павлуцкий Василий Рашидович",
     "email": "",
     "birth_date": "1992-09-17",
@@ -3961,6 +4103,7 @@
   },
   {
     "id": 180,
+    "contractor_id": 111,
     "full_name": "Максимов Геннадий Афанасьевич",
     "email": "",
     "birth_date": "2001-10-12",
@@ -3989,6 +4132,7 @@
   },
   {
     "id": 181,
+    "contractor_id": 111,
     "full_name": "Быганов Айал Семенович",
     "email": "",
     "birth_date": "1991-11-01",
@@ -4017,6 +4161,7 @@
   },
   {
     "id": 186,
+    "contractor_id": 1,
     "full_name": "Фомин Леонид Константинович",
     "email": "",
     "birth_date": "1988-09-09",
@@ -4045,6 +4190,7 @@
   },
   {
     "id": 187,
+    "contractor_id": 120,
     "full_name": "Самсонов Василий Васильевич",
     "email": "",
     "birth_date": "1970-10-23",
@@ -4073,6 +4219,7 @@
   },
   {
     "id": 177,
+    "contractor_id": 28,
     "full_name": "Птицын Руслан Русланович",
     "email": "",
     "birth_date": "1986-09-07",
@@ -4101,6 +4248,7 @@
   },
   {
     "id": 179,
+    "contractor_id": 132,
     "full_name": "Казак Николай",
     "email": "",
     "birth_date": null,
@@ -4129,6 +4277,7 @@
   },
   {
     "id": 185,
+    "contractor_id": 1,
     "full_name": "Игнатьев Иван Николаевич",
     "email": "",
     "birth_date": "1990-05-10",
@@ -4157,6 +4306,7 @@
   },
   {
     "id": 172,
+    "contractor_id": 111,
     "full_name": "Попов Роман Романович",
     "email": "",
     "birth_date": "1994-04-12",
@@ -4185,6 +4335,7 @@
   },
   {
     "id": 192,
+    "contractor_id": 106,
     "full_name": "Кутуков Игнат Дмитриевич",
     "email": "",
     "birth_date": "1994-06-03",
@@ -4213,6 +4364,7 @@
   },
   {
     "id": 207,
+    "contractor_id": 25,
     "full_name": "Яковлев Михаил Михайлович",
     "email": "",
     "birth_date": "1988-10-19",
@@ -4241,6 +4393,7 @@
   },
   {
     "id": 189,
+    "contractor_id": 110,
     "full_name": "Иванов Григорий Александрович",
     "email": "iv.vist@mail.ru",
     "birth_date": "1982-06-03",
@@ -4269,6 +4422,7 @@
   },
   {
     "id": 190,
+    "contractor_id": 110,
     "full_name": "Иванов Гавриил Матвеевич",
     "email": "iv.vist@mail.ru",
     "birth_date": "1996-05-16",
@@ -4297,6 +4451,7 @@
   },
   {
     "id": 204,
+    "contractor_id": 69,
     "full_name": "Сергеев Олег Александрович",
     "email": "",
     "birth_date": "2000-04-25",
@@ -4325,6 +4480,7 @@
   },
   {
     "id": 201,
+    "contractor_id": 69,
     "full_name": "Карамзин Иван Егорович",
     "email": "ivankaramzin2@gmail.com",
     "birth_date": "1982-08-27",
@@ -4353,6 +4509,7 @@
   },
   {
     "id": 195,
+    "contractor_id": 106,
     "full_name": "Куприянов Иван Сергеевич",
     "email": "",
     "birth_date": "1989-10-17",
@@ -4381,6 +4538,7 @@
   },
   {
     "id": 200,
+    "contractor_id": 106,
     "full_name": "Кутуков Александр Дмитриевич",
     "email": "",
     "birth_date": "1990-04-15",
@@ -4409,6 +4567,7 @@
   },
   {
     "id": 194,
+    "contractor_id": 69,
     "full_name": "Волков Айтал Александрович",
     "email": "",
     "birth_date": "1999-08-09",
@@ -4437,6 +4596,7 @@
   },
   {
     "id": 196,
+    "contractor_id": 69,
     "full_name": "Портнягин Гаврил Николаевич",
     "email": "",
     "birth_date": "1981-01-14",
@@ -4465,6 +4625,7 @@
   },
   {
     "id": 199,
+    "contractor_id": 69,
     "full_name": "Готовцев Ньургун Петрович",
     "email": "",
     "birth_date": "1975-10-13",
@@ -4493,6 +4654,7 @@
   },
   {
     "id": 208,
+    "contractor_id": 70,
     "full_name": "Акимов Гаврил Владиславович",
     "email": "",
     "birth_date": "1991-08-17",
@@ -4521,6 +4683,7 @@
   },
   {
     "id": 198,
+    "contractor_id": 70,
     "full_name": "Гаврильев Михаил Иннокентьевич",
     "email": "",
     "birth_date": "1990-01-14",
@@ -4549,6 +4712,7 @@
   },
   {
     "id": 203,
+    "contractor_id": 3,
     "full_name": "Дорофеев Рустам Петрович",
     "email": "",
     "birth_date": "1998-12-01",
@@ -4577,6 +4741,7 @@
   },
   {
     "id": 205,
+    "contractor_id": 3,
     "full_name": "Федоров Владимир Владимирович",
     "email": "",
     "birth_date": "2002-09-21",
@@ -4605,6 +4770,7 @@
   },
   {
     "id": 206,
+    "contractor_id": 3,
     "full_name": "Аргунов Эдуард Дмитриевич",
     "email": "",
     "birth_date": "1992-10-15",
@@ -4633,6 +4799,7 @@
   },
   {
     "id": 202,
+    "contractor_id": 69,
     "full_name": "Наумов Руслан Степанович",
     "email": "",
     "birth_date": "1987-01-10",
@@ -4661,6 +4828,7 @@
   },
   {
     "id": 211,
+    "contractor_id": 120,
     "full_name": "Гоголев Александр Александрович",
     "email": "",
     "birth_date": "1998-08-31",
@@ -4689,6 +4857,7 @@
   },
   {
     "id": 213,
+    "contractor_id": 120,
     "full_name": "Егоров Захар Петрович",
     "email": "",
     "birth_date": "1985-01-15",
@@ -4717,6 +4886,7 @@
   },
   {
     "id": 214,
+    "contractor_id": 120,
     "full_name": "Ильин Никанор Аркадьевич",
     "email": "",
     "birth_date": "1988-02-15",
@@ -4745,6 +4915,7 @@
   },
   {
     "id": 222,
+    "contractor_id": 120,
     "full_name": "Петров Егор Николаевич",
     "email": "",
     "birth_date": "1980-04-04",
@@ -4773,6 +4944,7 @@
   },
   {
     "id": 219,
+    "contractor_id": 120,
     "full_name": "Петров Петр Петрович",
     "email": "",
     "birth_date": "1968-02-23",
@@ -4801,6 +4973,7 @@
   },
   {
     "id": 229,
+    "contractor_id": 120,
     "full_name": "Винокуров Виктор Викторович",
     "email": "",
     "birth_date": "1991-01-08",
@@ -4829,6 +5002,7 @@
   },
   {
     "id": 221,
+    "contractor_id": 91,
     "full_name": "Свинобоев Алексей Андреевич",
     "email": "",
     "birth_date": "1985-04-17",
@@ -4857,6 +5031,7 @@
   },
   {
     "id": 210,
+    "contractor_id": 100,
     "full_name": "Борисов Александр Афанасьевич",
     "email": "",
     "birth_date": "1970-04-23",
@@ -4885,6 +5060,7 @@
   },
   {
     "id": 212,
+    "contractor_id": 100,
     "full_name": "Васильев Алексей Семенович",
     "email": "",
     "birth_date": "1985-04-17",
@@ -4901,9 +5077,9 @@
     "phone_2": null,
     "phone_3": null,
     "status": "pending",
-    "article_status": "archived",
+    "article_status": "danger",
     "approved_at": null,
-    "refusal_reason": "",
+    "refusal_reason": "Срок ВУ закончится 15.12.2025, временно не согласован СБ ПС, повторное направление на согласование после замены ВУ.",
     "user": 375,
     "contractor": null,
     "approved_by": null,
@@ -4913,6 +5089,7 @@
   },
   {
     "id": 215,
+    "contractor_id": 100,
     "full_name": "Васильев Семен Семенович",
     "email": "",
     "birth_date": "1983-01-21",
@@ -4941,6 +5118,7 @@
   },
   {
     "id": 216,
+    "contractor_id": 100,
     "full_name": "Посельский Леонтий Михайлович",
     "email": "",
     "birth_date": "1983-03-10",
@@ -4969,6 +5147,7 @@
   },
   {
     "id": 217,
+    "contractor_id": 100,
     "full_name": "Сивцев Александр Александрович",
     "email": "",
     "birth_date": "2003-01-15",
@@ -4995,6 +5174,7 @@
   },
   {
     "id": 218,
+    "contractor_id": 100,
     "full_name": "Степанов Семен Станиславович",
     "email": "",
     "birth_date": "1983-02-05",
@@ -5023,6 +5203,7 @@
   },
   {
     "id": 220,
+    "contractor_id": 91,
     "full_name": "Гуляев Иван Иванович",
     "email": "",
     "birth_date": "1998-10-01",
@@ -5051,6 +5232,7 @@
   },
   {
     "id": 223,
+    "contractor_id": 91,
     "full_name": "Лыткин Ян Никифорович",
     "email": "",
     "birth_date": "1989-04-17",
@@ -5079,6 +5261,7 @@
   },
   {
     "id": 224,
+    "contractor_id": 91,
     "full_name": "Гуляев Григорий Иванович",
     "email": "",
     "birth_date": "1992-07-11",
@@ -5107,6 +5290,7 @@
   },
   {
     "id": 225,
+    "contractor_id": 90,
     "full_name": "Иванов Афанасий Алквиадович",
     "email": "",
     "birth_date": "1993-07-28",
@@ -5135,6 +5319,7 @@
   },
   {
     "id": 227,
+    "contractor_id": 90,
     "full_name": "Эверстов Валентин Роккиевич",
     "email": "",
     "birth_date": "1996-04-27",
@@ -5163,6 +5348,7 @@
   },
   {
     "id": 226,
+    "contractor_id": 90,
     "full_name": "Афанасьев Петр Яковлевич",
     "email": "",
     "birth_date": "1985-04-24",
@@ -5191,6 +5377,7 @@
   },
   {
     "id": 228,
+    "contractor_id": 99,
     "full_name": "Пахомов Юрий Олегович",
     "email": "",
     "birth_date": "1980-12-25",
@@ -5219,6 +5406,7 @@
   },
   {
     "id": 247,
+    "contractor_id": 12,
     "full_name": "Ефимов Мичил Александрович",
     "email": "michil.efimov03@gmail.com",
     "birth_date": "2003-01-12",
@@ -5247,6 +5435,7 @@
   },
   {
     "id": 236,
+    "contractor_id": 139,
     "full_name": "Кычкин Иннокентий Семёнович",
     "email": "",
     "birth_date": "1992-11-18",
@@ -5275,6 +5464,7 @@
   },
   {
     "id": 235,
+    "contractor_id": 138,
     "full_name": "Кузьмин Гаврил Гаврильевич",
     "email": "",
     "birth_date": "1987-09-01",
@@ -5303,6 +5493,7 @@
   },
   {
     "id": 240,
+    "contractor_id": 104,
     "full_name": "Наумов Александр Валерьевич",
     "email": "",
     "birth_date": "1986-01-09",
@@ -5330,35 +5521,37 @@
     ]
   },
   {
-    "id": 239,
-    "full_name": "Усольцев Андрей Александрович",
-    "email": "andr_uso@mail.ru",
-    "birth_date": "1988-05-18",
-    "driver_license": "1414396453",
-    "vy_date": "2013-12-31",
-    "snils": "114-724-995 62",
-    "issued_by": "МВД по Республике Саха (Якутия)",
-    "issue_date": "2024-05-11",
-    "number": "078452",
-    "series": "9823",
-    "registration": "РС(Я) п. Жатай ул. Матросова 17/2 кв.61",
+    "id": 249,
+    "contractor_id": 131,
+    "full_name": "Ноговицын Ньургун Егорович",
+    "email": "",
+    "birth_date": "1997-03-03",
+    "driver_license": "1428443769",
+    "vy_date": "2015-12-18",
+    "snils": null,
+    "issued_by": "МП УФМС России по РС(Я) по Чурапчинском р-не",
+    "issue_date": "2017-06-06",
+    "number": "715170",
+    "series": "9817",
+    "registration": "Чурапчинский р-н с. Усун-кюель ул.Озерная 29",
     "dopog": false,
-    "phone_1": "+79618697777",
-    "phone_2": null,
+    "phone_1": "+7 (964) 428-70-78",
+    "phone_2": "+7 (929) 467-00-12",
     "phone_3": null,
-    "status": "pending",
-    "article_status": "archived",
+    "status": "rejected",
+    "article_status": "draft",
     "approved_at": null,
-    "refusal_reason": "",
-    "user": 402,
+    "refusal_reason": "Не согласован СБ ПС.",
+    "user": 415,
     "contractor": null,
     "approved_by": null,
     "cars": [
-      229
+      236
     ]
   },
   {
     "id": 245,
+    "contractor_id": 17,
     "full_name": "Ходулов Сергей Иванович",
     "email": "Corona_93@mail.ru",
     "birth_date": "1972-07-20",
@@ -5387,6 +5580,7 @@
   },
   {
     "id": 238,
+    "contractor_id": 121,
     "full_name": "Бубякин Сергей Евгеньевич",
     "email": "",
     "birth_date": "1983-09-10",
@@ -5415,6 +5609,7 @@
   },
   {
     "id": 248,
+    "contractor_id": 17,
     "full_name": "Плотников Алексей Алексеевич",
     "email": "Corona_93@mail.ru",
     "birth_date": "1985-03-19",
@@ -5442,35 +5637,8 @@
     ]
   },
   {
-    "id": 249,
-    "full_name": "Ноговицын Ньургун Егорович",
-    "email": "",
-    "birth_date": "1997-03-03",
-    "driver_license": "1428443769",
-    "vy_date": "2015-12-18",
-    "snils": null,
-    "issued_by": "МП УФМС России по РС(Я) по Чурапчинском р-не",
-    "issue_date": "2017-06-06",
-    "number": "715170",
-    "series": "9817",
-    "registration": "Чурапчинский р-н с. Усун-кюель ул.Озерная 29",
-    "dopog": false,
-    "phone_1": "+7 (964) 428-70-78",
-    "phone_2": "+7 (929) 467-00-12",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "archived",
-    "approved_at": null,
-    "refusal_reason": "",
-    "user": 415,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      236
-    ]
-  },
-  {
     "id": 230,
+    "contractor_id": 120,
     "full_name": "Семенов Иван Айаалович",
     "email": "",
     "birth_date": "1999-04-22",
@@ -5499,6 +5667,7 @@
   },
   {
     "id": 241,
+    "contractor_id": 111,
     "full_name": "Максимов Сергей Семенович",
     "email": "",
     "birth_date": "1987-07-08",
@@ -5527,6 +5696,7 @@
   },
   {
     "id": 243,
+    "contractor_id": 111,
     "full_name": "Слепцов Юрий Дмитриевич",
     "email": "",
     "birth_date": "2000-09-10",
@@ -5555,6 +5725,7 @@
   },
   {
     "id": 242,
+    "contractor_id": 69,
     "full_name": "Петров Николай Дмитриевич",
     "email": "",
     "birth_date": "1994-03-06",
@@ -5583,6 +5754,7 @@
   },
   {
     "id": 191,
+    "contractor_id": 134,
     "full_name": "Борисов Иван Иванович",
     "email": "",
     "birth_date": "1985-01-25",
@@ -5611,6 +5783,7 @@
   },
   {
     "id": 233,
+    "contractor_id": 138,
     "full_name": "Захаров Александр Сергеевич",
     "email": "",
     "birth_date": "1991-07-12",
@@ -5639,6 +5812,7 @@
   },
   {
     "id": 246,
+    "contractor_id": 17,
     "full_name": "Монастырев Айсен Игоревич",
     "email": "aysen.monastyrev00@icloud.com",
     "birth_date": "2000-02-11",
@@ -5667,6 +5841,7 @@
   },
   {
     "id": 231,
+    "contractor_id": 49,
     "full_name": "Стручков Прокопий Михайлович",
     "email": "",
     "birth_date": "1983-11-30",
@@ -5695,6 +5870,7 @@
   },
   {
     "id": 232,
+    "contractor_id": 49,
     "full_name": "Протопопов Наум Игнатьевич",
     "email": "gurev-dima_84@mail.ru",
     "birth_date": "1988-10-28",
@@ -5723,6 +5899,7 @@
   },
   {
     "id": 237,
+    "contractor_id": 125,
     "full_name": "Колесов Александр Прокопьевич",
     "email": "",
     "birth_date": "1987-09-13",
@@ -5751,6 +5928,7 @@
   },
   {
     "id": 244,
+    "contractor_id": 17,
     "full_name": "Попов Ньургун Егорович",
     "email": "Corona_93@mail.ru",
     "birth_date": "1995-04-02",
@@ -5778,7 +5956,37 @@
     ]
   },
   {
+    "id": 239,
+    "contractor_id": 104,
+    "full_name": "Усольцев Андрей Александрович",
+    "email": "andr_uso@mail.ru",
+    "birth_date": "1988-05-18",
+    "driver_license": "1414396453",
+    "vy_date": "2013-12-31",
+    "snils": "114-724-995 62",
+    "issued_by": "МВД по Республике Саха (Якутия)",
+    "issue_date": "2024-05-11",
+    "number": "078452",
+    "series": "9823",
+    "registration": "РС(Я) п. Жатай ул. Матросова 17/2 кв.61",
+    "dopog": false,
+    "phone_1": "+79618697777",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "rejected",
+    "article_status": "draft",
+    "approved_at": null,
+    "refusal_reason": "Не согласован СБ ПС.",
+    "user": 402,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      229
+    ]
+  },
+  {
     "id": 265,
+    "contractor_id": 135,
     "full_name": "Новгородов Константин Константинович",
     "email": "sayker@mail.ru",
     "birth_date": "1994-12-23",
@@ -5807,6 +6015,7 @@
   },
   {
     "id": 251,
+    "contractor_id": 73,
     "full_name": "Лазарев Юрий Иванович",
     "email": "lazerboy88@mail.ru",
     "birth_date": "1988-04-21",
@@ -5835,6 +6044,7 @@
   },
   {
     "id": 253,
+    "contractor_id": 69,
     "full_name": "Шамаев Роман Дмитриевич",
     "email": "bosikov.92@mail.ru",
     "birth_date": "2000-12-29",
@@ -5863,6 +6073,7 @@
   },
   {
     "id": 261,
+    "contractor_id": 69,
     "full_name": "Михайлов Прокопий Семенович",
     "email": "",
     "birth_date": "1992-01-14",
@@ -5891,6 +6102,7 @@
   },
   {
     "id": 260,
+    "contractor_id": 69,
     "full_name": "Пахомов Ньургун Михайлович",
     "email": "",
     "birth_date": "1990-07-19",
@@ -5919,6 +6131,7 @@
   },
   {
     "id": 264,
+    "contractor_id": 133,
     "full_name": "Магазеенко Игорь Николаевич",
     "email": "magazeenko@rambler.ru",
     "birth_date": "1969-01-30",
@@ -5947,6 +6160,7 @@
   },
   {
     "id": 258,
+    "contractor_id": 69,
     "full_name": "Игнатьев Филипп Николаевич",
     "email": "",
     "birth_date": "1986-12-19",
@@ -5975,6 +6189,7 @@
   },
   {
     "id": 257,
+    "contractor_id": 69,
     "full_name": "Игнатьев Андрей Андреевич",
     "email": "",
     "birth_date": "1987-05-13",
@@ -6003,6 +6218,7 @@
   },
   {
     "id": 256,
+    "contractor_id": 69,
     "full_name": "Боярский Иван Николаевич",
     "email": "",
     "birth_date": "1999-10-17",
@@ -6031,6 +6247,7 @@
   },
   {
     "id": 262,
+    "contractor_id": 69,
     "full_name": "Бубякин Светослав Петрович",
     "email": "",
     "birth_date": "1989-12-30",
@@ -6059,6 +6276,7 @@
   },
   {
     "id": 255,
+    "contractor_id": 69,
     "full_name": "Расторгуев Георгий Георгиевич",
     "email": "",
     "birth_date": "2000-10-31",
@@ -6087,6 +6305,7 @@
   },
   {
     "id": 263,
+    "contractor_id": 69,
     "full_name": "Заболоцкий Семен Семенович",
     "email": "",
     "birth_date": "1990-09-03",
@@ -6115,6 +6334,7 @@
   },
   {
     "id": 254,
+    "contractor_id": 69,
     "full_name": "Пахомов Анатолий Сергеевич",
     "email": "",
     "birth_date": "1991-08-04",
@@ -6143,6 +6363,7 @@
   },
   {
     "id": 252,
+    "contractor_id": 69,
     "full_name": "Босиков Тиит Алданович",
     "email": "",
     "birth_date": "2003-10-03",
@@ -6171,6 +6392,7 @@
   },
   {
     "id": 250,
+    "contractor_id": 120,
     "full_name": "Иванов Фёдор Васильевич",
     "email": "",
     "birth_date": "1976-01-05",
@@ -6199,6 +6421,7 @@
   },
   {
     "id": 268,
+    "contractor_id": 133,
     "full_name": "Бедарев Денис Сергеевич",
     "email": "",
     "birth_date": "1987-04-06",
@@ -6227,6 +6450,7 @@
   },
   {
     "id": 266,
+    "contractor_id": 135,
     "full_name": "Новгородов Константин Егорович",
     "email": "sayker@mail.ru",
     "birth_date": "1971-11-22",
@@ -6255,6 +6479,7 @@
   },
   {
     "id": 259,
+    "contractor_id": 69,
     "full_name": "Сосин Александр Викторович",
     "email": "",
     "birth_date": "1979-11-25",
@@ -6283,6 +6508,7 @@
   },
   {
     "id": 269,
+    "contractor_id": 111,
     "full_name": "Пинигин Андрей Егорович",
     "email": "",
     "birth_date": "1990-01-23",
@@ -6311,6 +6537,7 @@
   },
   {
     "id": 270,
+    "contractor_id": 129,
     "full_name": "Дедюкин Айтал Трофимович",
     "email": "Ops_oysunam@mail.ru",
     "birth_date": "1999-01-15",
@@ -6339,6 +6566,7 @@
   },
   {
     "id": 274,
+    "contractor_id": 133,
     "full_name": "Попов Андрей Юрьевич",
     "email": "",
     "birth_date": "1969-11-13",
@@ -6367,6 +6595,7 @@
   },
   {
     "id": 273,
+    "contractor_id": 120,
     "full_name": "Винокуров Богдан Иванович",
     "email": "",
     "birth_date": "1998-12-15",
@@ -6395,6 +6624,7 @@
   },
   {
     "id": 209,
+    "contractor_id": 11,
     "full_name": "Слепцов Айсен Титович",
     "email": "",
     "birth_date": "1989-08-06",
@@ -6423,6 +6653,7 @@
   },
   {
     "id": 276,
+    "contractor_id": 69,
     "full_name": "Протопопов Андрей Андреевич",
     "email": "",
     "birth_date": "1989-04-01",
@@ -6451,6 +6682,7 @@
   },
   {
     "id": 277,
+    "contractor_id": 69,
     "full_name": "Яковлев Гаврил Петрович",
     "email": "",
     "birth_date": "1985-03-28",
@@ -6479,6 +6711,7 @@
   },
   {
     "id": 275,
+    "contractor_id": 69,
     "full_name": "Федоров Николай Данилович",
     "email": "",
     "birth_date": "1986-07-25",
@@ -6507,6 +6740,7 @@
   },
   {
     "id": 278,
+    "contractor_id": 69,
     "full_name": "Кузьмин Герман Михайлович",
     "email": "",
     "birth_date": "1997-12-12",
@@ -6535,6 +6769,7 @@
   },
   {
     "id": 279,
+    "contractor_id": 69,
     "full_name": "Бочкарев Никита Иннокентьевич",
     "email": "",
     "birth_date": "1991-03-23",
@@ -6563,6 +6798,7 @@
   },
   {
     "id": 280,
+    "contractor_id": 69,
     "full_name": "Аммосов Мичил Павлович",
     "email": "",
     "birth_date": "1991-12-14",
@@ -6591,6 +6827,7 @@
   },
   {
     "id": 281,
+    "contractor_id": 69,
     "full_name": "Атласов Геннадий Геннадиевич",
     "email": "",
     "birth_date": "1995-05-08",
@@ -6619,6 +6856,7 @@
   },
   {
     "id": 282,
+    "contractor_id": 69,
     "full_name": "Павлов Айсен Лукич",
     "email": "",
     "birth_date": "1989-01-15",
@@ -6647,6 +6885,7 @@
   },
   {
     "id": 283,
+    "contractor_id": 69,
     "full_name": "Винокуров Александр Иннокентьевич",
     "email": "",
     "birth_date": "1977-04-05",
@@ -6675,6 +6914,7 @@
   },
   {
     "id": 284,
+    "contractor_id": 69,
     "full_name": "Сысолятин Владимир Михайлович",
     "email": "",
     "birth_date": "1979-11-02",
@@ -6703,6 +6943,7 @@
   },
   {
     "id": 285,
+    "contractor_id": 69,
     "full_name": "Петров Вячеслав Евгеньевич",
     "email": "",
     "birth_date": "1986-02-14",
@@ -6731,6 +6972,7 @@
   },
   {
     "id": 286,
+    "contractor_id": 69,
     "full_name": "Охлопков Александр Николаевич",
     "email": "",
     "birth_date": "1984-08-11",
@@ -6759,6 +7001,7 @@
   },
   {
     "id": 287,
+    "contractor_id": 120,
     "full_name": "Алексеев Нифонт Дмитриевич",
     "email": "",
     "birth_date": "2000-11-14",
@@ -6787,12 +7030,13 @@
   },
   {
     "id": 271,
+    "contractor_id": 129,
     "full_name": "Малгин Гаврил Гаврильевич",
     "email": "",
     "birth_date": "1987-08-09",
     "driver_license": "9919898910",
     "vy_date": "2021-02-27",
-    "snils": null,
+    "snils": "135-507-876 69",
     "issued_by": "МВД по Республике Саха (Якутия)",
     "issue_date": "2020-07-07",
     "number": "901716",
@@ -6800,7 +7044,7 @@
     "registration": "Республика Саха(Якутия), Таттинский улус, с. Томтор",
     "dopog": true,
     "phone_1": "89681574283",
-    "phone_2": null,
+    "phone_2": "",
     "phone_3": null,
     "status": "pending",
     "article_status": "archived",
@@ -6815,6 +7059,7 @@
   },
   {
     "id": 267,
+    "contractor_id": 143,
     "full_name": "Васильев Игорь Сергеевич",
     "email": "zaxarov.daniil.miha@mail.ru",
     "birth_date": "1988-01-14",
@@ -6843,6 +7088,7 @@
   },
   {
     "id": 272,
+    "contractor_id": 129,
     "full_name": "Соломонов Поликарп Семенович",
     "email": "Ops_oysunam@mail.ru",
     "birth_date": "1990-01-11",
@@ -6871,6 +7117,7 @@
   },
   {
     "id": 234,
+    "contractor_id": 91,
     "full_name": "Свинобоев Айаан Петрович",
     "email": "",
     "birth_date": "1989-03-07",
@@ -6899,6 +7146,7 @@
   },
   {
     "id": 288,
+    "contractor_id": 69,
     "full_name": "Бурцев Сергей Иванович",
     "email": "",
     "birth_date": "1980-09-16",
@@ -6927,6 +7175,7 @@
   },
   {
     "id": 289,
+    "contractor_id": 69,
     "full_name": "Андросов Василий Иванович",
     "email": "",
     "birth_date": "1974-02-20",
@@ -6955,6 +7204,7 @@
   },
   {
     "id": 290,
+    "contractor_id": 69,
     "full_name": "Петухов Уйусхан Александрович",
     "email": "",
     "birth_date": "1995-12-10",
@@ -6983,6 +7233,7 @@
   },
   {
     "id": 291,
+    "contractor_id": 142,
     "full_name": "Неустроев Николай Николаевич",
     "email": "",
     "birth_date": "1988-09-18",
@@ -7011,6 +7262,7 @@
   },
   {
     "id": 294,
+    "contractor_id": 41,
     "full_name": "Черноградский Иннокентий Никитич",
     "email": "",
     "birth_date": "1993-10-18",
@@ -7039,6 +7291,7 @@
   },
   {
     "id": 292,
+    "contractor_id": 120,
     "full_name": "Марков Николай Архипович",
     "email": "",
     "birth_date": "1997-08-03",
@@ -7067,6 +7320,7 @@
   },
   {
     "id": 297,
+    "contractor_id": 129,
     "full_name": "Иванов Михаил Александрович",
     "email": "ops_oysunam@mail.ru",
     "birth_date": "1992-08-10",
@@ -7095,6 +7349,7 @@
   },
   {
     "id": 298,
+    "contractor_id": 30,
     "full_name": "Акимбетов Евгений Игоревич",
     "email": "",
     "birth_date": "1978-09-24",
@@ -7123,6 +7378,7 @@
   },
   {
     "id": 300,
+    "contractor_id": 65,
     "full_name": "Бияков Айаал Осипович",
     "email": "",
     "birth_date": "1973-02-09",
@@ -7151,6 +7407,7 @@
   },
   {
     "id": 293,
+    "contractor_id": 117,
     "full_name": "Прохоров Петр Филимонович",
     "email": "",
     "birth_date": "1987-06-26",
@@ -7179,6 +7436,7 @@
   },
   {
     "id": 295,
+    "contractor_id": 136,
     "full_name": "Николаев Дмитрий Вячеславович",
     "email": "",
     "birth_date": "1985-09-02",
@@ -7207,6 +7465,7 @@
   },
   {
     "id": 303,
+    "contractor_id": 111,
     "full_name": "Филиппов Иннокентий Васильевич",
     "email": "",
     "birth_date": "1999-11-07",
@@ -7235,6 +7494,7 @@
   },
   {
     "id": 304,
+    "contractor_id": 111,
     "full_name": "Николаев Андриан Павлович",
     "email": "",
     "birth_date": "2001-07-04",
@@ -7263,6 +7523,7 @@
   },
   {
     "id": 305,
+    "contractor_id": 111,
     "full_name": "Матвеев Павел Николаевич",
     "email": "",
     "birth_date": "1987-02-25",
@@ -7291,6 +7552,7 @@
   },
   {
     "id": 306,
+    "contractor_id": 111,
     "full_name": "Дьячковский Прокопий Егорович",
     "email": "",
     "birth_date": "1984-10-28",
@@ -7319,6 +7581,7 @@
   },
   {
     "id": 307,
+    "contractor_id": 111,
     "full_name": "Васильев Василий Иванович",
     "email": "",
     "birth_date": "1989-06-25",
@@ -7347,6 +7610,7 @@
   },
   {
     "id": 302,
+    "contractor_id": 120,
     "full_name": "Васильев Сергей Николаев",
     "email": "",
     "birth_date": "1995-12-19",
@@ -7375,6 +7639,7 @@
   },
   {
     "id": 299,
+    "contractor_id": 130,
     "full_name": "Корнилов Георгий Михайлович",
     "email": "",
     "birth_date": "2003-03-25",
@@ -7403,6 +7668,7 @@
   },
   {
     "id": 130,
+    "contractor_id": 119,
     "full_name": "Молдагулов Тимур Максутович",
     "email": "",
     "birth_date": "1989-05-12",
@@ -7431,6 +7697,7 @@
   },
   {
     "id": 301,
+    "contractor_id": 111,
     "full_name": "Назаров Афанасий Афанасьевич",
     "email": "",
     "birth_date": "1986-09-21",
@@ -7459,6 +7726,7 @@
   },
   {
     "id": 133,
+    "contractor_id": 119,
     "full_name": "Моисеев Роман Ньургунович",
     "email": "",
     "birth_date": "1999-06-11",
@@ -7487,6 +7755,7 @@
   },
   {
     "id": 308,
+    "contractor_id": 111,
     "full_name": "Тарасов Айыы-Сиэн Иванович",
     "email": "",
     "birth_date": "2001-11-18",
@@ -7515,6 +7784,7 @@
   },
   {
     "id": 309,
+    "contractor_id": 111,
     "full_name": "Дьячковский Александр Дмитриевич",
     "email": "",
     "birth_date": "1985-01-26",
@@ -7543,6 +7813,7 @@
   },
   {
     "id": 310,
+    "contractor_id": 111,
     "full_name": "Макаров Владислав Иванович",
     "email": "",
     "birth_date": "1982-02-12",
@@ -7571,6 +7842,7 @@
   },
   {
     "id": 311,
+    "contractor_id": 111,
     "full_name": "Колесов Мичил Юрьевич",
     "email": "",
     "birth_date": "1994-02-13",
@@ -7599,6 +7871,7 @@
   },
   {
     "id": 312,
+    "contractor_id": 111,
     "full_name": "Нюргусов Егор Сергеевич",
     "email": "",
     "birth_date": "1986-12-27",
@@ -7626,35 +7899,8 @@
     ]
   },
   {
-    "id": 296,
-    "full_name": "Широких Василий Семенович",
-    "email": "",
-    "birth_date": "1988-04-21",
-    "driver_license": "9912818958",
-    "vy_date": "2019-11-21",
-    "snils": null,
-    "issued_by": "МВД по Республике Саха(Якутия)",
-    "issue_date": "2023-02-03",
-    "number": "039774",
-    "series": "9822",
-    "registration": "Республика Саха(Якутия), Мегино-Кангаласский улус, пос. Нижний Бестях, ул. 70 лет победы, д.17",
-    "dopog": true,
-    "phone_1": "89963175517",
-    "phone_2": null,
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "archived",
-    "approved_at": null,
-    "refusal_reason": "ВУ недействительно. На звонки не отвечает.",
-    "user": 463,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      291
-    ]
-  },
-  {
     "id": 313,
+    "contractor_id": 125,
     "full_name": "Борисов Андрей Прокопьевич",
     "email": "",
     "birth_date": "1969-01-05",
@@ -7681,6 +7927,7 @@
   },
   {
     "id": 314,
+    "contractor_id": 111,
     "full_name": "Лебедев Эркин Алексеевич",
     "email": "",
     "birth_date": "1990-12-10",
@@ -7709,6 +7956,7 @@
   },
   {
     "id": 315,
+    "contractor_id": 111,
     "full_name": "Барахов Айсен Александрович",
     "email": "",
     "birth_date": "1995-04-10",
@@ -7737,6 +7985,7 @@
   },
   {
     "id": 316,
+    "contractor_id": 111,
     "full_name": "Дьячковский Василий Егорович",
     "email": "",
     "birth_date": "1989-06-02",
@@ -7765,6 +8014,7 @@
   },
   {
     "id": 317,
+    "contractor_id": 111,
     "full_name": "Макаров Вячеслав Иванович",
     "email": "",
     "birth_date": "1988-04-17",
@@ -7793,6 +8043,7 @@
   },
   {
     "id": 318,
+    "contractor_id": 111,
     "full_name": "Борисов Илья Васильевич",
     "email": "",
     "birth_date": "1996-07-22",
@@ -7821,6 +8072,7 @@
   },
   {
     "id": 136,
+    "contractor_id": 127,
     "full_name": "Данилов Иван Николаевич",
     "email": "",
     "birth_date": "1989-12-13",
@@ -7849,6 +8101,7 @@
   },
   {
     "id": 319,
+    "contractor_id": 70,
     "full_name": "Нератов Александр Ильич",
     "email": "",
     "birth_date": "1997-05-25",
@@ -7877,6 +8130,7 @@
   },
   {
     "id": 321,
+    "contractor_id": 111,
     "full_name": "Халгаев Андрей Валерьевич",
     "email": "",
     "birth_date": "1982-01-18",
@@ -7905,6 +8159,7 @@
   },
   {
     "id": 322,
+    "contractor_id": 111,
     "full_name": "Федоров Андрей Андрианович",
     "email": "",
     "birth_date": "2000-01-22",
@@ -7932,7 +8187,37 @@
     ]
   },
   {
+    "id": 296,
+    "contractor_id": 129,
+    "full_name": "Широких Василий Семенович",
+    "email": "",
+    "birth_date": "1988-04-21",
+    "driver_license": "9912818958",
+    "vy_date": "2019-11-21",
+    "snils": "106-936-065 60",
+    "issued_by": "МВД по Республике Саха(Якутия)",
+    "issue_date": "2023-02-03",
+    "number": "039774",
+    "series": "9822",
+    "registration": "Республика Саха(Якутия), Мегино-Кангаласский улус, пос. Нижний Бестях, ул. 70 лет победы, д.17",
+    "dopog": true,
+    "phone_1": "89963175517",
+    "phone_2": "",
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "ВУ недействительно. На звонки не отвечает.",
+    "user": 463,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      291
+    ]
+  },
+  {
     "id": 320,
+    "contractor_id": 111,
     "full_name": "Захаров Герасим Робертович",
     "email": "",
     "birth_date": "1994-12-09",
@@ -7961,6 +8246,7 @@
   },
   {
     "id": 325,
+    "contractor_id": 145,
     "full_name": "Жирков Николай Иннокентьевич",
     "email": "",
     "birth_date": "1996-11-18",
@@ -7987,6 +8273,7 @@
   },
   {
     "id": 327,
+    "contractor_id": 145,
     "full_name": "Стручков Станислав Егорович",
     "email": "",
     "birth_date": "1988-06-18",
@@ -8013,6 +8300,7 @@
   },
   {
     "id": 323,
+    "contractor_id": 111,
     "full_name": "Семенов Алгыс Григорьевич",
     "email": "",
     "birth_date": "1984-08-05",
@@ -8041,6 +8329,7 @@
   },
   {
     "id": 335,
+    "contractor_id": 111,
     "full_name": "Сивцев Юрий Алексеевич",
     "email": "",
     "birth_date": "1982-05-19",
@@ -8054,12 +8343,12 @@
     "registration": "РС(Я), Чурапчинский улус, с. Усун-Кюель, ул. Чаранская, д. 6, корп. 1",
     "dopog": false,
     "phone_1": "+79644181031",
-    "phone_2": "",
+    "phone_2": null,
     "phone_3": null,
     "status": "pending",
-    "article_status": "new",
+    "article_status": "archived",
     "approved_at": null,
-    "refusal_reason": null,
+    "refusal_reason": "",
     "user": 506,
     "contractor": null,
     "approved_by": null,
@@ -8068,201 +8357,8 @@
     ]
   },
   {
-    "id": 334,
-    "full_name": "Халгаев Арсен Андреевич",
-    "email": "",
-    "birth_date": "2005-09-13",
-    "driver_license": "9932996951",
-    "vy_date": "2024-06-06",
-    "snils": "142-296-996 86",
-    "issued_by": "МВД по Республике Саха (Якутия)",
-    "issue_date": "2025-10-06",
-    "number": "189428",
-    "series": "9825",
-    "registration": "РС(Я), Чурапчинский улус, с. Чурапча, ул. Строителей, д. 23",
-    "dopog": false,
-    "phone_1": "+79142330205",
-    "phone_2": "",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 505,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      312
-    ]
-  },
-  {
-    "id": 336,
-    "full_name": "Попов Дмитрий Михайлович",
-    "email": "",
-    "birth_date": "1991-06-27",
-    "driver_license": "1429610457",
-    "vy_date": "2017-12-12",
-    "snils": "138-417-763 81",
-    "issued_by": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском районе",
-    "issue_date": "2011-08-26",
-    "number": "342149",
-    "series": "9811",
-    "registration": "РС(Я), Чурапчинский улус, с. Усун-Кюель, ул. Чаранская, д. 11",
-    "dopog": false,
-    "phone_1": "+79142617009",
-    "phone_2": "",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 507,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      326
-    ]
-  },
-  {
-    "id": 337,
-    "full_name": "Макаров Олег Дмитриевич",
-    "email": "",
-    "birth_date": "1987-04-22",
-    "driver_license": "9931118801",
-    "vy_date": "2023-12-26",
-    "snils": "120-842-856 40",
-    "issued_by": "МП УФМС России по Республике Саха (Якутия) в Чурапчинском р-не",
-    "issue_date": "2017-10-19",
-    "number": "747567",
-    "series": "9817",
-    "registration": "РС(Я), Чурапчинский улус, с. Усун-Кюель, ул. Мира, д. 7",
-    "dopog": true,
-    "phone_1": "+79142733662",
-    "phone_2": "",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 508,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      327
-    ]
-  },
-  {
-    "id": 338,
-    "full_name": "Андросов Алек Алекович",
-    "email": "",
-    "birth_date": "1992-05-11",
-    "driver_license": "9929512145",
-    "vy_date": "2022-10-26",
-    "snils": "153-296-242 66",
-    "issued_by": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском районе",
-    "issue_date": "2012-07-04",
-    "number": "406259",
-    "series": "9811",
-    "registration": "РС(Я), Чурапчинский улус, с. Чурапча, ул. Рабочая, д. 14",
-    "dopog": false,
-    "phone_1": "+79659953277",
-    "phone_2": "",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 509,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      329
-    ]
-  },
-  {
-    "id": 339,
-    "full_name": "Старостин Николай Николаевич",
-    "email": "",
-    "birth_date": "2000-05-04",
-    "driver_license": "9942882040",
-    "vy_date": "2025-11-06",
-    "snils": "",
-    "issued_by": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
-    "issue_date": "2024-02-19",
-    "number": "085518",
-    "series": "9823",
-    "registration": "РС(Я), Мегино-Кангаласский у., с. Майя, ул. Таежная, д. 8, кв. 1",
-    "dopog": false,
-    "phone_1": "89991743746",
-    "phone_2": "89659933292",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 510,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      330
-    ]
-  },
-  {
-    "id": 340,
-    "full_name": "Трофимов Александр Васильевич",
-    "email": "",
-    "birth_date": "1996-04-14",
-    "driver_license": "9937982267",
-    "vy_date": "2025-07-14",
-    "snils": "142-590-268 55",
-    "issued_by": "МП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В МЕГИНО-КАНГАЛАССКОМ Р-НЕ",
-    "issue_date": "2016-04-20",
-    "number": "657566",
-    "series": "9815",
-    "registration": "РС(Я) У. Мегино-Кангаласский, с. Рассолода, ул. Д. Сивцева, дом 29, кв. 1",
-    "dopog": false,
-    "phone_1": "+7 (984) 114-38-82",
-    "phone_2": "",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 511,
-    "contractor": null,
-    "approved_by": null,
-    "cars": []
-  },
-  {
-    "id": 341,
-    "full_name": "Николаев Филипп Кимович ",
-    "email": "",
-    "birth_date": "1993-10-27",
-    "driver_license": "9911391194",
-    "vy_date": "2014-02-28",
-    "snils": "149-238-918 99",
-    "issued_by": "ТП УФМС России по Республике Саха Якутия в Верхневилюйском районе",
-    "issue_date": "2013-12-20",
-    "number": "503275",
-    "series": "9813",
-    "registration": "Мегино-Кангаласский район пос. Нижний Бестях ул. Советская дом 16",
-    "dopog": false,
-    "phone_1": "89141094514",
-    "phone_2": "89659947985",
-    "phone_3": null,
-    "status": "pending",
-    "article_status": "new",
-    "approved_at": null,
-    "refusal_reason": null,
-    "user": 512,
-    "contractor": null,
-    "approved_by": null,
-    "cars": [
-      154
-    ]
-  },
-  {
     "id": 326,
+    "contractor_id": 111,
     "full_name": "Беляев Николай Николаевич",
     "email": "",
     "birth_date": "1987-09-06",
@@ -8291,6 +8387,7 @@
   },
   {
     "id": 328,
+    "contractor_id": 111,
     "full_name": "Саввин Евгений Михайлович",
     "email": "",
     "birth_date": "1989-07-21",
@@ -8319,6 +8416,7 @@
   },
   {
     "id": 329,
+    "contractor_id": 111,
     "full_name": "Собакин Алексей Петрович",
     "email": "",
     "birth_date": "1989-02-14",
@@ -8347,6 +8445,7 @@
   },
   {
     "id": 330,
+    "contractor_id": 111,
     "full_name": "Собакин Владимир Васильевич",
     "email": "",
     "birth_date": "1981-01-09",
@@ -8375,6 +8474,7 @@
   },
   {
     "id": 331,
+    "contractor_id": 111,
     "full_name": "Рожков Алексей Владимирович",
     "email": "",
     "birth_date": "1980-07-27",
@@ -8403,6 +8503,7 @@
   },
   {
     "id": 332,
+    "contractor_id": 111,
     "full_name": "Копырин Михаил Семенович",
     "email": "",
     "birth_date": "1992-11-09",
@@ -8431,6 +8532,7 @@
   },
   {
     "id": 333,
+    "contractor_id": 111,
     "full_name": "Макаров Василий Максимович",
     "email": "",
     "birth_date": "1982-09-09",
@@ -8458,7 +8560,209 @@
     ]
   },
   {
+    "id": 334,
+    "contractor_id": 111,
+    "full_name": "Халгаев Арсен Андреевич",
+    "email": "Spbo_01@mail.ru",
+    "birth_date": "2005-09-13",
+    "driver_license": "9932996951",
+    "vy_date": "2024-06-06",
+    "snils": "142-296-996 86",
+    "issued_by": "МВД по Республике Саха (Якутия)",
+    "issue_date": "2025-10-06",
+    "number": "189428",
+    "series": "9825",
+    "registration": "РС(Я), Чурапчинский улус, с. Чурапча, ул. Строителей, д. 23",
+    "dopog": false,
+    "phone_1": "+79142330205",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 505,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      312
+    ]
+  },
+  {
+    "id": 336,
+    "contractor_id": 111,
+    "full_name": "Попов Дмитрий Михайлович",
+    "email": "",
+    "birth_date": "1991-06-27",
+    "driver_license": "1429610457",
+    "vy_date": "2017-12-12",
+    "snils": "138-417-763 81",
+    "issued_by": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском районе",
+    "issue_date": "2011-08-26",
+    "number": "342149",
+    "series": "9811",
+    "registration": "РС(Я), Чурапчинский улус, с. Усун-Кюель, ул. Чаранская, д. 11",
+    "dopog": false,
+    "phone_1": "+79142617009",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 507,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      326
+    ]
+  },
+  {
+    "id": 337,
+    "contractor_id": 111,
+    "full_name": "Макаров Олег Дмитриевич",
+    "email": "",
+    "birth_date": "1987-04-22",
+    "driver_license": "9931118801",
+    "vy_date": "2023-12-26",
+    "snils": "120-842-856 40",
+    "issued_by": "МП УФМС России по Республике Саха (Якутия) в Чурапчинском р-не",
+    "issue_date": "2017-10-19",
+    "number": "747567",
+    "series": "9817",
+    "registration": "РС(Я), Чурапчинский улус, с. Усун-Кюель, ул. Мира, д. 7",
+    "dopog": true,
+    "phone_1": "+79142733662",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 508,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      327
+    ]
+  },
+  {
+    "id": 338,
+    "contractor_id": 111,
+    "full_name": "Андросов Алек Алекович",
+    "email": "",
+    "birth_date": "1992-05-11",
+    "driver_license": "9929512145",
+    "vy_date": "2022-10-26",
+    "snils": "153-296-242 66",
+    "issued_by": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском районе",
+    "issue_date": "2012-07-04",
+    "number": "406259",
+    "series": "9811",
+    "registration": "РС(Я), Чурапчинский улус, с. Чурапча, ул. Рабочая, д. 14",
+    "dopog": false,
+    "phone_1": "+79659953277",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 509,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      329
+    ]
+  },
+  {
+    "id": 339,
+    "contractor_id": 141,
+    "full_name": "Старостин Николай Николаевич",
+    "email": "",
+    "birth_date": "2000-05-04",
+    "driver_license": "9942882040",
+    "vy_date": "2025-11-06",
+    "snils": null,
+    "issued_by": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "issue_date": "2024-02-19",
+    "number": "085518",
+    "series": "9823",
+    "registration": "РС(Я), Мегино-Кангаласский у., с. Майя, ул. Таежная, д. 8, кв. 1",
+    "dopog": false,
+    "phone_1": "89991743746",
+    "phone_2": "89659933292",
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 510,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      330
+    ]
+  },
+  {
+    "id": 341,
+    "contractor_id": 70,
+    "full_name": "Николаев Филипп Кимович",
+    "email": "",
+    "birth_date": "1993-10-27",
+    "driver_license": "9911391194",
+    "vy_date": "2014-02-28",
+    "snils": "149-238-918 99",
+    "issued_by": "ТП УФМС России по Республике Саха Якутия в Верхневилюйском районе",
+    "issue_date": "2013-12-20",
+    "number": "503275",
+    "series": "9813",
+    "registration": "Мегино-Кангаласский район пос. Нижний Бестях ул. Советская дом 16",
+    "dopog": false,
+    "phone_1": "89141094514",
+    "phone_2": "89659947985",
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 512,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      154
+    ]
+  },
+  {
+    "id": 340,
+    "contractor_id": 57,
+    "full_name": "Трофимов Александр Васильевич",
+    "email": "",
+    "birth_date": "1996-04-14",
+    "driver_license": "9937982267",
+    "vy_date": "2025-07-14",
+    "snils": "142-590-268 55",
+    "issued_by": "МП УФМС РОССИИ ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ) В МЕГИНО-КАНГАЛАССКОМ Р-НЕ",
+    "issue_date": "2016-04-20",
+    "number": "657566",
+    "series": "9815",
+    "registration": "РС(Я) У. Мегино-Кангаласский, с. Рассолода, ул. Д. Сивцева, дом 29, кв. 1",
+    "dopog": false,
+    "phone_1": "+7 (984) 114-38-82",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 511,
+    "contractor": null,
+    "approved_by": null,
+    "cars": []
+  },
+  {
     "id": 324,
+    "contractor_id": 145,
     "full_name": "Жирков Евгений Иннокентьевич",
     "email": "zhirkovapya@yandex.ru",
     "birth_date": "1989-08-04",
@@ -8485,6 +8789,7 @@
   },
   {
     "id": 342,
+    "contractor_id": 144,
     "full_name": "Алексеев Василий Петрович",
     "email": "",
     "birth_date": "1985-07-06",
@@ -8498,12 +8803,12 @@
     "registration": "Усть-Алданский улус, с. Дюпся ул. Ушницкого д.33",
     "dopog": false,
     "phone_1": "89640778458",
-    "phone_2": "",
+    "phone_2": null,
     "phone_3": null,
     "status": "pending",
-    "article_status": "new",
+    "article_status": "archived",
     "approved_at": null,
-    "refusal_reason": null,
+    "refusal_reason": "",
     "user": 513,
     "contractor": null,
     "approved_by": null,
@@ -8513,6 +8818,7 @@
   },
   {
     "id": 343,
+    "contractor_id": 144,
     "full_name": "Арсентьев Гаврил Николаевич",
     "email": "",
     "birth_date": "1999-01-29",
@@ -8526,12 +8832,12 @@
     "registration": "г. Якутск, с. Тулагино ул. Трофимовой д. 24",
     "dopog": false,
     "phone_1": "89142273464",
-    "phone_2": "",
+    "phone_2": null,
     "phone_3": null,
     "status": "pending",
-    "article_status": "new",
+    "article_status": "archived",
     "approved_at": null,
-    "refusal_reason": null,
+    "refusal_reason": "",
     "user": 514,
     "contractor": null,
     "approved_by": null,
@@ -8541,6 +8847,7 @@
   },
   {
     "id": 344,
+    "contractor_id": 144,
     "full_name": "Шелковников Василий Васильевич",
     "email": "",
     "birth_date": "1977-07-12",
@@ -8554,17 +8861,243 @@
     "registration": "г. Якутск ул. Веры Захаровой д. 17, кв. 84",
     "dopog": false,
     "phone_1": "89247633545",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 515,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      332
+    ]
+  },
+  {
+    "id": 345,
+    "contractor_id": 111,
+    "full_name": "Андросов Афанасий Алекович",
+    "email": "",
+    "birth_date": "1994-01-27",
+    "driver_license": "1412348909",
+    "vy_date": "2013-05-07",
+    "snils": "158-821-232 80",
+    "issued_by": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском р-не",
+    "issue_date": "2015-04-24",
+    "number": "585323",
+    "series": "9814",
+    "registration": "РС(Я), Чурапчинский улус, с. Чурапча, ул. Ноговицына, д. 4, корп. 3",
+    "dopog": true,
+    "phone_1": "+79246606366",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 516,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      334
+    ]
+  },
+  {
+    "id": 346,
+    "contractor_id": 111,
+    "full_name": "Сивцев Иннокентий Николаевич",
+    "email": "",
+    "birth_date": "1988-08-16",
+    "driver_license": "9919890626",
+    "vy_date": "2020-11-26",
+    "snils": "121-807-120 14",
+    "issued_by": "ТП УФМС России по Республике Саха (Якутия) в Чурапчинском районе",
+    "issue_date": "2009-10-16",
+    "number": "229798",
+    "series": "9809",
+    "registration": "РС(Я), Чурапчинский улус, с. Маралай, ул. Октябрьская, д. 77/2",
+    "dopog": false,
+    "phone_1": "+79841034300",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 517,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      335
+    ]
+  },
+  {
+    "id": 347,
+    "contractor_id": 111,
+    "full_name": "Захаров Константин Захарович",
+    "email": "",
+    "birth_date": "1986-05-09",
+    "driver_license": "9937981324",
+    "vy_date": "2025-03-15",
+    "snils": "141-379-061 49",
+    "issued_by": "Мегино-Кангаласским УОВД Республики Саха (Якутия)",
+    "issue_date": "2006-06-19",
+    "number": "940698",
+    "series": "9804",
+    "registration": "РС(Я), Мегино-Кангаласский улус, с. Тарат, ул. Ворошилова, д. 33",
+    "dopog": false,
+    "phone_1": "+79142731991",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 518,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      336
+    ]
+  },
+  {
+    "id": 348,
+    "contractor_id": 18,
+    "full_name": "Говоров Яков Яковлевич",
+    "email": "",
+    "birth_date": "1992-12-27",
+    "driver_license": "9932998018",
+    "vy_date": "2024-06-07",
+    "snils": "143-876-261 87",
+    "issued_by": "МРО УФМС России по республике Саха Якутия в г. Якутске",
+    "issue_date": "2013-05-14",
+    "number": "474043",
+    "series": "9813",
+    "registration": "Г. Якутск Петра Алексеева 83 к2",
+    "dopog": false,
+    "phone_1": "+79963170662",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 519,
+    "contractor": null,
+    "approved_by": null,
+    "cars": []
+  },
+  {
+    "id": 349,
+    "contractor_id": 4,
+    "full_name": "Гаврильев Семен Васильевич",
+    "email": "",
+    "birth_date": "1985-10-11",
+    "driver_license": "99 45 777814",
+    "vy_date": "2025-09-02",
+    "snils": "136-292-277 66",
+    "issued_by": "АМГИНСКИМ ОВД РЕСПУБЛИКИ САХА (ЯКУТИЯ)",
+    "issue_date": "2005-12-08",
+    "number": "947174",
+    "series": "9804",
+    "registration": "678650, Республика Саха (Якутия), Таттинский район, с.Ытык-Кюель, пер. А.Егоровой, 23",
+    "dopog": false,
+    "phone_1": "89142939040",
+    "phone_2": null,
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 520,
+    "contractor": null,
+    "approved_by": null,
+    "cars": []
+  },
+  {
+    "id": 350,
+    "contractor_id": 105,
+    "full_name": "Николаев Нюргустан Егорович",
+    "email": "",
+    "birth_date": "1994-06-15",
+    "driver_license": "99 32 998936",
+    "vy_date": "2024-07-03",
+    "snils": "135-102-466 11",
+    "issued_by": "Отделом №1 УФМС России по Омской области в Советском Административном Округе гор. Омска",
+    "issue_date": "2014-09-03",
+    "number": "363865",
+    "series": "5214",
+    "registration": "РС(Я), Кобяйский улус, с. Мастах, ул. Октябрьская, д.14",
+    "dopog": false,
+    "phone_1": "89142928587",
+    "phone_2": "89659959141",
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "archived",
+    "approved_at": null,
+    "refusal_reason": "",
+    "user": 522,
+    "contractor": null,
+    "approved_by": null,
+    "cars": []
+  },
+  {
+    "id": 352,
+    "contractor_id": 140,
+    "full_name": "Массаев Максим Христофорович",
+    "email": "",
+    "birth_date": "1998-12-16",
+    "driver_license": "99 37 987834",
+    "vy_date": "2025-05-23",
+    "snils": "147-032-273 35",
+    "issued_by": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "issue_date": "2019-02-20",
+    "number": "821718",
+    "series": "9818",
+    "registration": "с. Жиганск, ул. Октябрьская 41, кв. 4",
+    "dopog": false,
+    "phone_1": "+79314878512",
     "phone_2": "",
     "phone_3": null,
     "status": "pending",
     "article_status": "new",
     "approved_at": null,
     "refusal_reason": null,
-    "user": 515,
+    "user": 524,
     "contractor": null,
     "approved_by": null,
     "cars": [
-      332
+      340
+    ]
+  },
+  {
+    "id": 351,
+    "contractor_id": 140,
+    "full_name": "Болтоков Антон Русланович",
+    "email": "",
+    "birth_date": "2006-07-03",
+    "driver_license": "99 39 585677",
+    "vy_date": "2025-07-17",
+    "snils": "147-032-275 37",
+    "issued_by": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "issue_date": "2020-07-09",
+    "number": "877998",
+    "series": "9819",
+    "registration": "с. Жиганск, ул. Октябрьская 41, кв. 4",
+    "dopog": false,
+    "phone_1": "89241744466",
+    "phone_2": "",
+    "phone_3": null,
+    "status": "pending",
+    "article_status": "new",
+    "approved_at": null,
+    "refusal_reason": null,
+    "user": 523,
+    "contractor": null,
+    "approved_by": null,
+    "cars": [
+      339
     ]
   }
 ]

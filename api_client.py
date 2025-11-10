@@ -4,6 +4,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 from data_cache import LocalCache
 import json
+from urllib.parse import urlencode
 
 class APIClient:
     def __init__(self, base_url="https://agroup14.ru/api/v1/"):
@@ -11,6 +12,7 @@ class APIClient:
         self.session = requests.Session()
         self.cache = LocalCache()
         self.current_user = None
+        self.current_user_id = None 
         self.on_data_updated_callback = None
 
     def set_data_updated_callback(self, callback):
@@ -27,6 +29,25 @@ class APIClient:
                 self.session.auth = None
                 return False, "Неверный логин или пароль."
             response.raise_for_status()
+            self.current_user_id = None
+            try:
+                # Вариант 1: /users/me/
+                me_resp = self.session.get(f"{self.base_url}users/me/", timeout=10)
+                if me_resp.status_code == 200 and isinstance(me_resp.json(), dict):
+                    me = me_resp.json()
+                    if me.get("id") is not None:
+                        self.current_user_id = me["id"]
+                else:
+                    # Вариант 2: /users/?username=<>
+                    qs = urlencode({"username": username})
+                    u_resp = self.session.get(f"{self.base_url}users/?{qs}", timeout=10)
+                    if u_resp.status_code == 200:
+                        data = u_resp.json()
+                        if isinstance(data, list) and data and isinstance(data[0], dict):
+                            if data[0].get("id") is not None:
+                                self.current_user_id = data[0]["id"]
+            except requests.exceptions.RequestException:
+                pass
         except requests.exceptions.RequestException as e:
             self.session.auth = None
             return False, f"Ошибка сети: {e}"
@@ -142,7 +163,6 @@ class APIClient:
 
         success, response_data, status_code = self.post_item(endpoint, item_to_send.copy())
         if success:
-            # успешный POST -> удаляем из очереди и притягиваем свежие данные
             remaining_items = [item for item in pending_items if item.get('temp_id') != temp_id]
             self.cache.save_data(queue_key, remaining_items)
             self.sync_endpoint('registries')
@@ -173,6 +193,12 @@ class APIClient:
             url += '/'
         temp_id = data.pop('temp_id', None)
         data.pop('id', None)
+
+        # Добавляем пользователя при создании реестра
+        if endpoint == "registries" and self.current_user_id is not None:
+            data.setdefault("created_by", self.current_user_id)
+
+        # Убираем пустые значения
         data = {k: v for k, v in data.items() if v not in [None, '', []]}
         print(f"--- Sending POST to {url} ---")
         print(json.dumps(data, indent=2, ensure_ascii=False))
@@ -221,12 +247,7 @@ class APIClient:
                 data['temp_id'] = temp_id
             return False, details, status_code
 
-    # NEW: PATCH/PUT обновление одного объекта
     def update_item(self, endpoint, item_id, data, use_patch=True):
-        """
-        Обновляет объект на сервере. По умолчанию PATCH: только измененные поля.
-        Возвращает (success, response_json_or_text, status_code).
-        """
         method = 'PATCH' if use_patch else 'PUT'
         url = f"{self.base_url}{endpoint}/{item_id}/"
         data = {k: v for k, v in data.items() if v not in [None, '', []]}
@@ -255,13 +276,11 @@ class APIClient:
                         headers={'Content-Type': 'application/json'},
                     )
             print(f"-> HTTP Status: {req.status_code}")
-            print(f"-> Request Method: {req.request.method}")
             if 200 <= req.status_code < 300:
                 try:
                     body = req.json()
                 except ValueError:
                     body = req.text
-                # обновим локальный кэш
                 self.sync_endpoint('registries')
                 if self.on_data_updated_callback:
                     self.on_data_updated_callback()
@@ -281,6 +300,34 @@ class APIClient:
                 except:
                     details += f"\nServer response: {e.response.text}"
             return False, details, status_code
+
+    # NEW: удаление одного объекта
+    def delete_item(self, endpoint, item_id):
+        url = f"{self.base_url}{endpoint}/{item_id}/"
+        print(f"--- DELETE {url} ---")
+        try:
+            req = self.session.delete(url, timeout=15, allow_redirects=False)
+            if req.status_code in [301, 302, 303, 307, 308]:
+                redirect_url = req.headers.get('Location')
+                if redirect_url:
+                    if not redirect_url.startswith('http'):
+                        redirect_url = self.base_url.rstrip('/') + redirect_url
+                    req = self.session.delete(redirect_url, timeout=15)
+            print(f"-> HTTP Status: {req.status_code}")
+            if req.status_code in [200, 202, 204]:
+                self.sync_endpoint('registries')
+                if self.on_data_updated_callback:
+                    self.on_data_updated_callback()
+                return True, None, req.status_code
+            else:
+                try:
+                    err = req.json()
+                except:
+                    err = req.text
+                return False, err, req.status_code
+        except requests.exceptions.RequestException as e:
+            status_code = getattr(getattr(e, 'response', None), 'status_code', None)
+            return False, str(e), status_code
 
     def upload_pending_registries(self, progress_callback=None):
         pending_items = self.get_pending_queue('registries')

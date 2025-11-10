@@ -7,15 +7,12 @@ from datetime import datetime
 
 class RegistryCardWindow(ctk.CTkToplevel):
     """
-    Карточка реестра с редактируемыми полями:
-    driver, driver2, number, pod, marsh, numberPL, gruz,
-    dataPOPL, dataSDPL, numberTN, loading_time, unloading_time,
-    tonn, fuel_consumption, dispatch_info, comment
+    Карточка реестра с редактируемыми полями и удалением.
     """
     def __init__(self, master, api_client, record: dict, on_saved_callback=None):
         super().__init__(master)
         self.title(f"Реестр: {record.get('numberPL') or record.get('id')}")
-        self.geometry("720x700")
+        self.geometry("760x740")
         self.transient(master)
         self.grab_set()
 
@@ -48,11 +45,10 @@ class RegistryCardWindow(ctk.CTkToplevel):
         self._prefill()
         self._build_footer()
 
-    # ---------- UI builders ----------
+    # ---------- UI ----------
     def _build_form(self):
         row = 0
 
-        # helpers
         def add_label(r, text):
             ctk.CTkLabel(self.content, text=text, anchor="w").grid(row=r, column=0, sticky="w", padx=(4, 8), pady=5)
 
@@ -91,13 +87,11 @@ class RegistryCardWindow(ctk.CTkToplevel):
             hour_w.bind("<Return>", lambda e, w=min_w: w.focus_set())
             min_w.bind("<Return>", lambda e, k=key: self._focus_next(k))
 
-        # choices
         driver_names = [d.get('full_name','') for d in self.related['drivers']]
         car_numbers = [c.get('number','') for c in self.related['cars']]
         pod_names = [p.get('org_name','') for p in self.related['podryads']]
         gruz_names = [g.get('name','') for g in self.related['gruzes']]
 
-        # build in required order
         add_combo(row, "driver", driver_names); row += 1
         add_combo(row, "driver2", driver_names); row += 1
         add_combo(row, "number", car_numbers); row += 1
@@ -123,12 +117,19 @@ class RegistryCardWindow(ctk.CTkToplevel):
         btn_frame = ctk.CTkFrame(self, fg_color="transparent")
         btn_frame.pack(side="bottom", fill="x", padx=12, pady=(0, 12))
 
-        # Кнопка «Сдали документы»
+        # Удалить
+        self.delete_btn = ctk.CTkButton(
+            btn_frame, text="Удалить", fg_color="#c62828",
+            command=self._delete
+        )
+        self.delete_btn.pack(side="left")
+
+        # Сдали документы
         self.done_btn = ctk.CTkButton(
             btn_frame, text="Сдали документы",
             command=self._mark_received, fg_color="#2e7d32"
         )
-        self.done_btn.pack(side="left")
+        self.done_btn.pack(side="left", padx=8)
 
         # Сохранить
         btn = ctk.CTkButton(btn_frame, text="Сохранить", height=36, command=self._save)
@@ -162,7 +163,7 @@ class RegistryCardWindow(ctk.CTkToplevel):
             if idx < len(self.field_order) - 1:
                 nxt_key = self.field_order[idx + 1]
                 w = self.fields.get(nxt_key)
-                if isinstance(w, tuple):  # datetime-group
+                if isinstance(w, tuple):
                     w[0].focus_set()
                 else:
                     w.focus_set()
@@ -179,11 +180,7 @@ class RegistryCardWindow(ctk.CTkToplevel):
                 name = self.by_id[rel_key][val_id].get(name_field, "")
             cb = self.fields.get(key)
             if cb:
-                if name:
-                    cb.set(name)
-                else:
-                    if cb.cget("values"):
-                        cb.set("")
+                cb.set(name or "")
 
         def set_entry(key):
             w = self.fields.get(key)
@@ -197,6 +194,7 @@ class RegistryCardWindow(ctk.CTkToplevel):
             if group and iso:
                 try:
                     dt = datetime.fromisoformat(iso.replace("Z","+00:00")) if "Z" in iso else datetime.fromisoformat(iso)
+                    dt = dt.replace(tzinfo=None)
                     group[0].set_date(dt)
                     group[1].set(f"{dt.hour:02d}")
                     group[2].set(f"{(dt.minute // 5) * 5:02d}")
@@ -289,17 +287,42 @@ class RegistryCardWindow(ctk.CTkToplevel):
             messagebox.showerror("Ошибка", f"Не удалось сохранить изменения (статус {code}).\n{resp}")
 
     def _mark_received(self):
-        """Установить дату сдачи ПЛ сейчас и отправку='получили', затем сохранить."""
-        # Установим виджеты
-        now = datetime.now()
+        now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
         grp = self.fields.get('dataSDPL')
         if isinstance(grp, tuple):
-            grp[0].set_date(now)
-            grp[1].set(f"{now.hour:02d}")
-            grp[2].set(f"{(now.minute // 5) * 5:02d}")
+            dt = datetime.now()
+            grp[0].set_date(dt)
+            grp[1].set(f"{dt.hour:02d}")
+            grp[2].set(f"{(dt.minute // 5) * 5:02d}")
         di = self.fields.get('dispatch_info')
         if di:
             di.delete(0, 'end')
             di.insert(0, 'получили')
-        # Сохраняем
-        self._save()
+        item_id = self.record.get('id')
+        if not item_id:
+            return
+        payload = {"dispatch_info": "получили", "dataSDPL": now}
+        ok, resp, code = self.api_client.update_item('registries', item_id, payload, use_patch=True)
+        if ok:
+            messagebox.showinfo("Успех", "Отмечено как «Сдали документы».")
+            if self.on_saved:
+                self.on_saved()
+            self.destroy()
+        else:
+            messagebox.showerror("Ошибка", f"Не удалось сохранить изменения (статус {code}).\n{resp}")
+
+    def _delete(self):
+        item_id = self.record.get('id')
+        if not item_id:
+            messagebox.showerror("Ошибка", "ID записи не найден.")
+            return
+        if not messagebox.askyesno("Подтверждение", "Действительно удалить запись?"):
+            return
+        ok, resp, code = self.api_client.delete_item('registries', item_id)
+        if ok:
+            messagebox.showinfo("Готово", "Запись удалена.")
+            if self.on_saved:
+                self.on_saved()
+            self.destroy()
+        else:
+            messagebox.showerror("Ошибка", f"Не удалось удалить (статус {code}).\n{resp}")

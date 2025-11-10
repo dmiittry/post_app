@@ -605,8 +605,6 @@ class DataTable(ctk.CTkFrame):
 
         threading.Thread(target=worker, daemon=True).start()
 
-
-
 class MainApplicationFrame(ctk.CTkFrame):
     def __init__(self, master, api_client, on_logout_callback, sync_callback):
         super().__init__(master, fg_color="transparent")

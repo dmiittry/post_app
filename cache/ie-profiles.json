@@ -18,15 +18,6 @@
     "registration_address": "Республика Саха ( Якутия) Верхневилюйский район село Оргет улица Комсомольская 11 корпус 1"
   },
   {
-    "contractor": 4,
-    "passport_series": "9808",
-    "passport_number": "180711",
-    "passport_birth_date": "2025-10-21",
-    "passport_issue_date": "2008-12-29",
-    "registration_org": "ТП УФМС России по РС(Я) в Таттинском районе",
-    "registration_address": "РС(Я), Таттинский улус, с. Ытык-Кюель, пер. А. Егоровой, 23"
-  },
-  {
     "contractor": 11,
     "passport_series": "9815",
     "passport_number": "642452",
@@ -313,6 +304,15 @@
     "passport_issue_date": "2024-08-27",
     "registration_org": "МВД по республике САХА /ЯКУТИЯ",
     "registration_address": "РСЯ Чурапчинский улус с Мындагай ул Васильева 29/1"
+  },
+  {
+    "contractor": 4,
+    "passport_series": "9808",
+    "passport_number": "180711",
+    "passport_birth_date": "1986-11-21",
+    "passport_issue_date": "2008-12-29",
+    "registration_org": "ТП УФМС России по РС(Я) в Таттинском районе",
+    "registration_address": "РС(Я), Таттинский улус, с. Ытык-Кюель, пер. А. Егоровой, 23"
   },
   {
     "contractor": 45,
@@ -1053,15 +1053,6 @@
     "registration_address": "РС(Я), г. Якутск, ул. Чкалова, д. 11, кв. 131"
   },
   {
-    "contractor": 140,
-    "passport_series": "9819",
-    "passport_number": "863504",
-    "passport_birth_date": null,
-    "passport_issue_date": "2019-10-11",
-    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
-    "registration_address": "г.Якутск, ул. Каландаришвили, д.43, кв 17"
-  },
-  {
     "contractor": 141,
     "passport_series": "9811",
     "passport_number": "377959",
@@ -1114,5 +1105,14 @@
     "passport_issue_date": "2002-11-27",
     "registration_org": "УВД гор.Якутска Республики Саха (Якутия)",
     "registration_address": "г.Якутск, ул.Ярославского 6, кв 67"
+  },
+  {
+    "contractor": 140,
+    "passport_series": "9819",
+    "passport_number": "863504",
+    "passport_birth_date": "1974-10-02",
+    "passport_issue_date": "2019-10-11",
+    "registration_org": "МВД ПО РЕСПУБЛИКЕ САХА (ЯКУТИЯ)",
+    "registration_address": "г.Якутск, ул. Каландаришвили, д.43, кв 17"
   }
 ]
