@@ -1089,15 +1089,6 @@
     "registration_address": "г.Якутск, ул.Чернышевского 8, кв 58"
   },
   {
-    "contractor": 144,
-    "passport_series": "9802",
-    "passport_number": "534443",
-    "passport_birth_date": null,
-    "passport_issue_date": "2002-11-27",
-    "registration_org": "УВД гор.Якутска Республики Саха (Якутия)",
-    "registration_address": "г.Якутск, ул.Ярославского 16, кыв 67"
-  },
-  {
     "contractor": 145,
     "passport_series": "9818",
     "passport_number": "814393",
@@ -1114,5 +1105,14 @@
     "passport_issue_date": "2024-09-17",
     "registration_org": "МВД  по Республике Саха (Якутия)",
     "registration_address": "У.Мегино-Кангаласский, с.Бютейдях, ул. Степанова, д.16"
+  },
+  {
+    "contractor": 144,
+    "passport_series": "9802",
+    "passport_number": "534443",
+    "passport_birth_date": "1981-03-29",
+    "passport_issue_date": "2002-11-27",
+    "registration_org": "УВД гор.Якутска Республики Саха (Якутия)",
+    "registration_address": "г.Якутск, ул.Ярославского 6, кв 67"
   }
 ]

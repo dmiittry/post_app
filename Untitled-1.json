@@ -30,39 +30,54 @@
     "drivers": [],
     "cars": []
 }
-
 {
-    "season": null,
     "driver": null,
     "driver2": null,
     "number": null,
     "pod": null,
+    "marsh": "",
+    "numberPL": "",
     "gruz": null,
-    "loading_point": null,
-    "unloading_point": null,
-    "distance": null,
-
-    "organization": null,
-    "customer": null,
-    "cargo_batch": null,
-    
     "dataPOPL": null,
     "dataSDPL": null,
     "numberTN": "",
     "loading_time": null,
     "unloading_time": null,
     "tonn": null,
-    "tarif": null,
     "fuel_consumption": null,
-    "fuel_consumption_cost": null,
-    "fuel_card_consumption": null,
-    "fuel_card_cost": null,
-    "fine": null,
-    "fine_comment": "",
     "dispatch_info": "",
     "comment": "",
-    "comment_pay": "",
-    "status": null,
-    "payment_amount": null,
-    "fuel_card": null
 }
+
+
+    "season": текст меняется в настройках,
+    "organization": текст меняется в настройках,
+    "customer": текст меняется в настройках,
+    "gruz": текст меняется в настройках,
+    "loading_point": текст меняется в настройках,
+    "unloading_point": текст меняется в настройках,
+    "distance": пишется в ручную,
+    
+    "marsh": "маршрут генерируется автоматический буквы из loading_point unloading_point и груз",
+    "numberPL": "генерируется автоматически марш-порядковый номер",
+    "cargo_batch": выпадающий список,
+    "driver": поисковое текстовое поле при нажатии на энтер ищет из базы,
+    'snils': текст автоматический ставиться значение из базу водителя, если нету то ставиться слово механик
+    'driver_license': текст автоматический ставиться значение из базу водителя,
+    "driver2": поисковое текстовое поле при нажатии на энтер ищет из базы,,
+    'driver_license2': текст автоматический ставиться значение из базу водителя, если нету то ставиться слово механик
+    'snils': текст автоматический ставиться значение из базу водителя,
+    "number": текст автоматически ставиться номер тс прикрепленного тс из базы первого водителя,
+    "марка": текст автоматически ставиться,
+    "модель": текст автоматически ставиться,
+    "pod": текст автоматически ставиться из базы водителя,
+    "dataPOPL": автоматически ставиться время создания пл,
+
+    "dataSDPL": null,
+    "numberTN": "",
+    "loading_time": null,
+    "unloading_time": null,
+    "tonn": null,
+    "fuel_consumption": null,
+    "dispatch_info": "",
+    "comment": "",

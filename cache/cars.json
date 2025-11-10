@@ -1467,6 +1467,15 @@
     "marka": 1
   },
   {
+    "id": 331,
+    "number": "Р290НН138",
+    "sorka": "",
+    "number_pr": "",
+    "sorka_pr": "",
+    "model": 1,
+    "marka": 1
+  },
+  {
     "id": 159,
     "number": "Р308НМ14",
     "sorka": "",
@@ -2016,6 +2025,15 @@
     "marka": 4
   },
   {
+    "id": 333,
+    "number": "С684МХ14",
+    "sorka": "",
+    "number_pr": "",
+    "sorka_pr": "",
+    "model": 1,
+    "marka": 1
+  },
+  {
     "id": 39,
     "number": "С692МХ14",
     "sorka": "",
@@ -2245,6 +2263,15 @@
     "number": "Т310ММ14",
     "sorka": "",
     "number_pr": "0000",
+    "sorka_pr": "",
+    "model": 1,
+    "marka": 1
+  },
+  {
+    "id": 332,
+    "number": "Т312МУ14",
+    "sorka": "",
+    "number_pr": "",
     "sorka_pr": "",
     "model": 1,
     "marka": 1
