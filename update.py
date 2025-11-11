@@ -24,7 +24,7 @@ LOCAL_VERSION_FILE = EXE_DIR / "version.txt"
 # какие папки/файлы не трогаем при обновлении
 EXCLUDE_NAMES = {
     ".git", "__pycache__", "venv", ".venv",
-    "data_cache", "cache", "excel" , # если кэш в папке проекта
+    "data_cache", "cache", "excel" , "Путевые листы",# если кэш в папке проекта
 }
 EXCLUDE_FILES = {
     "settings.json",
