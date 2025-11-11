@@ -121,35 +121,35 @@ class DataTable(ctk.CTkFrame):
             # ctk.CTkLabel(self.filters_frame, text="Декада (разгрузка):").pack(side="right", padx=(6, 2))
             
             # От: дата + время
-            decade_from_frame = ctk.CTkFrame(self.filters_frame, fg_color="transparent")
-            decade_from_frame.pack(side="right", padx=(2, 0))
-            self.decade_from_date = DateEntry(decade_from_frame, date_pattern='dd.mm.yyyy', width=10)
-            self.decade_from_date.pack(side="left")
-            self.decade_from_hour = ctk.CTkComboBox(decade_from_frame, values=[f"{h:02d}" for h in range(24)], width=50, command=lambda _: self.on_decade_change())
-            self.decade_from_hour.set("00")
-            self.decade_from_hour.pack(side="left", padx=2)
-            self.decade_from_min = ctk.CTkComboBox(decade_from_frame, values=[f"{m:02d}" for m in range(0, 60, 5)], width=50, command=lambda _: self.on_decade_change())
-            self.decade_from_min.set("00")
-            self.decade_from_min.pack(side="left")
-            self.decade_from_date.bind("<<DateEntrySelected>>", self.on_decade_change)
+            # decade_from_frame = ctk.CTkFrame(self.filters_frame, fg_color="transparent")
+            # decade_from_frame.pack(side="right", padx=(2, 0))
+            # self.decade_from_date = DateEntry(decade_from_frame, date_pattern='dd.mm.yyyy', width=10)
+            # self.decade_from_date.pack(side="left")
+            # self.decade_from_hour = ctk.CTkComboBox(decade_from_frame, values=[f"{h:02d}" for h in range(24)], width=50, command=lambda _: self.on_decade_change())
+            # self.decade_from_hour.set("00")
+            # self.decade_from_hour.pack(side="left", padx=2)
+            # self.decade_from_min = ctk.CTkComboBox(decade_from_frame, values=[f"{m:02d}" for m in range(0, 60, 5)], width=50, command=lambda _: self.on_decade_change())
+            # self.decade_from_min.set("00")
+            # self.decade_from_min.pack(side="left")
+            # self.decade_from_date.bind("<<DateEntrySelected>>", self.on_decade_change)
 
-            ctk.CTkLabel(self.filters_frame, text="–").pack(side="right", padx=2)
+            # ctk.CTkLabel(self.filters_frame, text="–").pack(side="right", padx=2)
 
-            # До: дата + время
-            decade_to_frame = ctk.CTkFrame(self.filters_frame, fg_color="transparent")
-            decade_to_frame.pack(side="right", padx=(0, 2))
-            self.decade_to_date = DateEntry(decade_to_frame, date_pattern='dd.mm.yyyy', width=10)
-            self.decade_to_date.pack(side="left")
-            self.decade_to_hour = ctk.CTkComboBox(decade_to_frame, values=[f"{h:02d}" for h in range(24)], width=50, command=lambda _: self.on_decade_change())
-            self.decade_to_hour.set("23")
-            self.decade_to_hour.pack(side="left", padx=2)
-            self.decade_to_min = ctk.CTkComboBox(decade_to_frame, values=[f"{m:02d}" for m in range(0, 60, 5)], width=50, command=lambda _: self.on_decade_change())
-            self.decade_to_min.set("55")
-            self.decade_to_min.pack(side="left")
-            self.decade_to_date.bind("<<DateEntrySelected>>", self.on_decade_change)
+            # # До: дата + время
+            # decade_to_frame = ctk.CTkFrame(self.filters_frame, fg_color="transparent")
+            # decade_to_frame.pack(side="right", padx=(0, 2))
+            # self.decade_to_date = DateEntry(decade_to_frame, date_pattern='dd.mm.yyyy', width=10)
+            # self.decade_to_date.pack(side="left")
+            # self.decade_to_hour = ctk.CTkComboBox(decade_to_frame, values=[f"{h:02d}" for h in range(24)], width=50, command=lambda _: self.on_decade_change())
+            # self.decade_to_hour.set("23")
+            # self.decade_to_hour.pack(side="left", padx=2)
+            # self.decade_to_min = ctk.CTkComboBox(decade_to_frame, values=[f"{m:02d}" for m in range(0, 60, 5)], width=50, command=lambda _: self.on_decade_change())
+            # self.decade_to_min.set("55")
+            # self.decade_to_min.pack(side="left")
+            # self.decade_to_date.bind("<<DateEntrySelected>>", self.on_decade_change)
 
-            self.reset_filters_btn = ctk.CTkButton(self.filters_frame, text="Сбросить фильтры", command=self.reset_filters, width=130)
-            self.reset_filters_btn.pack(side="right", padx=(0, 6))
+            # self.reset_filters_btn = ctk.CTkButton(self.filters_frame, text="Сбросить фильтры", command=self.reset_filters, width=130)
+            # self.reset_filters_btn.pack(side="right", padx=(0, 6))
 
         # Таблица
         style = ttk.Style()
@@ -416,6 +416,52 @@ class DataTable(ctk.CTkFrame):
             iid_str = str(item_id) if item_id is not None else str(idx)
             if not self.tree.exists(iid_str):
                 self.tree.insert("", "end", values=row_values, iid=iid_str, tags=tuple(tags))
+
+    def mark_selected_received(self):
+        if self.endpoint != 'registries':
+            return
+        sel = self._get_selected_records()
+        if not sel:
+            from tkinter import messagebox
+            messagebox.showinfo("Информация", "Выберите записи в таблице.")
+            return
+
+        # Блокируем кнопку на время операции
+        btn = getattr(self, 'received_button', None)
+        if btn and btn.winfo_exists():
+            btn.configure(state="disabled")
+
+        from datetime import datetime
+        now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+
+        def worker():
+            ok_cnt, err_cnt, skip_cnt = 0, 0, 0
+            for rec in sel:
+                rec_id = rec.get('id')
+                if not rec_id:
+                    skip_cnt += 1
+                    continue
+                payload = {"dispatch_info": "получили", "dataSDPL": now}
+                ok, resp, code = self.api_client.update_item('registries', rec_id, payload, use_patch=True)
+                if ok:
+                    ok_cnt += 1
+                else:
+                    err_cnt += 1
+
+            def done():
+                # Вернуть кнопку
+                if btn and btn.winfo_exists():
+                    btn.configure(state="normal")
+                # Обновить таблицу и показать результат
+                if self.winfo_exists():
+                    self.reload_table_data()
+                    from tkinter import messagebox
+                    messagebox.showinfo("Готово", f"Отмечено «Сдали документы»: {ok_cnt}\nПропущено: {skip_cnt}\nОшибок: {err_cnt}")
+            self.after(0, done)
+
+        import threading
+        threading.Thread(target=worker, daemon=True).start()    
+
 
     def sort_by_column(self, col, is_numeric=False):
         pass
