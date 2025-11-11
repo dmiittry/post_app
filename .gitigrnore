@@ -1,0 +1,22 @@
+# кэш и локальные данные
+cache/
+data_cache/
+
+# локальные шаблоны и версии
+excel/
+shablon.xlsx
+version.txt
+
+# Python/venv стандарт
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+venv/
+.venv/
+
+# PyInstaller
+build/
+dist/
+*.spec

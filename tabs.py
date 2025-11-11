@@ -118,7 +118,7 @@ class DataTable(ctk.CTkFrame):
             self.season_combo.pack(side="right", padx=(6, 0))
 
             # Фильтр «Декада» (период разгрузки с учетом времени)
-            ctk.CTkLabel(self.filters_frame, text="Декада (разгрузка):").pack(side="right", padx=(6, 2))
+            # ctk.CTkLabel(self.filters_frame, text="Декада (разгрузка):").pack(side="right", padx=(6, 2))
             
             # От: дата + время
             decade_from_frame = ctk.CTkFrame(self.filters_frame, fg_color="transparent")
@@ -354,13 +354,17 @@ class DataTable(ctk.CTkFrame):
                 elif temp_id in pending_temp_ids:
                     tags.append('unsynced')
 
-                # Метка статуса отправки
-                dispatch = str(item.get('dispatch_info', '')).lower()
-                if 'получил' in dispatch:
-                    tags.append('received')
-                elif dispatch and dispatch not in ['получил', 'получили']:
-                    # Если есть текст отправки (и это не «получили») — отправленные
-                    tags.append('dispatched')
+                # Исправлено: подсветка только по реальному состоянию отправки/получения            
+                dispatch_raw = item.get('dispatch_info', '')
+                dispatch = str(dispatch_raw or '').strip().lower()
+                if dispatch:
+                    # Зеленый: если явно содержит «получил»/«получили»
+                    if 'получил' in dispatch:
+                        tags.append('received')
+                    else:
+                        # Синий: любая другая непустая отправка
+                        tags.append('dispatched')
+                # Пустое dispatch_info — без цветового тега
 
             row_values = [idx]
             for api_field in self.columns_config.keys():
@@ -531,79 +535,67 @@ class DataTable(ctk.CTkFrame):
         return selected
 
     def open_dispatch_dialog(self):
+        if self.endpoint != 'registries':
+            return
         sel = self._get_selected_records()
         if not sel:
             messagebox.showinfo("Информация", "Выберите записи в таблице.")
             return
 
-        dialog = ctk.CTkToplevel(self)
-        dialog.title("Изменить поле «Отправка»")
-        dialog.geometry("520x180")
-        dialog.transient(self)
-        dialog.grab_set()
+        dlg = ctk.CTkToplevel(self)
+        dlg.title("Отправка")
+        dlg.geometry("420x200")
+        dlg.transient(self)
+        dlg.grab_set()
 
-        ctk.CTkLabel(dialog, text="Текст для поля «Отправка»").pack(pady=(14, 6))
-        entry = ctk.CTkEntry(dialog, placeholder_text="Например: отправили документы через Николая 222 ппр")
-        entry.pack(fill="x", padx=14)
+        ctk.CTkLabel(dlg, text="Введите текст отправки:").pack(pady=(10, 6))
+        entry = ctk.CTkEntry(dlg, width=360)
+        entry.pack(pady=(0, 10))
+        status = ctk.CTkLabel(dlg, text="", anchor="w")
+        status.pack(fill="x", padx=10)
 
-        status_label = ctk.CTkLabel(dialog, text="", text_color="grey")
-        status_label.pack(pady=(6, 6))
+        btn_frame = ctk.CTkFrame(dlg, fg_color="transparent")
+        btn_frame.pack(fill="x", pady=10)
+        btn_ok = ctk.CTkButton(btn_frame, text="Применить")
+        btn_ok.pack(side="left", padx=8)
+        btn_cancel = ctk.CTkButton(btn_frame, text="Отмена", fg_color="#616161", command=lambda: (dlg.destroy() if dlg.winfo_exists() else None))
+        btn_cancel.pack(side="left")
 
-        def on_save():
+        def set_status(txt):
+            if dlg.winfo_exists():
+                status.configure(text=txt)
+
+        def on_apply():
+            # Защита от двойного клика
+            btn_ok.configure(state="disabled")
             text = entry.get().strip()
-            if not text:
-                messagebox.showerror("Ошибка", "Введите текст отправки.")
-                return
 
             def worker():
                 ok_cnt = 0
-                skip_cnt = 0
+                err_cnt = 0
                 for rec in sel:
                     rec_id = rec.get('id')
                     if not rec_id:
-                        skip_cnt += 1
                         continue
                     ok, resp, code = self.api_client.update_item('registries', rec_id, {"dispatch_info": text}, use_patch=True)
-                    if ok:
-                        ok_cnt += 1
-                self.after(0, lambda: (self.reload_table_data(),
-                                        messagebox.showinfo("Готово",
-                                                            f"Обновлено: {ok_cnt}\nПропущено (без ID): {skip_cnt}")))
-                dialog.destroy()
+                    if ok: ok_cnt += 1
+                    else: err_cnt += 1
+
+                def done():
+                    # Обновляем таблицу
+                    if self.winfo_exists():
+                        self.reload_table_data()
+                    # Сообщение и закрытие только если окно живо
+                    if dlg.winfo_exists():
+                        messagebox.showinfo("Готово", f"Обновлено: {ok_cnt}\nОшибок: {err_cnt}")
+                        dlg.destroy()
+                self.after(0, done)
 
             threading.Thread(target=worker, daemon=True).start()
 
-        btn_frame = ctk.CTkFrame(dialog, fg_color="transparent")
-        btn_frame.pack(fill="x", padx=14, pady=10)
-        ctk.CTkButton(btn_frame, text="Сохранить", command=on_save).pack(side="right", padx=(6, 0))
-        ctk.CTkButton(btn_frame, text="Отмена", command=dialog.destroy).pack(side="right")
+        btn_ok.configure(command=on_apply)
 
-    def mark_selected_received(self):
-        sel = self._get_selected_records()
-        if not sel:
-            messagebox.showinfo("Информация", "Выберите записи в таблице.")
-            return
 
-        # ИСПРАВЛЕНО: убираем timezone
-        now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-
-        def worker():
-            ok_cnt = 0
-            skip_cnt = 0
-            for rec in sel:
-                rec_id = rec.get('id')
-                if not rec_id:
-                    skip_cnt += 1
-                    continue
-                payload = {"dispatch_info": "получили", "dataSDPL": now}
-                ok, resp, code = self.api_client.update_item('registries', rec_id, payload, use_patch=True)
-                if ok:
-                    ok_cnt += 1
-            self.after(0, lambda: (self.reload_table_data(),
-                                    messagebox.showinfo("Готово",
-                                                        f"Отмечено «Сдали документы»: {ok_cnt}\nПропущено (без ID): {skip_cnt}")))
-
-        threading.Thread(target=worker, daemon=True).start()
 
 class MainApplicationFrame(ctk.CTkFrame):
     def __init__(self, master, api_client, on_logout_callback, sync_callback):

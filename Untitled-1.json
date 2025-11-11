@@ -1,3 +1,5 @@
+
+    // pyinstaller --noconfirm --clean --onefile --windowed --name AGroupClient --icon app.ico main.py
 {
     "full_name": "",
     "birth_date": null,

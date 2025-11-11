@@ -4,7 +4,8 @@ import customtkinter as ctk
 from tkinter import messagebox
 import tkinter.filedialog as fd
 from pathlib import Path
-
+import threading
+from update import perform_update
 
 class SettingsForm(ctk.CTkFrame):
     """
@@ -66,6 +67,27 @@ class SettingsForm(ctk.CTkFrame):
         # Кнопка сохранения
         self.btn_save = ctk.CTkButton(self, text="Сохранить настройки", command=self.save_settings, width=220)
         self.btn_save.pack(pady=20)
+
+        # Прогресс обновления
+        self.update_status = ctk.CTkLabel(self, text="", anchor="w")
+        self.update_status.pack(fill="x", padx=10, pady=(0, 6))
+
+        def run_update():
+            def set_status(txt):
+                self.update_status.configure(text=txt)
+                self.update_status.update_idletasks()
+
+            def worker():
+                ok, msg = perform_update(progress_cb=set_status)
+                set_status(msg)
+                if ok:
+                    messagebox.showinfo("Обновление", "Обновление установлено. Программа будет перезапущена.")
+                    # текущее окно можно закрыть — новый процесс уже запущен
+                    self.winfo_toplevel().destroy()
+            threading.Thread(target=worker, daemon=True).start()
+
+        ctk.CTkButton(self, text="Обновить программу", command=run_update, width=220).pack(pady=(0, 10))
+
 
         # Загрузка сохраненных значений
         self.load_settings()

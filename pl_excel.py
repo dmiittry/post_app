@@ -6,7 +6,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from openpyxl import load_workbook
 
-PL_TEMPLATE_PATH = Path("shablon.xlsx")
+PL_TEMPLATE_PATH = Path("excel/shablon.xlsx")
 def get_default_output_dir():
     # По умолчанию: папка программы
     return Path.cwd() / "Путевые листы"
