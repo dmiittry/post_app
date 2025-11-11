@@ -29,28 +29,6 @@ class LoginFrame(ctk.CTkFrame):
         
         self.status_label = ctk.CTkLabel(self, text="", text_color="red")
         self.status_label.pack()
-        self.current_user_id = None
-        try:
-            # Вариант 1: есть эндпоинт me
-            me_resp = self.session.get(f"{self.base_url}users/me/", timeout=10)
-            if me_resp.status_code == 200:
-                me = me_resp.json()
-                # ожидаем поле id
-                if isinstance(me, dict) and me.get("id") is not None:
-                    self.current_user_id = me.get("id")
-            else:
-                # Вариант 2: по имени через фильтр
-                qs = urlencode({"username": username})
-                list_resp = self.session.get(f"{self.base_url}users/?{qs}", timeout=10)
-                if list_resp.status_code == 200:
-                    data = list_resp.json()
-                    if isinstance(data, list) and data:
-                        first = data[0]
-                        if isinstance(first, dict) and first.get("id") is not None:
-                            self.current_user_id = first.get("id")
-        except requests.exceptions.RequestException:
-            # не критично — просто не будет id, сервер сам может проставить
-            pass
 
     def on_login_press(self):
         """Просто передает данные для обработки в главный класс."""

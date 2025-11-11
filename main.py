@@ -22,7 +22,7 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
         
-        self.title("А-Групп: Клиент управления")
+        self.title("А-Групп: Клиент управления версия 1.0.1")
         screen_width, screen_height = self.winfo_screenwidth(), self.winfo_screenheight()
         win_width, win_height = int(screen_width * 0.8), int(screen_height * 0.8)
         win_x, win_y = int((screen_width - win_width) / 2), int((screen_height - win_height) / 2)
