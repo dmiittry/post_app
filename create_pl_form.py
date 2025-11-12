@@ -122,32 +122,163 @@ class CreatePLForm(ctk.CTkFrame):
     
     # --------- левая колонка ----------
     def _build_left_settings_panel(self):
+        """Строит левую панель с редактируемыми настройками по умолчанию"""
         row = 0
-        ctk.CTkLabel(self.left_frame, text="Настройки по умолчанию", font=ctk.CTkFont(size=16, weight="bold")).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(5, 10))
+        
+        ctk.CTkLabel(
+            self.left_frame, 
+            text="Настройки по умолчанию", 
+            font=ctk.CTkFont(size=16, weight="bold")
+        ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(5, 10))
         row += 1
-
-        def add_setting(label_text, key, bold=False):
+        
+        # ИЗМЕНЕНО: теперь создаем РЕДАКТИРУЕМЫЕ поля вместо лейблов
+        def add_editable_combo(label_text, key, values):
+            nonlocal row
+            ctk.CTkLabel(self.left_frame, text=label_text, anchor="w").grid(
+                row=row, column=0, sticky="w", padx=(10, 6), pady=4
+            )
+            combo = ctk.CTkComboBox(
+                self.left_frame, 
+                values=values, 
+                state="readonly",
+                command=lambda _: self._on_setting_changed()
+            )
+            combo.grid(row=row, column=1, sticky="ew", padx=(0, 10), pady=4)
+            self.form_widgets[key] = combo
+            row += 1
+        
+        def add_editable_entry(label_text, key, bold=False):
             nonlocal row
             font = ctk.CTkFont(weight="bold") if bold else None
-            ctk.CTkLabel(self.left_frame, text=label_text, anchor="w").grid(row=row, column=0, sticky="w", padx=(10, 6), pady=4)
-            lbl = ctk.CTkLabel(self.left_frame, text="", anchor="w", font=font)
-            lbl.grid(row=row, column=1, sticky="ew", padx=(0, 10), pady=4)
-            self.form_widgets[key] = lbl
+            ctk.CTkLabel(self.left_frame, text=label_text, anchor="w").grid(
+                row=row, column=0, sticky="w", padx=(10, 6), pady=4
+            )
+            entry = ctk.CTkEntry(self.left_frame, font=font)
+            entry.grid(row=row, column=1, sticky="ew", padx=(0, 10), pady=4)
+            self.form_widgets[key] = entry
+            # Обновлять маршрут при изменении
+            entry.bind("<KeyRelease>", lambda e: self._on_setting_changed())
             row += 1
-
-        add_setting("Сезон:", "season")
-        add_setting("Организация:", "organization")
-        add_setting("Заказчик:", "customer")
-        add_setting("Вид груза:", "gruz", bold=True)
-        add_setting("Место погрузки:", "loading_point")
-        add_setting("Место разгрузки:", "unloading_point")
-        add_setting("Расстояние, км:", "distance", bold=True)
-        add_setting("Диспетчер:", "dispatcher", bold=True)
-
-        ctk.CTkLabel(self.left_frame, text="Подсказки", font=ctk.CTkFont(weight="bold")).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(12, 6))
+        
+        # Комбобоксы для справочников
+        add_editable_combo(
+            "Сезон:", 
+            "season", 
+            [s.get('name', '') for s in self.related_data['seasons']]
+        )
+        add_editable_combo(
+            "Организация:", 
+            "organization", 
+            [o.get('name', '') for o in self.related_data['organizations']]
+        )
+        add_editable_combo(
+            "Заказчик:", 
+            "customer", 
+            [c.get('name', '') for c in self.related_data['customers']]
+        )
+        add_editable_combo(
+            "Вид груза:", 
+            "gruz", 
+            [g.get('name', '') for g in self.related_data['gruzes']]
+        )
+        add_editable_combo(
+            "Место погрузки:", 
+            "loading_point", 
+            [lp.get('name', '') for lp in self.related_data['loading-points']]
+        )
+        add_editable_combo(
+            "Место разгрузки:", 
+            "unloading_point", 
+            [up.get('name', '') for up in self.related_data['unloading-points']]
+        )
+        
+        # Текстовые поля
+        add_editable_entry("Расстояние, км:", "distance", bold=True)
+        add_editable_entry("Диспетчер:", "dispatcher", bold=True)
+        
+        # Кнопка сохранения настроек
+        save_btn = ctk.CTkButton(
+            self.left_frame,
+            text="💾 Сохранить настройки",
+            command=self._save_default_settings,
+            fg_color="#2e7d32",
+            height=32
+        )
+        save_btn.grid(row=row, column=0, columnspan=2, sticky="ew", padx=10, pady=(10, 5))
         row += 1
-        ctk.CTkLabel(self.left_frame, text="Измените значения на вкладке «Настройки», затем вернитесь сюда — маршрут и № ПЛ пересчитаются автоматически.", wraplength=360, anchor="w", justify="left").grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(0, 10))
+        
+        # Разделитель
+        ctk.CTkLabel(
+            self.left_frame, 
+            text="Подсказки", 
+            font=ctk.CTkFont(weight="bold")
+        ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(12, 6))
         row += 1
+        
+        ctk.CTkLabel(
+            self.left_frame, 
+            text="Измените настройки выше и нажмите 'Сохранить' — маршрут и № ПЛ обновятся автоматически.",
+            wraplength=360, 
+            anchor="w", 
+            justify="left"
+        ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=(0, 10))
+        row += 1
+
+    #функция сохранения левого панеля
+    def _on_setting_changed(self):
+        """Вызывается при изменении настроек — пересчитывает маршрут и номер ПЛ"""
+        self._update_settings_from_widgets()
+        self._generate_marsh()
+
+    #функция обновления левого панеля
+    def _update_settings_from_widgets(self):
+        """Обновляет self.default_settings из виджетов (без сохранения в кэш)"""
+        settings = {}
+        
+        # Комбобоксы — сохраняем ID
+        for key in ['season', 'organization', 'customer', 'gruz', 'loading_point', 'unloading_point']:
+            widget = self.form_widgets.get(key)
+            if widget and hasattr(widget, 'get'):
+                selected_name = widget.get()
+                
+                # Определяем источник данных
+                if key == 'loading_point':
+                    data_key = 'loading-points'
+                elif key == 'unloading_point':
+                    data_key = 'unloading-points'
+                elif key == 'gruz':
+                    data_key = 'gruzes'
+                else:
+                    data_key = f"{key}s"
+                
+                # Ищем ID по имени
+                item = next(
+                    (i for i in self.related_data.get(data_key, []) 
+                    if i.get('name') == selected_name), 
+                    None
+                )
+                if item:
+                    settings[key] = item['id']
+        
+        # Текстовые поля
+        if 'distance' in self.form_widgets:
+            settings['distance'] = self.form_widgets['distance'].get().strip()
+        if 'dispatcher' in self.form_widgets:
+            settings['dispatcher'] = self.form_widgets['dispatcher'].get().strip()
+        
+        self.default_settings = settings
+
+    def _save_default_settings(self):
+        """Сохраняет текущие настройки в кэш"""
+        self._update_settings_from_widgets()
+        
+        # Сохранить в кэш
+        self.api_client.cache.save_data('default_pl_settings', self.default_settings)
+        messagebox.showinfo("Успех", "Настройки сохранены!")
+        
+        # Пересчитать маршрут и номер ПЛ
+        self._generate_marsh()
 
     # --------- правая колонка ----------
     def _build_right_pl_panel(self):
@@ -218,35 +349,48 @@ class CreatePLForm(ctk.CTkFrame):
 
     # --------- применение настроек ----------
     def _apply_defaults(self):
+        """Применяет сохраненные настройки к виджетам"""
         defaults = self.default_settings
-
+        
         def get_name_by_id(data_list, item_id, key='name'):
             item = next((i for i in data_list if str(i.get('id')) == str(item_id)), None)
             return item.get(key) if item else ""
-
-        if 'season' in self.form_widgets:
-            self.form_widgets['season'].configure(text=get_name_by_id(self.related_data['seasons'], defaults.get('season')))
-        if 'organization' in self.form_widgets:
-            self.form_widgets['organization'].configure(text=get_name_by_id(self.related_data['organizations'], defaults.get('organization')))
-        if 'customer' in self.form_widgets:
-            self.form_widgets['customer'].configure(text=get_name_by_id(self.related_data['customers'], defaults.get('customer')))
-
-        gruz_id = defaults.get('gruz')
-        if gruz_id and gruz_id in self.gruzes_by_id:
-            self.form_widgets['gruz'].configure(text=self.gruzes_by_id[gruz_id].get('name', ''))
-        else:
-            self.form_widgets['gruz'].configure(text="")
-
-        if 'loading_point' in self.form_widgets:
-            self.form_widgets['loading_point'].configure(text=get_name_by_id(self.related_data['loading-points'], defaults.get('loading_point')))
-        if 'unloading_point' in self.form_widgets:
-            self.form_widgets['unloading_point'].configure(text=get_name_by_id(self.related_data['unloading-points'], defaults.get('unloading_point')))
+        
+        # ИЗМЕНЕНО: теперь виджеты — это комбобоксы и entry, а не лейблы
+        for key in ['season', 'organization', 'customer', 'gruz', 'loading_point', 'unloading_point']:
+            widget = self.form_widgets.get(key)
+            if not widget:
+                continue
+            
+            # Определяем источник данных
+            if key == 'loading_point':
+                data_key = 'loading-points'
+            elif key == 'unloading_point':
+                data_key = 'unloading-points'
+            elif key == 'gruz':
+                data_key = 'gruzes'
+            else:
+                data_key = f"{key}s"
+            
+            item_id = defaults.get(key)
+            name = get_name_by_id(self.related_data[data_key], item_id)
+            
+            if hasattr(widget, 'set'):  # ComboBox
+                widget.set(name or "")
+        
+        # Текстовые поля
         if 'distance' in self.form_widgets:
-            self.form_widgets['distance'].configure(text=str(defaults.get('distance', '')))
+            entry = self.form_widgets['distance']
+            entry.delete(0, 'end')
+            entry.insert(0, str(defaults.get('distance', '')))
+        
         if 'dispatcher' in self.form_widgets:
-            self.form_widgets['dispatcher'].configure(text=str(defaults.get('dispatcher', '')))
-
+            entry = self.form_widgets['dispatcher']
+            entry.delete(0, 'end')
+            entry.insert(0, str(defaults.get('dispatcher', '')))
+        
         self._generate_marsh()
+
 
     def _generate_marsh(self):
         def get_short_name(data_list, item_id):
@@ -334,7 +478,7 @@ class CreatePLForm(ctk.CTkFrame):
         else:
             top = ctk.CTkToplevel(self)
             top.title("Выберите водителя")
-            top.geometry("460x360")
+            top.geometry("760x560")
             top.transient(self)
             top.grab_set()
 
@@ -477,7 +621,14 @@ class CreatePLForm(ctk.CTkFrame):
         if getattr(self.api_client, 'current_user_id', None) is not None:
             payload['created_by'] = self.api_client.current_user_id
 
-        payload['temp_id'] = f"temp_{uuid.uuid4()}"
+        payload = self._build_payload()
+    
+        # Убеждаемся, что id не передается — сервер сам сгенерирует
+        payload.pop('id', None)
+        
+        # Генерируем временный ID только для локального хранения
+        temp_id = str(uuid.uuid4())
+        payload['temp_id'] = temp_id
 
         if 'driver' not in payload:
             messagebox.showerror("Ошибка", "Необходимо выбрать основного водителя!")

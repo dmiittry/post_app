@@ -158,7 +158,7 @@ def build_context(payload, dictionaries):
         # Организация — details
         "{organization}": organizations.get(org_id, {}).get("details", ""),
         "{customer}": customers.get(cust_id, {}).get("name", ""),
-        "{season}": seasons.get(season_id, {}).get("name", ""),
+        # "{season}": seasons.get(season_id, {}).get("name", ""),
 
         # Дистанция + Диспетчер из настроек/пейлоада
         "{distance}": fmt_num(distance_val),
@@ -171,12 +171,12 @@ def build_context(payload, dictionaries):
         "{loading_time}": loading_time,
         "{unloading_time}": unloading_time,
 
-        "{numberTN}": numberTN,
-        "{tonn}": fmt_num(tonn),
-        "{fuel_consumption}": fmt_num(fuel_consumption),
+        # "{numberTN}": numberTN,
+        # "{tonn}": fmt_num(tonn),
+        # "{fuel_consumption}": fmt_num(fuel_consumption),
 
-        "{dispatch_info}": dispatch_info,
-        "{comment}": comment,
+        # "{dispatch_info}": dispatch_info,
+        # "{comment}": comment,
 
         "{driver_or_mechanic}": render_driver_or_mechanic(driver2),
     }

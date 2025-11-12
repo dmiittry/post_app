@@ -23,12 +23,13 @@ def format_datetime(iso_str):
 
 
 class DataTable(ctk.CTkFrame):
-    def __init__(self, master, api_client, endpoint, columns, sync_callback=None, upload_callback=None, can_edit=True):
+    def __init__(self, master, api_client, endpoint, columns, sync_callback=None, upload_callback=None, can_edit=True, column_widths=None):
         super().__init__(master, fg_color="transparent")
 
         self.api_client = api_client
         self.endpoint = endpoint
         self.columns_config = columns
+        self.column_widths = column_widths or {} 
         self.sync_callback = sync_callback
         self.upload_callback = upload_callback
         self.can_edit = can_edit
@@ -176,11 +177,13 @@ class DataTable(ctk.CTkFrame):
         self.sort_directions = {}
 
         self.tree.heading("#", text="#", command=lambda: self.sort_by_column("#", True))
-        self.tree.column("#", width=48, anchor='center', stretch=False)
+        width_num = self.column_widths.get("#", 50)
+        self.tree.column("#", width=width_num, anchor='center', stretch=False)
 
         for api_field, header_text in self.columns_config.items():
             self.tree.heading(api_field, text=header_text, command=lambda c=api_field: self.sort_by_column(c))
-            self.tree.column(api_field, width=130, anchor='w')
+            width = self.column_widths.get(api_field, 130)
+            self.tree.column(api_field, width=width, anchor='w')
 
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.tree.yview)
         self.tree.configure(yscrollcommand=self.scrollbar.set)
@@ -323,6 +326,8 @@ class DataTable(ctk.CTkFrame):
                 if isinstance(c, dict):
                     if not any(isinstance(s, dict) and (s.get('id') == c.get('id') or s.get('temp_id') == c.get('temp_id')) for s in merged):
                         merged.append(c)
+            #Сортируем по ID (по убыванию — новые сверху)
+            merged.sort(key=lambda x: x.get('id') or 0, reverse=True)
 
             self.all_data = merged
             if hasattr(self, 'upload_button'):
@@ -342,10 +347,14 @@ class DataTable(ctk.CTkFrame):
         pending_temp_ids = [p.get('temp_id') for p in (self.api_client.get_local_data('pending_registries') or []) if isinstance(p, dict)]
         conflict_temp_ids = [c.get('temp_id') for c in (self.api_client.get_local_data('conflict_registries') or []) if isinstance(c, dict)]
 
+        #обратная нумерация
+        total_count = len(data_to_display)
+
         for idx, item in enumerate(data_to_display, start=1):
             if not isinstance(item, dict):
                 continue
-
+            
+            reverse_idx = total_count - idx + 1
             tags = []
             if self.endpoint == 'registries':
                 temp_id = item.get('temp_id')
@@ -366,13 +375,18 @@ class DataTable(ctk.CTkFrame):
                         tags.append('dispatched')
                 # Пустое dispatch_info — без цветового тега
 
-            row_values = [idx]
+            row_values = [reverse_idx]
             for api_field in self.columns_config.keys():
                 value = item.get(api_field)
                 display_value = ""
                 if value is not None:
-                    # ИСПРАВЛЕНО: форматируем все datetime поля
-                    if api_field in ['dataPOPL', 'dataSDPL', 'loading_time', 'unloading_time', 'approved_at']:
+                    # форматируем все datetime поля
+                    if api_field == 'created_by':
+                        # value — это user_id, нужно получить username
+                        users = self.api_client.get_local_data('users') or []
+                        user = next((u for u in users if u.get('id') == value), None)
+                        display_value = user.get('username', str(value)) if user else str(value)
+                    elif api_field in ['dataPOPL', 'dataSDPL', 'loading_time', 'unloading_time', 'approved_at']:
                         display_value = format_datetime(value)
                     elif api_field in ['driver', 'driver2']:
                         display_value = self.related_data.get('drivers', {}).get(value, {}).get('full_name', value)
@@ -461,7 +475,6 @@ class DataTable(ctk.CTkFrame):
 
         import threading
         threading.Thread(target=worker, daemon=True).start()    
-
 
     def sort_by_column(self, col, is_numeric=False):
         pass
@@ -671,6 +684,7 @@ class MainApplicationFrame(ctk.CTkFrame):
 
     def create_registry_tab(self, tab):
         columns = {
+            "created_by": "Создал", 
             "driver": "Водитель",
             "driver2": "2-й Водитель",
             "number": "ТС",
@@ -688,11 +702,35 @@ class MainApplicationFrame(ctk.CTkFrame):
             "dispatch_info": "Отправка",
             "comment": "Комментарий",
         }
+        
+        # НОВОЕ: словарь ширин столбцов (можете настроить под свои нужды)
+        column_widths = {
+            "#": 50,
+            "created_by": 800,
+            "driver": 200,
+            "driver2": 150,
+            "number": 80,
+            "pod": 150,
+            "marsh": 50,
+            "numberPL": 130,
+            "gruz": 120,
+            "dataPOPL": 150,
+            "dataSDPL": 150,
+            "numberTN": 120,
+            "loading_time": 150,
+            "unloading_time": 150,
+            "tonn": 80,
+            "fuel_consumption": 100,
+            "dispatch_info": 120,
+            "comment": 200,
+        }
+        
         self.registry_table = DataTable(
             tab,
             self.api_client,
             'registries',
             columns,
+            column_widths=column_widths,  # НОВОЕ: передаем ширины
             sync_callback=self.sync_callback,
             upload_callback=self.upload_pending
         )
@@ -761,6 +799,33 @@ class MainApplicationFrame(ctk.CTkFrame):
     def create_settings_tab(self, tab):
         self.settings_frame = SettingsForm(tab, self.api_client, on_save_callback=self.reload_pl_creation_tab)
         self.settings_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
+        #Информация о пользователе над кнопкой "Выйти"
+        user_info_frame = ctk.CTkFrame(tab, fg_color="transparent")
+        user_info_frame.pack(side='bottom', fill='x', padx=20, pady=(10, 0))
+        
+        username = self.api_client.current_user or "Не авторизован"
+        user_id = self.api_client.current_user_id or "N/A"
+        
+        user_text = f"👤 Пользователь: {username} (ID: {user_id})"
+        
+        user_label = ctk.CTkLabel(
+            user_info_frame, 
+            text=user_text,
+            font=ctk.CTkFont(size=14, weight="bold"),
+            anchor="center"
+        )
+        user_label.pack(pady=(0, 10))
+        
+        # Кнопка "Выйти" теперь под информацией о пользователе
+        self.logout_button = ctk.CTkButton(
+            user_info_frame, 
+            text="Выйти", 
+            command=self.handle_logout, 
+            width=200,
+            fg_color="#c62828"
+        )
+        self.logout_button.pack(pady=(0, 20))
 
     def handle_logout(self):
         self.api_client.logout()

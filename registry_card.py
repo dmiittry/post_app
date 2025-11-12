@@ -12,7 +12,19 @@ class RegistryCardWindow(ctk.CTkToplevel):
     def __init__(self, master, api_client, record: dict, on_saved_callback=None):
         super().__init__(master)
         self.title(f"Реестр: {record.get('numberPL') or record.get('id')}")
-        self.geometry("760x740")
+
+        window_width = 760
+        window_height = 740
+        
+        # Получаем размеры экрана
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+        
+        # Центрируем по горизонтали, 100px от верха
+        x = (screen_width - window_width) // 2
+        y = 20
+        
+        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
         self.transient(master)
         self.grab_set()
 
@@ -259,7 +271,24 @@ class RegistryCardWindow(ctk.CTkToplevel):
         for k in ["tonn", "fuel_consumption"]:
             val = read_entry(k)
             if val:
-                payload[k] = str(val)
+                # заменяем запятую на точку для чисел
+                val_normalized = val.replace(',', '.')
+                payload[k] = val_normalized
+                
+        # если что ставим эту функцию
+        # for k in ["tonn", "fuel_consumption"]:
+        #     val = read_entry(k)
+        #     if val:
+        #         # Заменяем запятую на точку
+        #         val_normalized = val.replace(',', '.')
+        #         try:
+        #             # Округляем до 3 знаков после точки
+        #             val_float = float(val_normalized)
+        #             val_rounded = round(val_float, 3)
+        #             payload[k] = str(val_rounded)
+        #         except ValueError:
+        #             # Если не число, отправляем как есть (сервер вернет ошибку)
+        #             payload[k] = val_normalized
 
         for k in ["dataPOPL", "dataSDPL", "loading_time", "unloading_time"]:
             payload[k] = read_datetime(k)
@@ -301,10 +330,14 @@ class RegistryCardWindow(ctk.CTkToplevel):
         item_id = self.record.get('id')
         if not item_id:
             return
-        payload = {"dispatch_info": "получили", "dataSDPL": now}
+        
+        payload = self._collect_payload()
+        # payload = {"dispatch_info": "получили", "dataSDPL": now}
+        payload['dispatch_info'] = "получили"
+        payload['dataSDPL'] = now
         ok, resp, code = self.api_client.update_item('registries', item_id, payload, use_patch=True)
         if ok:
-            messagebox.showinfo("Успех", "Отмечено как «Сдали документы».")
+            messagebox.showinfo("Успех", "Изменения сохранены и отмечено как «Сдали документы».")
             if self.on_saved:
                 self.on_saved()
             self.destroy()
