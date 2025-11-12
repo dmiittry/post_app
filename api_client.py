@@ -22,52 +22,58 @@ class APIClient:
     def login(self, username, password, remember_me=False):
         if not username or not password:
             return False, "Логин и пароль не могут быть пустыми."
+        
         self.current_user = username
         self.session.auth = HTTPBasicAuth(username, password)
+        
         try:
             response = self.session.get(f"{self.base_url}seasons/", timeout=10)
+            
             if response.status_code in [401, 403]:
                 self.session.auth = None
                 return False, "Неверный логин или пароль."
             
             response.raise_for_status()
-
+            
+            # Получение данных текущего пользователя
             self.current_user_id = None
-
-            if self.current_user_id is None:
-                try:
-                    from urllib.parse import urlencode
-                    qs = urlencode({"username": username})
-                    u_resp = self.session.get(f"{self.base_url}users/?{qs}", timeout=10)
-                    
-                    if u_resp.status_code == 200:
-                        data = u_resp.json()
-                        if isinstance(data, list) and data:
-                            self.current_user_id = data[0].get("id")
-                            print(f"-> User ID получен через /users/?username: {self.current_user_id}")
-                except Exception as e:
-                    print(f"-> Ошибка получения /users/?username: {e}")
             
-            # НОВОЕ: Вариант 3 — если у вас есть эндпоинт /api/v1/auth/user/
-            if self.current_user_id is None:
-                try:
-                    auth_resp = self.session.get(f"{self.base_url}auth/user/", timeout=10)
-                    if auth_resp.status_code == 200:
-                        auth_data = auth_resp.json()
-                        self.current_user_id = auth_data.get("id")
-                        print(f"-> User ID получен через /auth/user/: {self.current_user_id}")
-                except:
-                    pass
+            try:
+                me_resp = self.session.get(f"{self.base_url}users/me/", timeout=10)
+                if me_resp.status_code == 200:
+                    me_data = me_resp.json()
+                    if isinstance(me_data, dict) and me_data.get("id") is not None:
+                        self.current_user_id = me_data["id"]
+                        
+                        # НОВОЕ: Сохраняем данные пользователя в кэш
+                        self.cache.save_data('current_user_info', me_data)
+                        # Сохраняем в список users (для совместимости с таблицей)
+                        self.cache.save_data('users', [me_data])
+                        
+                        print(f"✓ User ID получен: {self.current_user_id}")
+                        print(f"✓ Данные пользователя сохранены: {me_data.get('username')}")
+            except Exception as e:
+                print(f"✗ Ошибка получения /users/me/: {e}")
             
             if self.current_user_id is None:
-                print("!!! Внимание: не удалось получить user_id, created_by будет None")
-            
+                print("⚠ ВНИМАНИЕ: не удалось получить user_id, created_by будет None")
+            else:
+                print(f"✓ Авторизация успешна. User: {username}, ID: {self.current_user_id}")
+        
         except requests.exceptions.RequestException as e:
             self.session.auth = None
             return False, f"Ошибка сети: {e}"
+        
         if remember_me:
             self.save_credentials(username, password)
+        
         return True, "Учетные данные приняты."
+
+
+    def get_current_user_info(self):
+        """Возвращает данные текущего пользователя из кэша"""
+        return self.cache.load_data('current_user_info')
+
 
     def try_auto_login(self):
         creds = self.load_credentials()
@@ -110,6 +116,36 @@ class APIClient:
             return False
         return True
     
+    def sync_current_user(self):
+        """Синхронизирует данные текущего пользователя через /users/me/"""
+        try:
+            response = self.session.get(f"{self.base_url}users/me/", timeout=10)
+            
+            if response.status_code == 200:
+                user_data = response.json()
+                
+                # Сохраняем данные текущего пользователя
+                self.cache.save_data('current_user_info', user_data)
+                
+                # ВАЖНО: Создаем список из одного элемента для совместимости
+                # с кодом, который ищет пользователей в списке
+                self.cache.save_data('users', [user_data])
+                
+                print(f"✓ Данные текущего пользователя обновлены: {user_data.get('username')}")
+                return True
+            else:
+                print(f"✗ Ошибка синхронизации пользователя: {response.status_code}")
+                return False
+        
+        except Exception as e:
+            print(f"✗ Ошибка синхронизации пользователя: {e}")
+            return False
+
+    def get_current_user_info(self):
+        """Возвращает данные текущего пользователя из кэша"""
+        return self.cache.load_data('current_user_info')
+
+
     def sync_all_parallel(self, endpoints, progress_callback=None, max_workers=5):
         """
         Синхронизирует несколько endpoints параллельно
@@ -201,37 +237,50 @@ class APIClient:
     def try_send_single_item(self, endpoint, temp_id):
         """Пытается отправить один элемент из очереди"""
         if not self.is_network_ready():
+            print(f"Нет сети, отправка {temp_id} отложена.")
             return False
         
-        pending = self.get_pending_queue(endpoint)
-        item = next((p for p in pending if p.get('temp_id') == temp_id), None)
+        queue_key = f"pending_{endpoint}"
+        pending_items = self.get_local_data(queue_key)
         
-        if not item:
+        item_to_send = next((item for item in pending_items if item.get('temp_id') == temp_id), None)
+        
+        if not item_to_send:
             return False
         
-        ok, response, code = self.post_item(endpoint, item.copy())
+        print(f"-> Фоновая отправка записи с temp_id: {temp_id}...")
         
-        if ok:
-            # ПРОВЕРЬТЕ: удаляем из pending
-            self.remove_from_pending_queue(endpoint, temp_id)
+        # Проверка конфликтов
+        conflict = self.check_registry_conflict(item_to_send)
+        if conflict:
+            print(f" ...Обнаружен конфликт: {conflict}")
+            self.mark_as_conflict(item_to_send, conflict)
             
-            # ВАЖНО: добавляем в локальный кэш с серверным ID
-            if isinstance(response, dict) and response.get('id'):
-                server_item = response
-                local_items = self.get_local_data(endpoint) or []
-                
-                # Удаляем старую запись с temp_id (если есть)
-                local_items = [it for it in local_items if it.get('temp_id') != temp_id]
-                
-                # Добавляем запись с серверным ID
-                local_items.append(server_item)
-                
-                self.cache.save_data(endpoint, local_items)
+            # Удаляем из pending
+            remaining = [item for item in pending_items if item.get('temp_id') != temp_id]
+            self.cache.save_data(queue_key, remaining)
             
-            print(f"-> Запись {temp_id} успешно отправлена, получен ID: {response.get('id')}")
+            if self.on_data_updated_callback:
+                self.on_data_updated_callback()
+            return False
+        
+        # Отправка на сервер
+        success, response_data, status_code = self.post_item(endpoint, item_to_send.copy())
+        
+        if success:
+            # ИСПРАВЛЕНО: Удаляем из pending после успешной отправки
+            remaining_items = [item for item in pending_items if item.get('temp_id') != temp_id]
+            self.cache.save_data(queue_key, remaining_items)
+            
+            # Синхронизируем реестр для получения серверного ID
+            self.sync_endpoint('registries')
+            
+            if self.on_data_updated_callback:
+                self.on_data_updated_callback()
+            
             return True
         else:
-            print(f"-> Не удалось отправить {temp_id}: {response}")
+            print(f" ...Ошибка фоновой отправки (статус {status_code}): {response_data}")
             return False
 
 

@@ -621,7 +621,7 @@ class CreatePLForm(ctk.CTkFrame):
         if getattr(self.api_client, 'current_user_id', None) is not None:
             payload['created_by'] = self.api_client.current_user_id
 
-        payload = self._build_payload()
+        # payload = self._build_payload()
     
         # Убеждаемся, что id не передается — сервер сам сгенерирует
         payload.pop('id', None)

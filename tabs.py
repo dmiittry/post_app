@@ -96,6 +96,21 @@ class DataTable(ctk.CTkFrame):
         self.search_entry.bind("<KeyRelease>", self.on_query_change)
 
         if self.endpoint == 'registries':
+            self.refresh_button = ctk.CTkButton(
+                self.control_frame, 
+                text="🔄",  # Unicode иконка круговых стрелок
+                command=self.manual_refresh,
+                width=40,
+                height=32,
+                font=ctk.CTkFont(size=18)
+            )
+            self.refresh_button.pack(side="right", padx=(0, 6))
+            
+            # Состояние анимации
+            self.is_refreshing = False
+            self.refresh_angle = 0
+            
+            # Остальные кнопки слева
             # Фильтр по отправке
             self.dispatch_entry = ctk.CTkEntry(self.filters_frame, placeholder_text="Фильтр по отправке", width=180)
             self.dispatch_entry.pack(side="right", padx=(6, 0))
@@ -193,6 +208,51 @@ class DataTable(ctk.CTkFrame):
         self.tree.bind("<Double-1>", self.on_double_click)
 
         self.display_local_data()
+
+    def manual_refresh(self):
+        """Ручное обновление реестра с анимацией"""
+        if self.is_refreshing:
+            return  # Уже обновляется
+        
+        self.start_refresh_animation()
+        
+        def worker():
+            try:
+                # Синхронизируем только реестр (тихо, без окна)
+                self.api_client.sync_endpoint("registries")
+                
+                # Обновляем таблицу
+                self.after(0, self.reload_table_data)
+            except Exception as e:
+                print(f"Ошибка обновления: {e}")
+            finally:
+                self.after(0, self.stop_refresh_animation)
+        
+        import threading
+        threading.Thread(target=worker, daemon=True).start()
+    def start_refresh_animation(self):
+        """Запускает анимацию вращения кнопки"""
+        self.is_refreshing = True
+        self.refresh_button.configure(state="disabled")
+        self._animate_refresh()
+    def stop_refresh_animation(self):
+        """Останавливает анимацию"""
+        self.is_refreshing = False
+        if self.refresh_button.winfo_exists():
+            self.refresh_button.configure(state="normal", text="🔄")
+    def _animate_refresh(self):
+        """Анимация вращения стрелок"""
+        if not self.is_refreshing or not self.refresh_button.winfo_exists():
+            return
+        
+        # Чередуем символы для эффекта вращения
+        symbols = ["🔄", "🔃", "🔄", "🔁"]
+        symbol_index = (self.refresh_angle // 100) % len(symbols)
+        self.refresh_button.configure(text=symbols[symbol_index])
+        
+        self.refresh_angle += 1
+        self.after(100, self._animate_refresh)  # Обновляем каждые 100мс
+
 
     def _load_related_data(self):
         endpoints = ['drivers', 'cars', 'podryads', 'gruzes', 'seasons', 'car-markas', 'car-models']
@@ -382,10 +442,22 @@ class DataTable(ctk.CTkFrame):
                 if value is not None:
                     # форматируем все datetime поля
                     if api_field == 'created_by':
-                        # value — это user_id, нужно получить username
-                        users = self.api_client.get_local_data('users') or []
-                        user = next((u for u in users if u.get('id') == value), None)
-                        display_value = user.get('username', str(value)) if user else str(value)
+                        # value — это user_id
+                        # Сначала проверяем текущего пользователя
+                        current_user_info = self.api_client.get_current_user_info()
+                        
+                        if current_user_info and current_user_info.get('id') == value:
+                            # Это текущий пользователь
+                            first_name = current_user_info.get('first_name', '').strip()
+                            last_name = current_user_info.get('last_name', '').strip()
+                            username = current_user_info.get('username', '').strip()
+                            
+                            full_name = ' '.join(filter(None, [first_name, last_name]))
+                            display_value = full_name or username or str(value)
+                        else:
+                            # Другой пользователь (не текущий)
+                            # Показываем "Другой пользователь" или ID
+                            display_value = f"User #{value}"
                     elif api_field in ['dataPOPL', 'dataSDPL', 'loading_time', 'unloading_time', 'approved_at']:
                         display_value = format_datetime(value)
                     elif api_field in ['driver', 'driver2']:
@@ -679,8 +751,8 @@ class MainApplicationFrame(ctk.CTkFrame):
         self.create_contractors_tab(self.tab_view.tab("Подрядчики"))
         self.create_settings_tab(self.tab_view.tab("Настройки"))
 
-        self.logout_button = ctk.CTkButton(self.tab_view.tab("Настройки"), text="Выйти", command=self.handle_logout, width=200)
-        self.logout_button.pack(side='bottom', pady=50)
+        # self.logout_button = ctk.CTkButton(self.tab_view.tab("Настройки"), text="Выйти", command=self.handle_logout, width=200)
+        # self.logout_button.pack(side='bottom', pady=50)
 
     def create_registry_tab(self, tab):
         columns = {
@@ -706,19 +778,19 @@ class MainApplicationFrame(ctk.CTkFrame):
         # НОВОЕ: словарь ширин столбцов (можете настроить под свои нужды)
         column_widths = {
             "#": 50,
-            "created_by": 800,
+            "created_by": 80,
             "driver": 200,
             "driver2": 150,
             "number": 80,
             "pod": 150,
             "marsh": 50,
-            "numberPL": 130,
-            "gruz": 120,
-            "dataPOPL": 150,
-            "dataSDPL": 150,
-            "numberTN": 120,
-            "loading_time": 150,
-            "unloading_time": 150,
+            "numberPL": 80,
+            "gruz": 80,
+            "dataPOPL": 140,
+            "dataSDPL": 140,
+            "numberTN": 110,
+            "loading_time": 140,
+            "unloading_time": 140,
             "tonn": 80,
             "fuel_consumption": 100,
             "dispatch_info": 120,
@@ -771,7 +843,7 @@ class MainApplicationFrame(ctk.CTkFrame):
     def reload_registry_table(self):
         if hasattr(self, 'registry_table'):
             self.registry_table.reload_table_data()
-            self.tab_view.set("Реестр")
+            # self.tab_view.set("Реестр")
 
     def create_drivers_tab(self, tab):
         # Столбцы: ФИО, подрядчик, № ТС, марка, модель, телефон, статус (русский текст)

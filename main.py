@@ -50,30 +50,58 @@ class App(ctk.CTk):
         self.start_auto_sync()
 
     def start_auto_sync(self):
-            """Запускает автосинхронизацию реестра"""
-            def auto_sync_worker():
-                if not self.api_client.is_network_ready():
-                    return
+        """Запускает автосинхронизацию реестра"""
+        def auto_sync_worker():
+            if not self.api_client.is_network_ready():
+                return
+            
+            try:
+                # НОВОЕ: Запускаем анимацию кнопки обновления (если она существует)
+                if (hasattr(self, 'main_app_frame') and 
+                    self.main_app_frame and 
+                    hasattr(self.main_app_frame, 'registry_table')):
+                    
+                    table = self.main_app_frame.registry_table
+                    if table.winfo_exists():
+                        self.after(0, table.start_refresh_animation)
+            
+                # НОВОЕ: Обновляем данные текущего пользователя
+                self.api_client.sync_current_user()
                 
-                try:
-                    # Тихая синхронизация только реестра
-                    self.api_client.sync_endpoint("registries")
+                # Тихая синхронизация только реестра
+                self.api_client.sync_endpoint("registries")
+                
+                # ИЗМЕНЕНО: Обновляем таблицу БЕЗ переключения вкладки
+                if (hasattr(self, 'main_app_frame') and 
+                    self.main_app_frame and 
+                    hasattr(self.main_app_frame, 'registry_table')):
                     
-                    # Обновляем таблицу реестра, если она открыта
-                    if hasattr(self, 'main_app_frame') and self.main_app_frame:
-                        self.after(0, lambda: self.main_app_frame.reload_registry_table() if hasattr(self.main_app_frame, 'reload_registry_table') else None)
-                    
-                    print("-> Автосинхронизация реестра выполнена")
-                except Exception as e:
-                    print(f"-> Ошибка автосинхронизации: {e}")
-            
-            # Запускаем в фоновом потоке
-            import threading
-            threading.Thread(target=auto_sync_worker, daemon=True).start()
-            
-            # Планируем следующий запуск
-            self.auto_sync_timer = self.after(self.auto_sync_interval, self.start_auto_sync)
+                    table = self.main_app_frame.registry_table
+                    if table.winfo_exists():
+                        # Обновляем данные БЕЗ переключения вкладки
+                        self.after(0, table.reload_table_data)
+                        # Останавливаем анимацию
+                        self.after(0, table.stop_refresh_animation)
+                
+                print("-> Автосинхронизация реестра выполнена")
+            except Exception as e:
+                print(f"-> Ошибка автосинхронизации: {e}")
+                # Останавливаем анимацию при ошибке
+                if (hasattr(self, 'main_app_frame') and 
+                    self.main_app_frame and 
+                    hasattr(self.main_app_frame, 'registry_table')):
+                    table = self.main_app_frame.registry_table
+                    if table.winfo_exists():
+                        self.after(0, table.stop_refresh_animation)
         
+        # Запускаем в фоновом потоке
+        import threading
+        threading.Thread(target=auto_sync_worker, daemon=True).start()
+        
+        # Планируем следующий запуск
+        self.auto_sync_timer = self.after(self.auto_sync_interval, self.start_auto_sync)
+
+
     def destroy(self):
         """Отменяем таймер при закрытии приложения"""
         if self.auto_sync_timer:
@@ -108,18 +136,21 @@ class App(ctk.CTk):
         for widget in self.winfo_children():
             widget.destroy()
         
-        # ИЗМЕНЕНО: прогресс = 2 шага (справочники параллельно + реестр)
-        sync_window = SyncWindow(self, total_steps=2)
+        sync_window = SyncWindow(self, total_steps=3)  # 3 шага: справочники, пользователь, реестр
         
         def sync_data():
             sync_window.update_progress("Загрузка справочников...")
             
-            # ИЗМЕНЕНО: Параллельная синхронизация всех справочников
+            # Параллельная синхронизация справочников
             self.api_client.sync_all_parallel(
                 ENDPOINTS_TO_SYNC, 
                 progress_callback=sync_window.update_progress,
-                max_workers=6  # Можно увеличить до 10 для ещё большей скорости
+                max_workers=6
             )
+            
+            # НОВОЕ: Загружаем данные текущего пользователя
+            sync_window.update_progress("Загрузка данных пользователя...")
+            self.api_client.sync_current_user()
             
             sync_window.update_progress("Загрузка реестра...")
             self.api_client.sync_endpoint("registries", progress_callback=sync_window.update_progress)
@@ -129,6 +160,7 @@ class App(ctk.CTk):
             self.after(500, self.show_main_app)
         
         threading.Thread(target=sync_data, daemon=True).start()
+
 
     def show_main_app(self):
         for widget in self.winfo_children():
@@ -143,19 +175,21 @@ class App(ctk.CTk):
         self.main_app_frame.pack(fill="both", expand=True)
 
     def resync_data(self):
-        # ИЗМЕНЕНО: прогресс = 3 шага
         sync_window = SyncWindow(self, total_steps=3)
         
         def sync_worker():
             try:
                 sync_window.update_progress("Обновление справочников...")
                 
-                # Параллельная загрузка
                 self.api_client.sync_all_parallel(
                     ENDPOINTS_TO_SYNC, 
                     progress_callback=sync_window.update_progress,
                     max_workers=6
                 )
+                
+                # НОВОЕ: Обновляем данные текущего пользователя
+                sync_window.update_progress("Обновление данных пользователя...")
+                self.api_client.sync_current_user()
                 
                 sync_window.update_progress("Отправка локальных изменений...")
                 self.api_client.sync_pending_registries(progress_callback=sync_window.update_progress)
@@ -170,6 +204,7 @@ class App(ctk.CTk):
                 self.after(0, lambda: messagebox.showerror("Ошибка", f"Ошибка синхронизации: {e}"))
         
         threading.Thread(target=sync_worker, daemon=True).start()
+
 
 if __name__ == "__main__":
     app = App()
